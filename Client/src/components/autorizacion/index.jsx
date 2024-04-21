@@ -9,9 +9,9 @@ export const Autorizacion = () => {
   function generatePDF() {
     printDivContent("autorizacion");
   }
-  const newCedula = cliente.cedula
-  let numeroFormateado = Number(newCedula).toLocaleString();
-   console.log('cedula dividida: ',numeroFormateado)
+
+  let newCedula = Number(cliente.cedula).toLocaleString();
+  //  console.log('cedula dividida: ',numeroFormateado)
   return (
     <div>
       <div className="logo-aveza">
@@ -47,7 +47,7 @@ export const Autorizacion = () => {
               {cliente.nombres.toUpperCase()} {cliente.apellidos.toUpperCase()}
             </b>
             , identificado/a con cédula de ciudadanía número
-            <b> {cliente.cedula}</b> expedida en Bogotá, mayor de edad,
+            <b> {newCedula}</b> expedida en Bogotá, mayor de edad,
             vecino(a) de esta ciudad, actuando como solicitante del proceso de
             Insolvencia Económica de Persona Natural no Comerciante,
             respetuosamente manifiesto a usted, que AUTORIZO al abogado en
@@ -71,7 +71,7 @@ export const Autorizacion = () => {
           <p>
             <b>
               {cliente.nombres.toUpperCase()} {cliente.apellidos.toUpperCase()} <br />
-              C.C. {cliente.cedula} de Bogotá <br />
+              C.C. {newCedula} de Bogotá <br />
               Dirección: {cliente.direccion} <br />
               Celular: {cliente.celular} <br />
             </b>

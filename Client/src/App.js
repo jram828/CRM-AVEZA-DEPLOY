@@ -30,7 +30,10 @@ import { codigoPaises } from "./utils/codigoPaises";
 import { codigoCiudades } from "./utils/codigoCiudades";
 import { codigoDepartamentos } from "./utils/codigoDepartamentos";
 
-export const URL = "http://localhost:3001/crmAveza/";
+// export const URL = "http://localhost:3001/crmAveza/";
+
+const URL = import.meta.env.VITE_URL;
+axios.defaults.baseURL = URL;
 
 function App() {
 
@@ -45,7 +48,7 @@ function App() {
   //Funcion para verificar datos de ingreso
   async function login(userData) {
     const { cedula, password } = userData;
-    const URL = "http://localhost:3001/crmAveza/login/";
+    const URL = "/login";
     console.log("Datos login:", { cedula, password });
     try {
       const { data } = await axios(
@@ -78,7 +81,7 @@ function App() {
     const ciudad = codigoCiudades.filter((ciudad) => ciudad.nombre_ciudad === nombre_ciudad.toUpperCase());
 
     console.log('Codigo ciudad Userdata: ', ciudad[0].codigo_ciudad)
-    const URL = "http://localhost:3001/crmAveza/crearusuario/";
+    const URL = "/crearusuario";
     try {
       await axios.post(URL, {
         email: `${email}`,
@@ -119,7 +122,7 @@ function App() {
 
    console.log('User data registro:', userDataRegistro)
 
-      const URL = "http://localhost:3001/crmAveza/registrocliente/";
+      const URL = "/registrocliente";
       try {
         await axios.post(URL, {
           email: `${email}`,
@@ -140,7 +143,7 @@ function App() {
         });
         window.alert("Se ha registrado el cliente con éxito.");
         setAccess(false);
-        access && navigate("/");
+        access && navigate("/home");
       } catch (error) {
         window.alert("No fue posible registrar el cliente.");
       }
@@ -163,7 +166,7 @@ function App() {
   const relacionarPaises =async () => {
 
     try {
-      await axios.post(`${URL}/relacionarpaises`, {codigoPaises, codigoCiudades,codigoDepartamentos});
+      await axios.post('/relacionarpaises', {codigoPaises, codigoCiudades,codigoDepartamentos});
       // console.log("Data verificar clientes:", data);
     } catch (error) {
       console.log(error.message);

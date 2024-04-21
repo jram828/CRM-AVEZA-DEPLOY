@@ -11,7 +11,7 @@ const Contrato = () => {
     const { cedula } = useParams();
     console.log("Cedula Contrato:", cedula);
     useEffect(() => {
-      axios.get(`${URL}${cedula}`, { cedula: cedula }).then(({ data }) => {
+      axios.get(`/${cedula}`, { cedula: cedula }).then(({ data }) => {
         if (data.nombres) {
           setCliente(data);
         } else {

@@ -88,19 +88,6 @@ export const numeroALetras=(numero, opciones = {}) =>{
                 const resto = num % 100;
                 return centenas[centena] + (resto > 0 ? " " + convertirDecenas(resto) : "");
             }
-
-    // const centena = Math.floor(numero / 100);
-    // const resto = numero % 100;
-
-    // if (centena === 1 && resto === 0) {
-    //   return "cien";
-    // } else {
-    //   return (
-    //     convertirUnidades(centena) +
-    //     "cientos" +
-    //     (resto > 0 ? ` ${convertirDecenas(resto)}` : "")
-    //   );
-    // }
   }
 
   function convertirMiles(numero, indice) {
