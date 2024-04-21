@@ -32,7 +32,8 @@ import { codigoDepartamentos } from "./utils/codigoDepartamentos";
 
 // export const URL = "http://localhost:3001/crmAveza/";
 
-const URL = import.meta.env.VITE_URL;
+// const URL = import.meta.env.VITE_URL;
+const { URL } = process.env;
 axios.defaults.baseURL = URL;
 
 function App() {
