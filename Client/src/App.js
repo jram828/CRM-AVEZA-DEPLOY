@@ -34,7 +34,7 @@ import { codigoDepartamentos } from "./utils/codigoDepartamentos";
 
 // const URL = import.meta.env.VITE_URL;
 const { URL } = process.env;
-axios.defaults.baseURL = URL;
+axios.defaults.baseURL = "https://crm-aveza-postgre.onrender.com/crmAveza";
 
 function App() {
 
@@ -84,7 +84,7 @@ function App() {
     console.log('Codigo ciudad Userdata: ', ciudad[0].codigo_ciudad)
     // const URL = "/crearusuario";
     try {
-      await axios.post("/crmAveza/crearusuario", {
+      await axios.post("/crearusuario", {
         email: `${email}`,
         password: `${password}`,
         nombres: `${nombres}`,
