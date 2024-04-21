@@ -1,0 +1,57 @@
+.contenedorPoder{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* background-color: red; */
+    align-items: center;
+   }
+
+      .titulopoder{
+    text-align: center;
+    font-size: 18px;
+   }
+
+      .piepoder{
+    text-align: center;
+    font-size: 12px;
+   }
+
+   .firmas{
+    display: grid;
+  grid-template-rows: repeat(1, 1fr);
+  grid-gap: 5px;
+  grid-auto-columns: minmax(20px, auto);
+  /* background-color: red; */
+  align-items: center;
+  justify-content: justify;
+   }
+
+   .firmacliente{
+   grid-column: 1;
+    grid-row: 1;
+    /* background-color: blue; */
+    text-align: flex-start;
+   }
+
+   .firmaabogado{
+   grid-column: 2;
+    grid-row: 1;
+    /* background-color: greenyellow; */
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+  }
+
+    .firma{
+    font-size: 16px;
+    text-align: flex-start;
+    margin-left: 10px;
+  }
+
+.encabezadopoder{
+  color: rgb(5, 5, 5);
+  margin: 20px;
+  text-align: justify;
+  font-size: 16px;
+}
+

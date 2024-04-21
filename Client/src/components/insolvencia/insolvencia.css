@@ -1,0 +1,21 @@
+   .insolvencia{
+      border-radius: 10px;
+      opacity: 0.95;
+      text-align: justify;
+      background-color:white;
+      font-size: 16px;
+      /* border-style: solid; */
+      /* margin: 80px; */
+      padding: 20px;
+      /* height: 600px; */
+      width: 60%;
+      margin-bottom: 40px;
+   }
+
+   .continsolvencia{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* background-color: red; */
+    align-items: center;
+   }

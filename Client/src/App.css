@@ -1,0 +1,697 @@
+.App {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   align-items: center;
+   }
+
+.cards{
+   display: flex;
+   flex-wrap: wrap; 
+   flex-direction: row;
+   justify-content: center;
+   }
+
+.card{
+   border-radius: 10px;
+   font-size: 50%;
+   background-color: white;
+   width: 100%;
+   height: 400 px;
+   display:flex;
+   vertical-align: middle;
+   
+   margin: 10px;
+   padding: 10px;
+   flex-direction: column;
+   /* position: relative; */
+   align-items: center;
+   
+}
+
+.card .photo{
+   width: 60%;
+   height: 60 px;
+   border-radius: 70%;
+   
+}
+
+.card .boton{
+   position: absolute;
+   top: 10px;
+   right: 10px;
+}
+
+.container{
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+}
+
+
+.errores{
+   font-size: 100%;
+   color: red
+}
+
+.label{
+   font-size: 120%;
+   color: black;
+   margin: 10px;
+}
+
+.textoAbout{
+   font-size: 180%;
+   color: aqua
+}
+
+
+
+.favorites{
+   display: flex;
+   flex-wrap: wrap; 
+   flex-direction: row;
+   justify-content: center;
+   gap: 10px;
+   }
+
+   .logo-aveza {
+  text-align: center;
+}
+.logo-aveza img {
+  width: 200px;
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+.logo-aveza2 img {
+  width: 80%;
+  height: 180px;
+  justify-content: center;
+  display: flex;
+  text-align: center;
+}
+
+.verificacion {
+  text-align: center;
+}
+
+
+.tipo-de-caso {
+  text-align: center;
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+}
+
+.olvidocontraseña {
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: blue;
+}
+
+.tipo-de-cita {
+  text-align: center;
+}
+
+/* tipo de recordatorio */
+.tipo-de-recordatorio {
+  text-align: center;
+}
+
+/*menu principal  */
+.menu-principal {
+  padding: 1em;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.menu-principal ul {
+  list-style: none;
+  padding: auto;
+  margin: auto;
+  background: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  vertical-align: bottom;
+  text-align: center;
+}
+
+.menu-principal li a:hover {
+  background: rgb(116, 114, 196);
+  color: black;
+}
+
+.menu-vertical {
+  position: absolute;
+  display: none;
+  list-style: none;
+  width: 180px;
+  background-color: rgb(255, 255, 255);
+  justify-content: left;
+}
+
+.menu-principal li:hover .menu-vertical {
+  display: block;
+  justify-content: center;
+}
+
+.ingresousuario {
+  display: flex;
+  justify-content: center;
+}
+.ingresocontraseña {
+  display: flex;
+  justify-content: center;
+}
+
+.tipodeusuario {
+  display: flex;
+  justify-content: center;
+}
+.botonesiniciosesion {
+  justify-content: center;
+  /* margin: 0 0 0 20px; */
+  width: 160px;
+  height: 22px;
+}
+.linkolvido {
+  display: flex;
+  justify-content: center;
+}
+.botones {
+  margin: 0 auto;
+  width: 170px;
+  height: 25px;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+.contenedor-form {
+  border-radius: 1%;
+  border-color: black;
+  background-color: #eee;
+  border-style: solid;
+  text-align: justify;
+  margin: 80px;
+  padding: 20px;
+}
+
+.menu-principal li a {
+  color: black;
+  display: block;
+  text-decoration: none;
+  padding: 0.5em 1em;
+}
+
+.menu-principal li a:hover {
+  background: rgb(194, 193, 193);
+  border-radius: 39px;
+  color: black;
+}
+
+.titulo {
+  height: 20px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 180%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+}
+
+.labelcrearusuario {
+  height: 25px;
+  width: 140px;
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  text-align: justify;
+  padding-left: 40px;
+}
+
+.cajausuario {
+  height: 20px;
+  width: 50%;
+  padding: 0;
+}
+
+.labelcrearusuario2 {
+  height: 20px;
+  width: 10%;
+  margin: 0 0 0 80px;
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+}
+
+.labelcontraseña {
+  height: 25px;
+  width: 10%;
+  /* margin: 0 0 0 650px; */
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  text-align: justify;
+}
+.labelusuario {
+  height: 25px;
+  width: 10%;
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  text-align: justify;
+}
+.titulo2 {
+  height: 20px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+}
+.labeltipousuario {
+  height: 25px;
+  width: 10%;
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  text-align: justify;
+}
+.nombreapellido {
+  display: flex;
+  justify-content: center;
+}
+.cedulaemail {
+  display: flex;
+  justify-content: center;
+}
+.direccioncelular {
+  display: flex;
+  justify-content: center;
+}
+.ciudadcontrasena {
+  display: flex;
+  justify-content: center;
+}
+.botonescrearusuario {
+  display: flex;
+  justify-content: center;
+}
+.repetircontrasena {
+  display: flex;
+  margin: 0 0 0 600px;
+  
+}
+.labelrepetircontrasena {
+  height: 25px;
+  width: 21%;
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  text-align: justify;
+  padding-left: 10px;
+}
+
+/* css para documentos legales */
+.documentoagenerar {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.labelgenerardocumento {
+  height: 25px;
+  width: 200px;
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  text-align: justify;
+}
+
+.documentoagenerar2 {
+  display: flex;
+  justify-content: center;
+}
+.inputbox2 {
+  margin: 0 0 0 30px;
+  height: 22px;
+  width: 180px;
+}
+/* css para generar contrato */
+.labelcontrato {
+  height: 25px;
+  width: 11.5%;
+  padding-left: 45px;
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  text-align: justify;
+}
+.contrato {
+  display: flex;
+  justify-content: center;
+}
+.inputbox3 {
+  margin: 0 0 0 30px;
+  height: 22px;
+  width: 60%;
+}
+.contrato2 {
+  display: flex;
+}
+.labelcontrato2 {
+  height: 25px;
+  width: 12%;
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  margin-left: 790px;
+}
+/* css recodar contraseña */
+.recordar-password {
+  display: flex;
+  justify-content: center;
+}
+.label-password {
+  height: 25px;
+  width: 100px;
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  text-align: justify;
+}
+.inputbox4 {
+  margin: 10px 0 0 30px;
+  height: 22px;
+  width: 5%;
+}
+/* css recordatorio citas */
+.recordatorio-cita {
+  display: flex;
+  justify-content: center;
+}
+
+.label-recordatorio2 {
+  height: 25px;
+  width: 150px;
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  text-align: center;
+}
+
+/* estilos registro cliente */
+
+.labelregistrodecliente {
+  height: 25px;
+  width: 120px;
+  font-size: 100;
+  padding-left: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+}
+.nombreapellidos {
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.numerocedula {
+  display: flex;
+  justify-content: center;
+}
+
+.direccion {
+  display: flex;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+}
+
+.tipousuario {
+  display: flex;
+  justify-content: center;
+}
+.correousuario {
+  display: flex;
+  justify-content: center;
+}
+
+.labelcorreo {
+  height: 25px;
+  width: 10%;
+  font-size: 100;
+  padding-left: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  text-align: justify;
+}
+
+.recordatorio-cita {
+  display: flex;
+  justify-content: center;
+  font-size: 100%;
+}
+
+.recordatorio-cita select {
+  margin-left: 25px;
+}
+.label-recordatorio {
+  height: 25px;
+  width: 120px;
+  margin-left: 20px;
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  text-align: right;
+}
+.label-recordatorio2 {
+  height: 25px;
+  width: 150px;
+  margin-top: 5px;
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  text-align: center;
+}
+.label-recordatorio3 {
+  height: 25px;
+  width: 150px;
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  text-align: center;
+}
+
+.fecha-y-hora {
+  display: flex;
+  text-align: center;
+}
+
+.fondo {
+  background-image: url(./img/fondo.jpg);
+  background-repeat: no-repeat;
+}
+
+.fondo2 {
+  background-color: rgb(75, 127, 231);
+}
+
+.menu-principal li {
+  border-style: solid;
+  border-radius: 22px;
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(255, 255, 255);
+  margin: 10px;
+}
+
+
+/* clases generar contrato */
+   .tituloo{
+      font-size: 100%;
+      text-align:justify;
+      text-align: center;
+   }
+
+   .cajacliente{
+      border: 0;
+      background-color:white;
+      outline: none;
+      text-align: center;
+      width: 190px;
+      /* font-weight: bold; */
+      font-size: 15px;
+      vertical-align: top;    
+
+   }
+   .cajacedulacliente{
+      border: 0;
+      background-color: #eee;
+      outline: none;
+
+   }
+
+   .valordeuda{
+      border: 0;
+      background-color: #eee;
+      outline: none;
+   }
+
+   .abogado{
+      border: 0;
+      background-color: #eee;
+      outline: none;
+ }
+ .cedulaabogado{
+      border: 0;
+      background-color: #eee;
+      outline: none;
+ }
+  .Notarjetaprofecional{
+      border: 0;
+      background-color: #eee;
+      outline: none;
+
+  }
+   
+   .margi{
+      right: 15px; ;
+   }
+   
+
+
+   .containerLogin{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+   }
+   
+   .celdas{
+      text-align: center;
+      width: 100px;
+   }
+
+   table.deudas {
+  width: 40%;
+  border-collapse: collapse;
+}
+
+table.deudas th,
+table.deudas td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+table.deudas th {
+  background-color: #f2f2f2;
+}
+.insolvencia {
+  font-family: Arial, Helvetica, sans-serif;
+}
+table.deudas2 {
+  width: 40%;
+  border-collapse: collapse;
+}
+
+table.deudas2 th,
+table.deudas2 td {
+padding: 8px;
+}
+   
+
+
+
+ p{
+    font-size: 16px;
+  color: rgb(12, 12, 12);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 20px;
+  text-align: justify;
+ }
+ 
+
+
+
+footer{
+  font-size: 1.4rem;
+  color: rgb(12, 12, 12);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 20px;
+  text-align: right;
+
+}
+
+   .tituloautorizacion{
+    text-align: center;
+    font-size: 18px;
+   }
+
+      .pieautorizacion{
+    text-align: center;
+    font-size: 12px;
+   }
+
+   .autorizacion{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      border-radius: 10px;
+      text-align: justify;
+      background-color:white;
+      margin-bottom: 40px;
+      padding: 20px;
+      width: 60%;
+   }
+
+  .contenedorautorizacion{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* background-color: green; */
+    align-items: center;
+   }
+
+
+
+   .poder{
+      border-radius: 10px;
+      opacity: 0.85;
+      text-align: justify;
+      background-color:white;
+      /* border-style: solid; */
+      margin: 20px;
+      padding: 20px;
+      width: 70%;
+      font-size: 14px;
+      justify-content: center;
+   }
+
+   .divclientes{
+    display: grid;
+    /* flex-direction: row;
+    flex-wrap: wrap; */
+    justify-content: flex-start;
+        grid-template-columns: repeat(4, 1fr);
+    /* grid-gap: 15px; */
+    grid-auto-rows: minmax(20px, auto);
+   }
+
+      .divToPrint{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* background-color: red; */
+    align-items: center;
+   }
+
+   .linkdetailcliente :hover{
+     color:blue;
+     cursor: pointer;
+   }
+   

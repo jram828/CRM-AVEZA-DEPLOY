@@ -1,0 +1,29 @@
+   .tituloautorizacion{
+    text-align: center;
+    font-size: 18px;
+   }
+
+      .pieautorizacion{
+    text-align: center;
+    font-size: 12px;
+   }
+
+   .autorizacion{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      border-radius: 10px;
+      text-align: justify;
+      background-color:white;
+      margin-bottom: 40px;
+      padding: 20px;
+      width: 60%;
+   }
+
+         .contenedorautorizacion{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* background-color: green; */
+    align-items: center;
+   }
