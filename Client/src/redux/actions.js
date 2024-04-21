@@ -1,5 +1,5 @@
 import axios from "axios";
-import { URL } from "../App";
+// import { URL } from "../App";
 
 export const ADD_FAV = 'ADD_FAV';
 export const REMOVE_FAV = 'REMOVE_FAV';
@@ -51,7 +51,7 @@ export const getClienteByCedula = (cedula) => {
   
   console.log('Cedula get by cedula:',cedula)
   return async (dispatch) => {
-    const { data } = await axios.get(`${URL}${cedula}`);
+    const { data } = await axios.get(`/${cedula}`);
     try {
       return dispatch({
         type: GET_CLIENTE_BY_CEDULA,
@@ -65,7 +65,7 @@ export const getClienteByCedula = (cedula) => {
 
 export  const getClienteAll = () => {
 return async (dispatch) => {
-  const { data } = await axios.get(`${URL}/conocimientolitigios`);
+  const { data } = await axios.get('/conocimientolitigios');
   console.log('Data Get clientes:',data)
   try {
     return dispatch({

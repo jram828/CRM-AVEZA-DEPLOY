@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/logoAveza.png";
-import { URL } from "../../App";
+// import { URL } from "../../App";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";

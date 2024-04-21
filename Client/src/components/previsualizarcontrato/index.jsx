@@ -3,7 +3,7 @@ import "../../App.css";
 import "../previsualizarcontrato/previsualizar.css";
 import React from "react";
 import logo from "../../img/logoAveza.png";
-import { URL } from "../../App";
+// import { URL } from "../../App";
 import { printDivContent } from "../../utils/printDivContent";
 
 function generatePDF() {
