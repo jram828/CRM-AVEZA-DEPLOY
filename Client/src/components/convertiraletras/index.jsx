@@ -10,7 +10,7 @@ export const numeroALetras=(numero, opciones = {}) =>{
 
   const unidades = [
     "",
-    "uno",
+    "un",
     "dos",
     "tres",
     "cuatro",
