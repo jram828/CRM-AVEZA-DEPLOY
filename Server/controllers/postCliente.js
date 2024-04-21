@@ -68,8 +68,8 @@ const postCliente = async (req, res) => {
       });
       
       newCliente.addCiudad(codigo_ciudad);
-      newCliente.addTipoDeCaso(tipo_de_caso);
-      newCliente.addTipoUsuario(tipo_usuario);
+      // newCliente.addTipoDeCaso(tipo_de_caso);
+      // newCliente.addTipoUsuario(tipo_usuario);
 
       return res.status(200).json(newCliente);
     } catch (error) {

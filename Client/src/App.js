@@ -81,7 +81,7 @@ function App() {
 
     const ciudad = codigoCiudades.filter((ciudad) => ciudad.nombre_ciudad === nombre_ciudad.toUpperCase());
 
-    console.log('Codigo ciudad Userdata: ', ciudad)
+    console.log('Codigo ciudad Userdata: ', ciudad[0].codigo_ciudad)
     // const URL = "/crearusuario";
     try {
       await axios.post("/crearusuario", {

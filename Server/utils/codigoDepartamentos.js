@@ -1,4 +1,4 @@
-export const codigoDepartamentos = [
+const codigoDepartamentos = [
   {
     codigo_departamento: 5,
     nombre_departamento: "ANTIOQUIA",
@@ -94,3 +94,5 @@ export const codigoDepartamentos = [
   { codigo_departamento: 97, nombre_departamento: "VAUPES", codigo_pais: 169 },
   { codigo_departamento: 99, nombre_departamento: "VICHADA", codigo_pais: 169 },
 ];
+
+module.exports = codigoDepartamentos;

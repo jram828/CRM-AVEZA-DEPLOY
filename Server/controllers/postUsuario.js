@@ -45,7 +45,7 @@ const postUsuario = async (req, res) => {
           celular: celular,
           direccion: direccion,
       });
-      newUser.addCiudad(nombre_ciudad);
+       newUser.addCiudad(nombre_ciudad);
       // newUser.addTipoDeCaso(tipo_de_caso);
       // newUser.addTipoDeUsuario(tipo_usuario);
       return res.status(200).json(newUser);
