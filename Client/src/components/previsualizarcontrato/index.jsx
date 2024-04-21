@@ -79,8 +79,8 @@ const PrevisualizarContrato = () => {
             demás normas concordantes en aquellos aspectos sobre los cuales no
             haya estipulación expresa en el texto del presente contrato.{" "}
             <b>TERCERA</b>. OBLIGACIONES ESPECIALES DEL APODERADO. 1- En el
-            desarrollo de las facultades conferidas en el poder, el
-            <b>APODERADO</b> se compromete a mantener fidelidad con el
+            desarrollo de las facultades conferidas en el poder, el 
+            <b>APODERADO</b> se compromete a mantener fidelidad con el 
             <b>
               <b>PODERDANTE</b>
             </b>
@@ -89,34 +89,34 @@ const PrevisualizarContrato = () => {
             compromete a adelantar la gestión de la mejor manera posible, en
             atención de la acción encomendada, desplegando en ello el empeño
             profesional necesario y en los términos exigidos por los Artículos
-            73 y siguientes del Código General del Proceso. 3- El{" "}
-            <b>APODERADO</b> adelantará los trámites procedentes conforme a lo
-            que él considere conveniente en el operador de insolvencia y/o ante
-            notaría, legalmente habilitado para conocer de INSOLVENCIA DE
-            PERSONAS NATURALES NO COMERCIANTES, que el apoderado considere tiene
-            experiencia en el caso concreto. 4- Adelantar para el{" "}
+            73 y siguientes del Código General del Proceso. 3- El{" "} 
+            <b>APODERADO</b> adelantará los trámites procedentes conforme a lo 
+            que él considere conveniente en el operador de insolvencia y/o ante 
+            notaría, legalmente habilitado para conocer de INSOLVENCIA DE 
+            PERSONAS NATURALES NO COMERCIANTES, que el apoderado considere tiene 
+            experiencia en el caso concreto. 4- Adelantar para el{" "} 
             <b>
-              <b>PODERDANTE</b>
+              <b>PODERDANTE</b> 
             </b>
             el proceso en forma diligente rindiendo informes sobre el estado de
-            este en la forma más eficaz posible. 5- Comunicar cualquier anomalía
-            o situación que tenga que ver con los intereses del
-            <b>PODERDANTE</b>. Se aclara que las obligaciones del{" "}
-            <b>APODERADO</b>
-            son de medio mas no de resultado. <b>CUARTA</b>. OBLIGACIONES DE EL{" "}
-            <b>PODERDANTE</b>. 1- el <b>PODERDANTE</b> a su vez, se compromete a
-            obrar con fidelidad respecto del poder conferido y el{" "}
-            <b>APODERADO</b>, manteniéndose siempre dentro de los parámetros
-            impuestos por la verdad, la buena fe, el respeto y las obligaciones
-            que en su calidad le impone la ley civil y en particular las
-            contenidas en el Artículo 2184 del Código Civil. 2- Igualmente el{" "}
+            este en la forma más eficaz posible. 5- Comunicar cualquier anomalía 
+            o situación que tenga que ver con los intereses del 
+            <b>PODERDANTE</b>. Se aclara que las obligaciones del {" "}
+            <b>APODERADO</b> 
+            son de medio mas no de resultado. <b>CUARTA</b>. OBLIGACIONES DE EL {" "}
+            <b>PODERDANTE</b>. 1- el <b>PODERDANTE</b> a su vez, se compromete a 
+            obrar con fidelidad respecto del poder conferido y el 
+            <b>APODERADO</b>, manteniéndose siempre dentro de los parámetros 
+            impuestos por la verdad, la buena fe, el respeto y las obligaciones 
+            que en su calidad le impone la ley civil y en particular las 
+            contenidas en el Artículo 2184 del Código Civil. 2- Igualmente el 
             <b>PODERDANTE</b>
-            queda obligado a suministrar toda la información que requiera el
-            <b>APODERADO</b> para cumplir con la labor encomendada y será de
-            absoluta responsabilidad del <b>PODERDANTE</b> lo dicho y las
-            aseveraciones que exponga para su representación, en especial todo
-            lo relativo a las pruebas, suministro de documentos y la
-            comparecencia de testigos para el éxito del objeto planteado, EL
+            queda obligado a suministrar toda la información que requiera el 
+            <b>APODERADO</b> para cumplir con la labor encomendada y será de 
+            absoluta responsabilidad del <b>PODERDANTE</b> lo dicho y las 
+            aseveraciones que exponga para su representación, en especial todo 
+            lo relativo a las pruebas, suministro de documentos y la 
+            comparecencia de testigos para el éxito del objeto planteado, EL 
             <b>PODERDANTE</b> se compromete a entregar AL <b>APODERADO</b> toda
             la información indispensable para la elaboración de la solicitud del
             trámite de negociación de deudas, así mismo se obliga EL
@@ -166,7 +166,7 @@ const PrevisualizarContrato = () => {
             económicamente por el <b>PODERDANTE</b> quien deberá entregarle al
             <b>APODERADO</b> los valores generados por lo anterior.{" "}
             <b>QUINTA</b>. REMUNERACIÓN. El <b>APODERADO</b> recibirá por parte
-            del
+            del 
             <b>PODERDANTE</b>,{" "}
             <b>
               LA SUMA DE {cliente.valor_pretensiones_letras.toUpperCase()} M/C
@@ -279,7 +279,7 @@ const PrevisualizarContrato = () => {
             <b>OCTAVA</b>. DOMICILIO, CONTROL DE CALIDAD EN LA ATENCIÓN Y
             TRATAMIENTO DE BASE DE DATOS PERSONALES: Para todos los efectos
             legales, el domicilio actual de las partes será: Por parte del{" "}
-            <b>PODERDANTE</b>. Dirección física: {cliente.direccion}
+            <b>PODERDANTE</b>. Dirección física: {cliente.direccion.toUpperCase()}
             Celular: {cliente.telefono} correo electronico: {cliente.correo}y
             por parte del <b>APODERADO</b>, Dirección física: Cra. 10 N0 97ª 13
             Oficina 202 torre B. al correo electrónico: J.AVELLANEDA@AVEZA.CO
@@ -354,9 +354,9 @@ const PrevisualizarContrato = () => {
               <br />
               <br />
               <h2 className="firma">
-                {cliente.nombres} {cliente.apellidos} <br />
+                {cliente.nombres.toUpperCase()} {cliente.apellidos.toUpperCase()} <br />
                 C.C. No. {cliente.cedula} <br />
-                {cliente.direccion}, {cliente.Ciudads[0].nombre_ciudad}
+                {cliente.direccion.toUpperCase()}, {cliente.Ciudads[0].nombre_ciudad}
                 <br />
                 Cel: {cliente.celular}
               </h2>
