@@ -84,7 +84,7 @@ function App() {
     console.log('Codigo ciudad Userdata: ', ciudad[0].codigo_ciudad)
     const URL = "/crearusuario";
     try {
-      await axios.post(URL, {
+      await axios.post("/crearusuario", {
         email: `${email}`,
         password: `${password}`,
         nombres: `${nombres}`,
