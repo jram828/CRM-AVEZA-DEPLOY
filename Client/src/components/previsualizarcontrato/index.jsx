@@ -80,9 +80,9 @@ const PrevisualizarContrato = () => {
             haya estipulación expresa en el texto del presente contrato.{" "}
             <b>TERCERA</b>. OBLIGACIONES ESPECIALES DEL APODERADO. 1- En el
             desarrollo de las facultades conferidas en el poder, el 
-            <b>APODERADO</b> se compromete a mantener fidelidad con el 
+            <b> APODERADO</b> se compromete a mantener fidelidad con el 
             <b>
-              <b>PODERDANTE</b>
+              <b> PODERDANTE</b>
             </b>
             , a respetar y a tener en cuenta las obligaciones y deberes del
             Abogado contenidas en la Ley 1123 de 2007. 2- El <b>APODERADO</b> se
@@ -96,31 +96,31 @@ const PrevisualizarContrato = () => {
             PERSONAS NATURALES NO COMERCIANTES, que el apoderado considere tiene 
             experiencia en el caso concreto. 4- Adelantar para el{" "} 
             <b>
-              <b>PODERDANTE</b> 
+              <b>PODERDANTE </b> 
             </b>
-            el proceso en forma diligente rindiendo informes sobre el estado de
+             el proceso en forma diligente rindiendo informes sobre el estado de
             este en la forma más eficaz posible. 5- Comunicar cualquier anomalía 
             o situación que tenga que ver con los intereses del 
-            <b>PODERDANTE</b>. Se aclara que las obligaciones del {" "}
-            <b>APODERADO</b> 
+            <b> PODERDANTE</b>. Se aclara que las obligaciones del {" "}
+            <b>APODERADO </b> 
             son de medio mas no de resultado. <b>CUARTA</b>. OBLIGACIONES DE EL {" "}
             <b>PODERDANTE</b>. 1- el <b>PODERDANTE</b> a su vez, se compromete a 
             obrar con fidelidad respecto del poder conferido y el 
-            <b>APODERADO</b>, manteniéndose siempre dentro de los parámetros 
+            <b> APODERADO</b>, manteniéndose siempre dentro de los parámetros 
             impuestos por la verdad, la buena fe, el respeto y las obligaciones 
             que en su calidad le impone la ley civil y en particular las 
             contenidas en el Artículo 2184 del Código Civil. 2- Igualmente el 
-            <b>PODERDANTE</b>
+            <b> PODERDANTE</b>
             queda obligado a suministrar toda la información que requiera el 
-            <b>APODERADO</b> para cumplir con la labor encomendada y será de 
+            <b> APODERADO</b> para cumplir con la labor encomendada y será de 
             absoluta responsabilidad del <b>PODERDANTE</b> lo dicho y las 
             aseveraciones que exponga para su representación, en especial todo 
             lo relativo a las pruebas, suministro de documentos y la 
             comparecencia de testigos para el éxito del objeto planteado, EL 
-            <b>PODERDANTE</b> se compromete a entregar AL <b>APODERADO</b> toda
+            <b> PODERDANTE</b> se compromete a entregar AL <b>APODERADO</b> toda
             la información indispensable para la elaboración de la solicitud del
             trámite de negociación de deudas, así mismo se obliga EL
-            <b>PODERDANTE</b> a realizar las declaraciones sobre los distintos
+            <b> PODERDANTE</b> a realizar las declaraciones sobre los distintos
             hechos, las cuales se entienden rendidas bajo la gravedad del
             juramento, para lo cual indica, expresamente, que no ha incurrido en
             omisiones, imprecisiones o errores voluntarios que impidan conocer
@@ -143,12 +143,12 @@ const PrevisualizarContrato = () => {
             de negociación de pasivos de conformidad con lo acordado en el
             presente contrato, para lo cual el <b>PODERDANTE</b> otorgará el
             correspondiente poder al
-            <b>APODERADO</b> para su respectiva representación, pudiendo el
-            <b>APODERADO</b> sustituir, bajo su responsabilidad, en cualquier
-            momento a otro Abogado en ejercicio. El <b>PODERDANTE</b>
+            <b> APODERADO</b> para su respectiva representación, pudiendo el
+            <b> APODERADO</b> sustituir, bajo su responsabilidad, en cualquier
+            momento a otro Abogado en ejercicio. El <b>PODERDANTE </b>
             será responsable por todos los perjuicios que se ocasionen por no
             allegar la información requerida de manera oportuna al
-            <b>APODERADO</b>. 3) Los gastos que ocasione el proceso, tales como
+            <b> APODERADO</b>. 3) Los gastos que ocasione el proceso, tales como
             certificados de cámara de comercio de los acreedores,
             notificaciones, fotocopias, investigaciones, honorarios de
             auxiliares de la justicia, peritos, copias, el costo de los pasajes
@@ -164,22 +164,22 @@ const PrevisualizarContrato = () => {
             concluirse que no era así, los gastos ocasionados con las
             actuaciones judiciales que se adelantaren serán asumidas
             económicamente por el <b>PODERDANTE</b> quien deberá entregarle al
-            <b>APODERADO</b> los valores generados por lo anterior.{" "}
+            <b> APODERADO</b> los valores generados por lo anterior.{" "}
             <b>QUINTA</b>. REMUNERACIÓN. El <b>APODERADO</b> recibirá por parte
             del 
             <b>PODERDANTE</b>,{" "}
             <b>
-              LA SUMA DE {cliente.valor_pretensiones_letras.toUpperCase()} M/C
+              LA SUMA DE {cliente.honorarios_letras.toUpperCase()} M/C
               ($
-              {cliente.valor_pretensiones}.00) ANTES DE IMPUESTOS
+              {cliente.honorarios}.00) ANTES DE IMPUESTOS
             </b>
             , este valor contempla las tarifas legales que se deben pagar a los
             operadores de insolvencia y los honorarios profesionales del{" "}
             <b>APODERADO</b>, los cuales serán cancelados así: si es de contado
             en una sola suma por valor de{" "}
             <b>
-              {cliente.valor_pretensiones_letras.toUpperCase()} M/C ($
-              {cliente.valor_pretensiones}.00) ANTES DE IMPUESTOS
+              {cliente.honorarios_letras.toUpperCase()} M/C ($
+              {cliente.honorarios}.00) ANTES DE IMPUESTOS
             </b>
             , Y POR ÚLTIMO CUALQUIER IMPUESTO QUE SE GENERE. Para la
             representación legal y/o revisión el proceso en la etapa de
@@ -192,8 +192,8 @@ const PrevisualizarContrato = () => {
             y/o derechos que por ley hay que pagar al centro de conciliación,
             pero <b>NO</b> contempla los honorarios del liquidador que sea
             asignado POR EL JUEZ en el caso que el trámite avance a la etapa de
-            LIQUIDACIÓN PATRIMONIAL. <b>PARÁGRAFO</b>
-            2. FORMA DE PAGO: Los valores antes mencionados se deben consignar
+            LIQUIDACIÓN PATRIMONIAL. <b>PARÁGRAFO 2. </b>
+            FORMA DE PAGO: Los valores antes mencionados se deben consignar
             en la cuenta Ahorros número XXXXXXXXXXXXX del banco de Colombia a
             nombre de Julián Avellaneda C.C. No. 79.046.803. y porta{" "}
             <b>PARÁGRAFO 3</b>. Los valorespagados se entenderán como honorarios
@@ -202,15 +202,15 @@ const PrevisualizarContrato = () => {
             consecuencia, autoriza al <b>APODERADO</b> para que retire o de por
             terminado el proceso de negociación con las implicaciones legales y
             comerciales que tienen para el
-            <b>PODERDANTE</b>. <b>PARÁGRAFO 4</b>. Garantías del Servicio: EL{" "}
+            <b> PODERDANTE</b>. <b>PARÁGRAFO 4</b>. Garantías del Servicio: EL{" "}
             <b>APODERADO</b> no se compromete a garantizar resultados positivos
             por la aplicación de sus conceptos, a lo que se compromete es a
             ejecutar el contrato desarrollando las gestiones profesionales con
             diligencia y cuidado, buscando siempre proteger los intereses del{" "}
             <b>PODERDANTE</b> como si fueran suyos, la gestión del
-            <b>APODERADO</b> es de medio más no de resultado. <b>SEXTA</b>.
+            <b> APODERADO</b> es de medio más no de resultado. <b>SEXTA</b>.
             TERMINACIÓN DEL CONTRATO Y REVOCATORIA DEL PODER OTORGADO. El
-            <b>PODERDANTE</b> no podrá revocar el mandato o el presente contrato
+            <b> PODERDANTE</b> no podrá revocar el mandato o el presente contrato
             salvo concepto previo del abogado o cuando se presenten las causales
             para darlo por terminado unilateralmente que para el efecto serían
             aquellas contempladas en la Ley 1123 de 2007; en caso de que el{" "}
@@ -259,14 +259,14 @@ const PrevisualizarContrato = () => {
             abogados y/o del operador de insolvencia. 5. Que estos beneficios
             jurídicos de suspensión de procesos, entre otros, inician cuando se
             haya pagado el treinta por ciento (30%) de los honorarios acordados
-            en el presente contrato. <b>PARÁGRAFO 2</b>. El <b>PODERDANTE</b>{" "}
+            en el presente contrato. <b>PARÁGRAFO 2</b>. El <b>PODERDANTE </b>{" "}
             autoriza al
-            <b>APODERADO</b> para que retire o dé por terminado el proceso de
+            <b> APODERADO</b> para que retire o dé por terminado el proceso de
             negociación con las implicaciones legales y comerciales que tienen
-            para el <b>PODERDANTE</b> ante el incumplimiento del{" "}
-            <b>PODERDANTE</b>
+            para el <b> PODERDANTE</b> ante el incumplimiento del{" "}
+            <b>PODERDANTE </b> 
             en cualquier pago de las cuotas pactadas en el presente contrato.{" "}
-            <u>EN NINGÚN CASO HABRÁ DEVOLUCIÓN DE DINERO</u>.<b>SÉPTIMA</b>.
+            <u>EN NINGÚN CASO HABRÁ DEVOLUCIÓN DE DINERO</u>.<b> SÉPTIMA</b>.
             DURACIÓN. El presente contrato tendrá vigencia hasta que se den los
             supuestos de la cláusula PRIMERA de este contrato, siempre y cuando
             se haya iniciado el trámite de INSOLVENCIA formal ante el operador
@@ -306,9 +306,9 @@ const PrevisualizarContrato = () => {
             que hayan sido modificados e informados. <b>PARÁGRAFO 4</b>. El
             horario de atención será, en cualquier caso, entre las 8:00 horas y
             las 17:00 horas en días hábiles. <b>PARÁGRAFO 5</b>. EL
-            <b>PODERDANTE</b> en su calidad de titular de información, actuando
+            <b> PODERDANTE</b> en su calidad de titular de información, actuando
             libre y voluntariamente, autoriza al
-            <b>APODERADO</b> de manera expresa e irrevocable o a quien
+            <b> APODERADO</b> de manera expresa e irrevocable o a quien
             represente sus derechos, a consultar, solicitar, suministrar,
             reportar, procesar y divulgar toda la información que se refiera a
             su comportamiento crediticio, financiero, comercial, de servicios a
