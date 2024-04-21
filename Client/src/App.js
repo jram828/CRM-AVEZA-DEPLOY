@@ -30,9 +30,7 @@ import { codigoPaises } from "./utils/codigoPaises";
 import { codigoCiudades } from "./utils/codigoCiudades";
 import { codigoDepartamentos } from "./utils/codigoDepartamentos";
 
-// export const URL = "http://localhost:3001/crmAveza/";
-const URL = import.meta.env.VITE_URL;
-axios.defaults.baseURL = URL;
+export const URL = "http://localhost:3001/crmAveza/";
 
 function App() {
 
@@ -47,7 +45,7 @@ function App() {
   //Funcion para verificar datos de ingreso
   async function login(userData) {
     const { cedula, password } = userData;
-    const URL = "login/";
+    const URL = "http://localhost:3001/crmAveza/login/";
     console.log("Datos login:", { cedula, password });
     try {
       const { data } = await axios(
@@ -80,7 +78,7 @@ function App() {
     const ciudad = codigoCiudades.filter((ciudad) => ciudad.nombre_ciudad === nombre_ciudad.toUpperCase());
 
     console.log('Codigo ciudad Userdata: ', ciudad[0].codigo_ciudad)
-    const URL = "crearusuario/";
+    const URL = "http://localhost:3001/crmAveza/crearusuario/";
     try {
       await axios.post(URL, {
         email: `${email}`,
@@ -121,7 +119,7 @@ function App() {
 
    console.log('User data registro:', userDataRegistro)
 
-      const URL = "registrocliente/";
+      const URL = "http://localhost:3001/crmAveza/registrocliente/";
       try {
         await axios.post(URL, {
           email: `${email}`,
@@ -165,7 +163,7 @@ function App() {
   const relacionarPaises =async () => {
 
     try {
-      await axios.post(`${URL}relacionarpaises`, {codigoPaises, codigoCiudades,codigoDepartamentos});
+      await axios.post(`${URL}/relacionarpaises`, {codigoPaises, codigoCiudades,codigoDepartamentos});
       // console.log("Data verificar clientes:", data);
     } catch (error) {
       console.log(error.message);

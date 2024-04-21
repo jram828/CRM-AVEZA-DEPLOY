@@ -5,7 +5,7 @@ import "../poder/poder.css";
 import React from "react";
 import { useSelector } from "react-redux";
 import { printDivContent } from "../../utils/printDivContent";
-import {twilio}  from "twilio"
+
 const Poder = () => {
   const cliente = useSelector((state) => state.cliente);
 
@@ -13,12 +13,6 @@ const Poder = () => {
   
 function generatePDF() {
   printDivContent("poder");
-  const client = new twilio(accountSid, authToken,number);
-  client.messages.create({
-    body: "Ha ingresado a CRM AVEZA",
-    from: number,
-    to: "+573204746006",
-  });
 }
 
   return (

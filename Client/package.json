@@ -27,8 +27,7 @@
     "redux": "^5.0.1",
     "redux-thunk": "^3.1.0",
     "styled-components": "^6.1.8",
-    "thunk": "^0.0.1",
-    "twilio": "^5.0.4"
+    "thunk": "^0.0.1"
   },
   "name": "client",
   "version": "1.0.0",
