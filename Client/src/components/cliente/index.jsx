@@ -14,8 +14,8 @@ const Cliente = (props) => {
   const {
     cedula,
     email,
-    tipo_usuario,
-    tipo_caso,
+    TipoUsuarios,
+    TipoDeCasos,
     nombres,
     apellidos,
     direccion,
@@ -33,8 +33,8 @@ const Cliente = (props) => {
  const newCliente = {
    cedula: Number(cedula).toLocaleString(),
    email,
-   tipo_usuario,
-   tipo_caso,
+   tipo_usuario: TipoUsuarios[0].descripcion,
+   tipo_caso: TipoDeCasos[0].descripcion,
    nombres,
    apellidos,
    direccion,
@@ -52,9 +52,9 @@ const Cliente = (props) => {
  }; 
 
 
-  const { addFav, removeFav } = props;
+  // const { addFav, removeFav } = props;
 
-  const [isFav, setIsFav] = useState(false);
+  // const [isFav, setIsFav] = useState(false);
 
   // const handleFavorite = () => {
     // if (isFav === false) {
