@@ -1,6 +1,6 @@
 const axios = require("axios");
 // const mySql = require("mysql");
-const { Usuario, Ciudad, Cliente, Pais, Departamento} = require("../DB_conn");
+const { Usuario, Ciudad, Cliente, Pais, Departamento, TipoUsuario, TipoDeCaso} = require("../DB_conn");
 
 const getClienteAll = async (req, res) => {
   try {
@@ -21,12 +21,22 @@ const getClienteAll = async (req, res) => {
                  model: Pais,
                  attributes: ["nombre_pais"],
                  through: { attributes: [] },
-               }
-             ]
-           }
-         ]
-       }
-     ]
+               },
+             ],
+           },
+         ],
+       },
+       {
+         model: TipoUsuario,
+         attributes: ["descripcion"],
+         through: { attributes: [] },
+       },
+       {
+         model: TipoDeCaso,
+         attributes: ["descripcion"],
+         through: { attributes: [] },
+       },
+     ],
    });
     // const foundClientes = await Usuario.findAll();
     // {
