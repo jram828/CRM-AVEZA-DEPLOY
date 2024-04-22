@@ -21,21 +21,21 @@ const postCliente = async (req, res) => {
     valor_pretensiones,
   } = req.body;
    
-  for (let i = 0; i < tipoUsuarios.length; i++){
-    var newTipoUsuario = await TipoUsuario.create({
-      tipo_usuario: tipoUsuarios[i].tipo_usuario,
-      descripcion: tipoUsuarios[i].descripcion,
-    });
-  }
-console.log("Tipo usuario: ".newTipoUsuario);
-    for (let i = 0; i < tipoDeCasos.length; i++) {
-      var newTipoCaso = await TipoDeCaso.create({
-        tipo_caso: tipoDeCasos[i].tipo_caso,
-        descripcion: tipoDeCasos[i].descripcion,
-      });
-  }
+//   for (let i = 0; i < tipoUsuarios.length; i++){
+//     var newTipoUsuario = await TipoUsuario.create({
+//       tipo_usuario: tipoUsuarios[i].tipo_usuario,
+//       descripcion: tipoUsuarios[i].descripcion,
+//     });
+//   }
+// console.log("Tipo usuario: ",newTipoUsuario);
+//     for (let i = 0; i < tipoDeCasos.length; i++) {
+//       var newTipoCaso = await TipoDeCaso.create({
+//         tipo_caso: tipoDeCasos[i].tipo_caso,
+//         descripcion: tipoDeCasos[i].descripcion,
+//       });
+//   }
   
-  console.log('Tipo de caso: '.newTipoCaso);
+  // console.log('Tipo de caso: ',newTipoCaso);
 
   const ciudad= codigoCiudades.filter((ciudad)=>ciudad.nombre_ciudad===nombre_ciudad.toUpperCase())
   const codigo_ciudad = ciudad[0].codigo_ciudad
