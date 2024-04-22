@@ -29,7 +29,7 @@ const Cliente = (props) => {
     forma_de_pago,
     tiene_contrato
   } = props.cliente;
-
+  console.log(props.cliente);
  const newCliente = {
    cedula: Number(cedula).toLocaleString(),
    email,
