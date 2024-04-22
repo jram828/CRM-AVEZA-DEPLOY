@@ -1,13 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Button } from "../Mystyles";
 import "../detail/detail.css";
 
 const Detail = () => {
   const cliente = useSelector((state) => state.cliente);
-  
-  const dispatch = useDispatch();
+
   console.log('Cliente detail:',cliente)
   // useEffect(() => {
   //   dispatch(clienteActual(cliente));
