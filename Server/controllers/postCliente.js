@@ -89,7 +89,7 @@ const postCliente = async (req, res) => {
           valor_pretensiones: valor_pretensiones,
       });
       
-      newCliente.addCiudad(ciudad.codigo_ciudad);
+      newCliente.addCiudad(codigo_ciudad);
       newCliente.addTipoDeCaso(tipo_de_caso);
       newCliente.addTipoUsuario(tipo_usuario);
 
