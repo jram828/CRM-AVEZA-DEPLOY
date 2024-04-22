@@ -22,7 +22,7 @@ router.post("/crearciudades", crearCiudades);
 router.post("/registrocliente", postCliente);
 router.get('/:id', getCliente);// obtiene un único C
 router.put('/:id',clienteCtrl.editarCliente); //Actualizar datos (uno a la vez)
-router.delete('/:id', deleteCliente);
+router.delete('/:cedula', deleteCliente);
 
 module.exports = router;
 
