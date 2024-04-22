@@ -1,16 +1,12 @@
 import React, { useState, useEffect} from "react";
 import { validar } from "../../utils/validacion";
 import "../../App.css";
+import "./login.css";
 import { Link } from "react-router-dom";
-import { Button } from "../Mystyles";
-import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import logo from "../../img/logoAveza.png";
 
 const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
-  
-  const location = useLocation();
-  const navigate = useNavigate();
-
   const [userData, setUserData] = useState({
     cedula: "",
     password: "",
