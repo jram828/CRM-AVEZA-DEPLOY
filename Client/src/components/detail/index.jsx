@@ -35,7 +35,7 @@ const Detail = () => {
             </h4>
           </div>
           <div className="casos">
-            <h4>Tipo de caso: {cliente.tipo_de_caso} </h4>
+            <h4>Tipo de caso: {cliente.tipo_caso} </h4>
             <h4>Comentarios: {cliente.comentarios} </h4>
             <h4>Tiene contrato? : {cliente.tiene_contrato} </h4>
             <h4>Valor pretensiones: {cliente.valor_pretensiones} </h4>
