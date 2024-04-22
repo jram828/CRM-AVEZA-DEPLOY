@@ -47,7 +47,7 @@ export const Autorizacion = () => {
               {cliente.nombres.toUpperCase()} {cliente.apellidos.toUpperCase()}
             </b>
             , identificado/a con cédula de ciudadanía número
-            <b> {newCedula}</b> expedida en Bogotá, mayor de edad,
+            <b> {cliente.cedula}</b> expedida en Bogotá, mayor de edad,
             vecino(a) de esta ciudad, actuando como solicitante del proceso de
             Insolvencia Económica de Persona Natural no Comerciante,
             respetuosamente manifiesto a usted, que AUTORIZO al abogado en
@@ -71,8 +71,8 @@ export const Autorizacion = () => {
           <p>
             <b>
               {cliente.nombres.toUpperCase()} {cliente.apellidos.toUpperCase()} <br />
-              C.C. {newCedula} de Bogotá <br />
-              Dirección: {cliente.direccion} <br />
+              C.C. {cliente.cedula} de Bogotá <br />
+              Dirección: {cliente.direccion.toUpperCase()} <br />
               Celular: {cliente.celular} <br />
             </b>
           </p>

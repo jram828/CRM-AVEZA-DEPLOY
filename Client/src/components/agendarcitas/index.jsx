@@ -1,4 +1,5 @@
 import logo from "../../img/logoAveza.png";
+import "./agendarcitas.css";
 
 const AgendarCitas = (props) => {
   return (
@@ -9,7 +10,7 @@ const AgendarCitas = (props) => {
       <h1 className="titulo">Agendar Cita</h1>
       <br />
 
-      <form>
+      <form className="contenedoragendar">
         <br />
         <div className="recordatorio-cita">
           <label for="fecha" className="label-recordatorio">

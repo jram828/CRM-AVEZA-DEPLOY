@@ -43,7 +43,7 @@ function generatePDF() {
         </p>
         <p className="parrafopoder">
           <b>
-            {cliente.nombres} {cliente.apellidos},{" "}
+            {cliente.nombres.toUpperCase()} {cliente.apellidos.toUpperCase()},{" "}
           </b>{" "}
           identificado/a como aparece al pie de mi firma, manifiesto que otorgo
           poder especial, amplio y suficiente al doctor{" "}
@@ -77,9 +77,11 @@ function generatePDF() {
             <br />
             <br />
             <h2 className="firma">
-              {cliente.nombres} {cliente.apellidos} <br />
+              {cliente.nombres.toUpperCase()} {cliente.apellidos.toUpperCase()}{" "}
+              <br />
               C.C. No. {cliente.cedula} <br />
-              {cliente.direccion}, {cliente.Ciudads[0].nombre_ciudad}
+              {cliente.direccion.toUpperCase()},{" "}
+              {cliente.Ciudads[0].nombre_ciudad}
               <br />
               Cel: {cliente.celular}
             </h2>

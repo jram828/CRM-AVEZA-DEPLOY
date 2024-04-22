@@ -35,14 +35,6 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
 
   return (
     <div className="containerLogin">
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
       <form onSubmit={submitHandler}>
         <table>
           <tr>
