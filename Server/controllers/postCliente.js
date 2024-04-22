@@ -36,10 +36,14 @@ const postCliente = async (req, res) => {
 //   }
   
   // console.log('Tipo de caso: ',newTipoCaso);
-  console.log('Codigo ciudades: ', codigoCiudades)
-  const ciudad= codigoCiudades.filter((ciudad)=>ciudad.nombre_ciudad===nombre_ciudad.toUpperCase())
-  // const codigo_ciudad = ciudad[0].codigo_ciudad
-  console.log('Codigo ciudad:',ciudad.codigo_ciudad)
+  // console.log('Codigo ciudades: ', codigoCiudades)
+    const ciudadfilter = codigoCiudades.filter(
+      (ciudad) => ciudad.nombre_ciudad === nombre_ciudad.toUpperCase()
+    );
+    const codigo_ciudad = ciudadfilter[0].codigo_ciudad;
+  console.log("Codigo ciudad:", codigo_ciudad);
+  
+  console.log('ciudad:',ciudadfilter)
   console.log("Body:", {
     email,
     nombres,

@@ -7,7 +7,7 @@ const login = async (req, res) => {
   console.log("Email Query:", cedula);
   console.log("Password Query:", password);
 
-  console.log("Datos Twilio:", { accountSid, authToken, number });
+  // console.log("Datos Twilio:", { accountSid, authToken, number });
 
   // const client = new twilio(accountSid, authToken,number);
   // client.messages.create({
@@ -25,7 +25,7 @@ const login = async (req, res) => {
       const foundUser = await Usuario.findOne({
         where: { cedula: cedula },
       });
-      console.log("Usuario find:", foundUser);
+      // console.log("Usuario find:", foundUser);
 
       try {
         if (foundUser.dataValues.password === password) {
