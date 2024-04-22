@@ -30,6 +30,8 @@ const Cliente = (props) => {
     tiene_contrato
   } = props.cliente;
   console.log(props.cliente);
+  console.log('Tipo usuarios', TipoUsuarios);
+  console.log("Tipo casos", TipoDeCasos);
  const newCliente = {
    cedula: Number(cedula).toLocaleString(),
    email,
