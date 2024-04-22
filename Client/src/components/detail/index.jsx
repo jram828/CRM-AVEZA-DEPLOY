@@ -18,7 +18,7 @@ const Detail = () => {
         <div className="nombre">
           {cliente.nombres && (
             <h1 className="nombredetail">
-              {cliente.nombres} {cliente.apellidos}{" "}
+              {cliente.nombres.toUpperCase()} {cliente.apellidos.toUpperCase()}{" "}
             </h1>
           )}
         </div>
@@ -28,11 +28,11 @@ const Detail = () => {
             <h4>Cedula: {cliente.cedula}</h4>
             <h4>Celular: {cliente.celular}</h4>
             <h4>Correo: {cliente.email}</h4>
-            <h4>Direccion: {cliente.direccion}</h4>
-            {/* <h4>Ciudad: {cliente.Ciudads[0].nombre_ciudad}</h4> */}
+            <h4>Direccion: {cliente.direccion.toUpperCase()}</h4>
+            <h4>Ciudad: {cliente.Ciudads[0].nombre_ciudad}</h4>
             <h4>
-              Departamento:{" "}
-              {/* {cliente.Ciudads[0].Departamentos[0].nombre_departamento} */}
+              Departamento:
+              {cliente.Ciudads[0].Departamentos[0].nombre_departamento}
             </h4>
           </div>
           <div className="casos">
