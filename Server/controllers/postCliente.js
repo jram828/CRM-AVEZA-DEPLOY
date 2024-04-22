@@ -38,8 +38,8 @@ const postCliente = async (req, res) => {
   // console.log('Tipo de caso: ',newTipoCaso);
 
   const ciudad= codigoCiudades.filter((ciudad)=>ciudad.nombre_ciudad===nombre_ciudad.toUpperCase())
-  const codigo_ciudad = ciudad[0].codigo_ciudad
-  console.log('Codigo ciudad:',codigo_ciudad)
+  // const codigo_ciudad = ciudad[0].codigo_ciudad
+  console.log('Codigo ciudad:',ciudad)
   console.log("Body:", {
     email,
     nombres,
