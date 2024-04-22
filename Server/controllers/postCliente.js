@@ -39,7 +39,7 @@ const postCliente = async (req, res) => {
 
   const ciudad= codigoCiudades.filter((ciudad)=>ciudad.nombre_ciudad===nombre_ciudad.toUpperCase())
   // const codigo_ciudad = ciudad[0].codigo_ciudad
-  console.log('Codigo ciudad:',ciudad)
+  console.log('Codigo ciudad:',ciudad.codigo_ciudad)
   console.log("Body:", {
     email,
     nombres,
@@ -85,7 +85,7 @@ const postCliente = async (req, res) => {
           valor_pretensiones: valor_pretensiones,
       });
       
-      newCliente.addCiudad(codigo_ciudad);
+      newCliente.addCiudad(ciudad.codigo_ciudad);
       newCliente.addTipoDeCaso(tipo_de_caso);
       newCliente.addTipoUsuario(tipo_usuario);
 
