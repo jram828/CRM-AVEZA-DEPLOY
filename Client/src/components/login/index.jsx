@@ -46,7 +46,8 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
 
   return (
     <div className="containerLogin">
-      <form onSubmit={submitHandler}>
+      <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
+      {/* <form onSubmit={submitHandler}>
         <table>
           <tr>
             <td></td>
@@ -61,7 +62,7 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
             <td></td>
           </tr>
           <tr>
-            {/* <td></td>
+            <td></td>
             <td>
               <label htmlFor="usuario" className="label">
                 Usuario:
@@ -78,13 +79,13 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
                 onChange={handleChange}
               />
             </td>
-            <td></td> */}
+            <td></td>
           </tr>
           <tr>
             <td colSpan={4}>
-              {/* {errores.cedula !== "" && (
+              {errores.cedula !== "" && (
                 <h5 className="errores">{errores.cedula}</h5>
-              )} */}
+              )}
             </td>
             <td></td>
             <td></td>
@@ -92,7 +93,7 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
           </tr>
           <tr>
             <td></td>
-            {/* <td>
+            <td>
               <label className="label" htmlFor="password">
                 Contraseña:
               </label>
@@ -106,21 +107,21 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
                 onChange={handleChange}
               />
             </td>
-            <td></td> */}
+            <td></td>
           </tr>
           <tr>
-            {/* <td colSpan={4}>
+            <td colSpan={4}>
               {errores.password !== "" && (
                 <h5 className="errores">{errores.password}</h5>
               )}
-            </td> */}
+            </td>
             <td></td>
             <td></td>
             <td></td>
           </tr>
           <tr>
             <td></td>
-            {/* <td>
+            <td>
               <label htmlFor="tipodeusuario">Tipo de usuario:</label>
             </td>
             <td>
@@ -129,7 +130,7 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
                 <option value="1">Administrador</option>
                 <option value="2">Cliente</option>
               </select>
-            </td> */}
+            </td>
             <td></td>
           </tr>
           <tr>
@@ -152,13 +153,13 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
             </td>
             <td className="celdas">
               {" "}
-              {/* {errores.cedula || errores.password ? null : (
+              {errores.cedula || errores.password ? null : (
                 <input
                   type="submit"
                   value="Ingresar"
                   className="botonesiniciosesion"
                 />
-              )} */}
+              )}
               <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
             </td>
             <td className="celdas"></td>
@@ -183,7 +184,7 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
             <td></td>
           </tr>
         </table>
-      </form>
+      </form> */}
     </div>
   );
 };
