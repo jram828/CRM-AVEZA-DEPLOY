@@ -61,7 +61,7 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
             <td></td>
           </tr>
           <tr>
-            <td></td>
+            {/* <td></td>
             <td>
               <label htmlFor="usuario" className="label">
                 Usuario:
@@ -78,7 +78,7 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
                 onChange={handleChange}
               />
             </td>
-            <td></td>
+            <td></td> */}
           </tr>
           <tr>
             <td colSpan={4}>
@@ -92,7 +92,7 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
           </tr>
           <tr>
             <td></td>
-            <td>
+            {/* <td>
               <label className="label" htmlFor="password">
                 Contraseña:
               </label>
@@ -106,21 +106,21 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
                 onChange={handleChange}
               />
             </td>
-            <td></td>
+            <td></td> */}
           </tr>
           <tr>
-            <td colSpan={4}>
-              {/* {errores.password !== "" && (
+            {/* <td colSpan={4}>
+              {errores.password !== "" && (
                 <h5 className="errores">{errores.password}</h5>
-              )} */}
-            </td>
+              )}
+            </td> */}
             <td></td>
             <td></td>
             <td></td>
           </tr>
           <tr>
             <td></td>
-            <td>
+            {/* <td>
               <label htmlFor="tipodeusuario">Tipo de usuario:</label>
             </td>
             <td>
@@ -129,7 +129,7 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
                 <option value="1">Administrador</option>
                 <option value="2">Cliente</option>
               </select>
-            </td>
+            </td> */}
             <td></td>
           </tr>
           <tr>
