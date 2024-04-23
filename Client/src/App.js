@@ -42,9 +42,9 @@ function App() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    !access && navigate("/");
-  }, [access, navigate]);
+  // useEffect(() => {
+  //   !access && navigate("/");
+  // }, [access, navigate]);
 
   //Funcion para verificar datos de ingreso
   async function login(userData) {
