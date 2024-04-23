@@ -56,7 +56,7 @@ function App() {
       //   URL + `?cedula=${cedula}&password=${password}`
       // );
       // console.log("Login 2:", data);
-      const { access } = data;
+      // const { access } = data;
       setAccess(true);
 
       access && navigate("/home");
