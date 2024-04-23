@@ -42,22 +42,22 @@ function App() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   !access && navigate("/");
-  // }, [access, navigate]);
+  useEffect(() => {
+    !access && navigate("/");
+  }, [access, navigate]);
 
   //Funcion para verificar datos de ingreso
-  async function login(userData) {
-    const { cedula, password } = userData;
-    const URL = "/login";
-    console.log("Datos login:", { cedula, password });
+  async function login() {
+    // const { cedula, password } = userData;
+    // const URL = "/login";
+    // console.log("Datos login:", { cedula, password });
     try {
-      const { data } = await axios(
-        URL + `?cedula=${cedula}&password=${password}`
-      );
+      // const { data } = await axios(
+      //   URL + `?cedula=${cedula}&password=${password}`
+      // );
       // console.log("Login 2:", data);
       const { access } = data;
-      setAccess(data);
+      setAccess(true);
 
       access && navigate("/home");
     } catch (error) {

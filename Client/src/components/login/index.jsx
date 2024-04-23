@@ -37,6 +37,7 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
   };
 
   const responseMessage = (response) => {
+    login();
     console.log(response);
   };
   const errorMessage = (error) => {
