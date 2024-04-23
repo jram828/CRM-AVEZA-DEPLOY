@@ -8,7 +8,7 @@ const { conn } = require("./DB_conn");
 server.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
-    "https://crm-aveza-prueba.vercel.app/"
+    "https://crm-aveza-prueba.vercel.app"
   );
   res.header("Access-Control-Allow-Credentials", "true");
   res.header(
