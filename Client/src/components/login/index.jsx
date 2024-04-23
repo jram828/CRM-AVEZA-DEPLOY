@@ -5,6 +5,7 @@ import "./login.css";
 import { Link } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
 import logo from "../../img/logoAveza.png";
+import { GoogleLogin } from "@react-oauth/google";
 
 const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
   const [userData, setUserData] = useState({
@@ -16,6 +17,8 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
     cedula: "",
     password: "",
   });
+
+  
 
 
   const handleChange = (e) => {
@@ -31,6 +34,13 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     login(userData);
+  };
+
+  const responseMessage = (response) => {
+    console.log(response);
+  };
+  const errorMessage = (error) => {
+    console.log(error);
   };
 
   return (
@@ -141,13 +151,14 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
             </td>
             <td className="celdas">
               {" "}
-              {errores.cedula || errores.password ? null : (
+              {/* {errores.cedula || errores.password ? null : (
                 <input
                   type="submit"
                   value="Ingresar"
                   className="botonesiniciosesion"
                 />
-              )}
+              )} */}
+              <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
             </td>
             <td className="celdas"></td>
           </tr>
