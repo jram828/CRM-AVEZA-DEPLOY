@@ -82,9 +82,9 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
           </tr>
           <tr>
             <td colSpan={4}>
-              {errores.cedula !== "" && (
+              {/* {errores.cedula !== "" && (
                 <h5 className="errores">{errores.cedula}</h5>
-              )}
+              )} */}
             </td>
             <td></td>
             <td></td>
@@ -110,9 +110,9 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
           </tr>
           <tr>
             <td colSpan={4}>
-              {errores.password !== "" && (
+              {/* {errores.password !== "" && (
                 <h5 className="errores">{errores.password}</h5>
-              )}
+              )} */}
             </td>
             <td></td>
             <td></td>
