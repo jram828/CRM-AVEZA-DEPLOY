@@ -6,7 +6,10 @@ const PORT = 3001;
 const { conn } = require("./DB_conn");
 
 server.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://crm-aveza-prueba.vercel.app/"
+  );
   res.header("Access-Control-Allow-Credentials", "true");
   res.header(
     "Access-Control-Allow-Headers",

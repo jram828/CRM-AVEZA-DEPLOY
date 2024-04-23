@@ -46,8 +46,8 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
 
   return (
     <div className="containerLogin">
-      <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
-      {/* <form onSubmit={submitHandler}>
+      {/* <GoogleLogin onSuccess={responseMessage} onError={errorMessage} /> */}
+      <form onSubmit={submitHandler}>
         <table>
           <tr>
             <td></td>
@@ -160,7 +160,6 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
                   className="botonesiniciosesion"
                 />
               )}
-              <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
             </td>
             <td className="celdas"></td>
           </tr>
@@ -184,7 +183,8 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
             <td></td>
           </tr>
         </table>
-      </form> */}
+      </form>
+      <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
     </div>
   );
 };
