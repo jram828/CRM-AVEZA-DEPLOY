@@ -29,6 +29,7 @@ import Poder from "./components/poder";
 import { codigoPaises } from "./utils/codigoPaises";
 import { codigoCiudades } from "./utils/codigoCiudades";
 import { codigoDepartamentos } from "./utils/codigoDepartamentos";
+import WordToHtml from "./components/wordtohtml";
 
 // export const URL = "http://localhost:3001/crmAveza/";
 
@@ -227,8 +228,9 @@ function App() {
       <Routes>
         <Route path="/" element={ <Form login={login}
               clickHandlerRecordatorio={clickHandlerRecordatorio}
-              clickHandlerCrear={clickHandlerCrear} />}/>
-        <Route path="/generarfactura" element={<GenerarFactura />} />
+          clickHandlerCrear={clickHandlerCrear} />} />
+        <Route path="/generarfactura" element={<WordToHtml />} />
+        {/* <Route path="/generarfactura" element={<GenerarFactura />} /> */}
         <Route path="/crearusuario" element={<CrearUsuario crearUsuario={crearUsuario} />}/>
         <Route path="/cotizacion" element={<Cotizacion />} />
         <Route path="/autorizacion" element={<Autorizacion />} />
