@@ -57,35 +57,35 @@ export default WordToHtml;
 
 
 
-const PizZip = require("pizzip");
-const Docxtemplater = require("docxtemplater");
-const fs = require("fs");
-const path = require("path");
+// const PizZip = require("pizzip");
+// const Docxtemplater = require("docxtemplater");
+// const fs = require("fs");
+// const path = require("path");
 
-// Cargar el documento .docx como contenido binario
-const content = fs.readFileSync(
-  path.resolve(__dirname, "input.docx"),
-  "binary"
-);
+// // Cargar el documento .docx como contenido binario
+// const content = fs.readFileSync(
+//   path.resolve(__dirname, "input.docx"),
+//   "binary"
+// );
 
-const zip = new PizZip(content);
-const doc = new Docxtemplater(zip, {
-  paragraphLoop: true,
-  linebreaks: true,
-});
+// const zip = new PizZip(content);
+// const doc = new Docxtemplater(zip, {
+//   paragraphLoop: true,
+//   linebreaks: true,
+// });
 
-// Reemplazar los marcadores de posición con los datos del input
-doc.render({
-  nombre: "Juan",
-  apellido: "Pérez",
-  telefono: "1234567890",
-});
+// // Reemplazar los marcadores de posición con los datos del input
+// doc.render({
+//   nombre: "Juan",
+//   apellido: "Pérez",
+//   telefono: "1234567890",
+// });
 
-const buf = doc.getZip().generate({
-  type: "nodebuffer",
-  compression: "DEFLATE",
-});
+// const buf = doc.getZip().generate({
+//   type: "nodebuffer",
+//   compression: "DEFLATE",
+// });
 
-// Guardar el documento modificado
-fs.writeFileSync(path.resolve(__dirname, "output.docx"), buf);
+// // Guardar el documento modificado
+// fs.writeFileSync(path.resolve(__dirname, "output.docx"), buf);
 
