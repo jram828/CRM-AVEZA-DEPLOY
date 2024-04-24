@@ -11,6 +11,16 @@ const Detail = () => {
   // useEffect(() => {
   //   dispatch(clienteActual(cliente));
   // }, [dispatch]);
+
+    const onClickEliminar = async () => {
+      try {
+        await axios.delete(`/${cliente.cedula}`);
+        // console.log("Data verificar clientes:", data);
+      } catch (error) {
+        console.log(error.message);
+        window.alert("No se eliminó el cliente!");
+      }
+    };
   return (
     <div className="container">
       <div className="detail" key={cliente.cedula}>
@@ -58,6 +68,7 @@ const Detail = () => {
         <Link to={"/generarfactura"}>
           <Button className="botonesiniciosesion">Generar factura</Button>
         </Link>
+        <Button onclick={onClickEliminar} className="botonesiniciosesion">Eliminar cliente</Button>
       </div>
     </div>
   );
