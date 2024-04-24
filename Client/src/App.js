@@ -230,7 +230,7 @@ function App() {
               clickHandlerRecordatorio={clickHandlerRecordatorio}
           clickHandlerCrear={clickHandlerCrear} />} />
         <Route path="/generarfactura" element={<WordToHtml />} />
-        {/* <Route path="/generarfactura" element={<GenerarFactura />} /> */}
+        <Route path="/generar" element={<GenerarFactura />} />
         <Route path="/crearusuario" element={<CrearUsuario crearUsuario={crearUsuario} />}/>
         <Route path="/cotizacion" element={<Cotizacion />} />
         <Route path="/autorizacion" element={<Autorizacion />} />
