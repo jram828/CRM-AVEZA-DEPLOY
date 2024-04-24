@@ -55,7 +55,7 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
               <img
                 src={logo}
                 alt="Logo Aveza"
-                style={{ height: "100px", width: "200%" }}
+                style={{ height: "100px", width: "150%" }}
               />
             </td>
             <td></td>
