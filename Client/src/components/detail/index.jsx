@@ -68,7 +68,7 @@ const Detail = () => {
         <Link to={"/generarfactura"}>
           <Button className="botonesiniciosesion">Generar factura</Button>
         </Link>
-        <Button onclick={onClickEliminar} className="botonesiniciosesion">Eliminar cliente</Button>
+        <Button onClick={onClickEliminar} className="botonesiniciosesion">Eliminar cliente</Button>
       </div>
     </div>
   );
