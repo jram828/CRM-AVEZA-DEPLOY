@@ -29,18 +29,23 @@ function WordToHtml() {
   const handleFormSubmit = () => {
     // Aquí aplicarías formData al archivo con docxtemplater
     // y generarías el archivo de Word modificado para descargar
+     const fs = require("fs");
+    const path = require("path");
 
     // Reemplazar los marcadores de posición con los datos del input
-    doc.render({
-      nombre: "Juan",
+    fileData.render({
+      nombre: formData.nombre,
       apellido: "Pérez",
       telefono: "1234567890",
     });
 
-    const buf = doc.getZip().generate({
+    const buf = fileData.getZip().generate({
       type: "nodebuffer",
       compression: "DEFLATE",
     });
+
+    fs.writeFileSync(path.resolve(__dirname, "CONTRATO AVEZA MODIFICADO.docx"), buf);
+
   };
 
   return (
