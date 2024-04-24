@@ -1,12 +1,12 @@
 const { Cliente } = require("../DB_conn");
 
 const deleteCliente = async (req, res) => {
-  const { cedula } = req.params;
+  const { celular } = req.params;
 
   try {
     await Cliente.destroy({
       where: {
-        cedula: cedula,
+        celular: celular,
       },
     });
     const clientes = await Cliente.findAll();

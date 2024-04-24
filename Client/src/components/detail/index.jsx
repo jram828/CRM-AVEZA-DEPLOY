@@ -15,7 +15,7 @@ const Detail = () => {
 
     const onClickEliminar = async () => {
       try {
-        await axios.delete(`/${cliente.cedula}`);
+        await axios.delete(`/${cliente.celular}`);
         // console.log("Data verificar clientes:", data);
       } catch (error) {
         console.log(error.message);
