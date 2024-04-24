@@ -11,13 +11,14 @@ const container = document.getElementById("root");
 const root = createRoot(container);
 
 root.render(
-  <GoogleOAuthProvider clientId="844309234209-e072sos6qgabufkk0tmgv74900fknd62.apps.googleusercontent.com">
-    <Provider store={store}>
+  <Provider store={store}>
+    <GoogleOAuthProvider clientId="844309234209-e072sos6qgabufkk0tmgv74900fknd62.apps.googleusercontent.com">
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </Provider>
-  </GoogleOAuthProvider>
+    </GoogleOAuthProvider>
+  </Provider>
+  
 );
 
 
