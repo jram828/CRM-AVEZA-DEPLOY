@@ -143,8 +143,8 @@ function App() {
           valor_pretensiones: `${valor_pretensiones}`,
         });
         window.alert("Se ha registrado el cliente con éxito.");
-        setAccess(false);
-        access && navigate("/home");
+        setAccess(true);
+        access && navigate("/litigiosporcliente");
       } catch (error) {
         window.alert("No fue posible registrar el cliente.");
       }
