@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import JSZip from "jszip";
 import Docxtemplater from "docxtemplater";
-import fs from "fs";
-import path from "path";
 
+
+const fs = require("fs");
+// const path = require("path");
+import path from "path";
 function WordToHtml() {
   const [fileData, setFileData] = useState();
   const [formData, setFormData] = useState({});
