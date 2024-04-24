@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import JSZip from "jszip";
 import Docxtemplater from "docxtemplater";
+import fs from "fs";
+import path from "path";
 
 function WordToHtml() {
   const [fileData, setFileData] = useState();
@@ -29,8 +31,7 @@ function WordToHtml() {
   const handleFormSubmit = () => {
     // Aquí aplicarías formData al archivo con docxtemplater
     // y generarías el archivo de Word modificado para descargar
-     const fs = require("fs");
-    const path = require("path");
+     
 
     // Reemplazar los marcadores de posición con los datos del input
     fileData.render({
