@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Button } from "../Mystyles";
 import "../detail/detail.css";
+import axios from "axios";
 
 const Detail = () => {
   const cliente = useSelector((state) => state.cliente);
