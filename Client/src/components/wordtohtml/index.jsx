@@ -3,9 +3,9 @@ import JSZip from "jszip";
 import Docxtemplater from "docxtemplater";
 
 
-const fs = require("fs");
+// const fs = require("fs");
 // const path = require("path");
-import path from "path";
+// import path from "path";
 function WordToHtml() {
   const [fileData, setFileData] = useState();
   const [formData, setFormData] = useState({});
@@ -47,7 +47,7 @@ function WordToHtml() {
       compression: "DEFLATE",
     });
 
-    fs.writeFileSync(path.resolve(__dirname, "CONTRATO AVEZA MODIFICADO.docx"), buf);
+    // fs.writeFileSync(path.resolve(__dirname, "CONTRATO AVEZA MODIFICADO.docx"), buf);
 
   };
 
