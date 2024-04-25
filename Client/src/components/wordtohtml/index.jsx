@@ -34,6 +34,7 @@ function WordToHtml() {
     // Aquí aplicarías formData al archivo con docxtemplater
     // y generarías el archivo de Word modificado para descargar
      
+    console.log('File data: ', fileData)
 
     // Reemplazar los marcadores de posición con los datos del input
     fileData.render({
