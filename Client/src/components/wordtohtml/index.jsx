@@ -23,20 +23,7 @@ function WordToHtml() {
     };
 
     reader.readAsBinaryString(file);
-  };
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleFormSubmit = () => {
-    // Aquí aplicarías formData al archivo con docxtemplater
-    // y generarías el archivo de Word modificado para descargar
-
-    console.log("File data: ", fileData);
-
-    // Reemplazar los marcadores de posición con los datos del input
     fileData.render({
       nombre: formData.nombre,
       apellido: "Pérez",
@@ -62,6 +49,24 @@ function WordToHtml() {
     link.download = "archivo_modificado.docx"; // Nombre del archivo
     link.textContent = "Descargar archivo modificado";
     document.body.appendChild(link);
+
+  };
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleFormSubmit = () => {
+    // Aquí aplicarías formData al archivo con docxtemplater
+    // y generarías el archivo de Word modificado para descargar
+
+    // console.log("File data: ", fileData);
+
+    // Reemplazar los marcadores de posición con los datos del input
+    
+
+   
     // fs.writeFileSync(path.resolve(__dirname, "CONTRATO AVEZA MODIFICADO.docx"), buf);
   };
 
