@@ -157,9 +157,8 @@ function WordToHtml() {
 
   const replacePlaceholders = (content) => {
     // Reemplazar los marcadores de posición con los datos ingresados
-    const modifiedContent = content
-      .replace("{{nombre}}", nombre)
-      .replace("{{apellido}}", apellido);
+    console.log('Content: ', content)
+    const modifiedContent = content.replace("{{nombre}}", nombre).replace("{{apellido}}", apellido);
 
     return modifiedContent;
   };
