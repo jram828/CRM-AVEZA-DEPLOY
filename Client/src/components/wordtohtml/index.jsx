@@ -33,8 +33,8 @@ function WordToHtml() {
   const handleFormSubmit = () => {
     // Aquí aplicarías formData al archivo con docxtemplater
     // y generarías el archivo de Word modificado para descargar
-     
-    console.log('File data: ', fileData)
+
+    console.log("File data: ", fileData);
 
     // Reemplazar los marcadores de posición con los datos del input
     fileData.render({
@@ -48,8 +48,21 @@ function WordToHtml() {
       compression: "DEFLATE",
     });
 
-    // fs.writeFileSync(path.resolve(__dirname, "CONTRATO AVEZA MODIFICADO.docx"), buf);
+    // Crea un Blob con el contenido del archivo
+    const blob = new Blob([buf], {
+      type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    });
 
+    // Crea una URL para el Blob
+    const url = URL.createObjectURL(blob);
+
+    // Crea un enlace para descargar el archivo
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "archivo_modificado.docx"; // Nombre del archivo
+    link.textContent = "Descargar archivo modificado";
+    document.body.appendChild(link);
+    // fs.writeFileSync(path.resolve(__dirname, "CONTRATO AVEZA MODIFICADO.docx"), buf);
   };
 
   return (
