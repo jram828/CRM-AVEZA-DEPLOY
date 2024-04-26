@@ -18,7 +18,7 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
     password: "",
   });
 
-  
+  const navigate = useNavigate();
 
 
   const handleChange = (e) => {
@@ -37,7 +37,8 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
   };
 
   const responseMessage = (response) => {
-    login();
+    // login();
+    navigate("/home");
     console.log(response);
   };
   const errorMessage = (error) => {
