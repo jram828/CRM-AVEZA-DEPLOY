@@ -43,9 +43,9 @@ function App() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    !access && navigate("/");
-  }, [access, navigate]);
+  // useEffect(() => {
+  //   !access && navigate("/");
+  // }, [access, navigate]);
 
   //Funcion para verificar datos de ingreso
   async function login() {
@@ -58,9 +58,10 @@ function App() {
       // );
       // console.log("Login 2:", data);
       // const { access } = data;
-      setAccess(true);
+      // setAccess(true);
 
-      access && navigate("/home");
+      // access &&
+        navigate("/home");
     } catch (error) {
       window.alert("Usuario o contraseña incorrectos");
     }
