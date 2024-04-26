@@ -45,7 +45,7 @@ function App() {
 
   useEffect(() => {
     !access && navigate("/");
-  }, [access]);
+  }, []);
 
   //Funcion para verificar datos de ingreso
   async function login() {
