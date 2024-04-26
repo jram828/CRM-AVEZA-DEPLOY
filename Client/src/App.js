@@ -39,7 +39,7 @@ axios.defaults.baseURL = "https://crm-aveza-postgre.onrender.com/crmAveza";
 
 function App() {
 
-  const [access, setAccess] = useState(false);
+  // const [access, setAccess] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -98,8 +98,9 @@ function App() {
         tipo_usuario: `${tipo_usuario}`,
       });
       window.alert("Usuario creado con éxito.");
-      setAccess(false);
-      access && navigate("/");
+      // setAccess(false);
+      // access &&
+        navigate("/");
     } catch (error) {
       window.alert("No fue posible crear el usuario.");
     }
@@ -145,8 +146,9 @@ function App() {
           valor_pretensiones: `${valor_pretensiones}`,
         });
         window.alert("Se ha registrado el cliente con éxito.");
-        setAccess(true);
-        access && navigate("/litigiosporcliente");
+        // setAccess(true);
+        // access &&
+          navigate("/litigiosporcliente");
       } catch (error) {
         window.alert("No fue posible registrar el cliente.");
       }
@@ -154,7 +156,7 @@ function App() {
 
   const logout = () => {
     alert("Ha salido exitosamente");
-    setAccess(false);
+    // setAccess(false);
     navigate("/");
   };
 
@@ -187,7 +189,7 @@ function App() {
   //Acceder al modulo de crear usuario
   const clickHandlerCrear = (e) => {
     e.preventDefault();
-    setAccess(true);
+    // setAccess(true);
     navigate("/crearusuario");
   };
 
@@ -199,7 +201,7 @@ function App() {
   //Acceder al modulo de recordar contraseñas
   const clickHandlerRecordatorio = (e) => {
     e.preventDefault();
-    setAccess(true);
+    // setAccess(true);
 
     navigate("/recordatoriocontrasena");
   };
