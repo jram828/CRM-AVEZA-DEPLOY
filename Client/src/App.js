@@ -43,9 +43,9 @@ function App() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // useEffect(() => {
+  useEffect(() => {
     !access && navigate("/");
-  // }, [access]);
+  }, [access]);
 
   //Funcion para verificar datos de ingreso
   async function login() {
