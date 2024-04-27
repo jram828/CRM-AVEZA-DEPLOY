@@ -8,6 +8,7 @@ export const ORDER_CARDS = 'ORDER_CARDS';
 export const GET_CLIENTE_BY_CEDULA = "GET_CLIENTE_BY_CEDULA";
 export const GET_CLIENTES = "GET_CLIENTES"
 export const SET_CLIENTE = "SET_CLIENTE";
+export const SET_AUTHENTICATED = "SET_AUTHENTICATED";
 
 export const addFav = (character) => {
   
@@ -44,6 +45,14 @@ export const clienteActual = (cliente) => {
   return {
     type: SET_CLIENTE,
     payload: cliente,
+  };
+};
+
+export const setAuth = (auth) => {
+  console.log("Verificar autenticacion:", auth);
+  return {
+    type: SET_AUTHENTICATED,
+    payload: auth,
   };
 };
 

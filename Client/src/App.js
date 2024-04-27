@@ -30,6 +30,7 @@ import { codigoPaises } from "./utils/codigoPaises";
 import { codigoCiudades } from "./utils/codigoCiudades";
 import { codigoDepartamentos } from "./utils/codigoDepartamentos";
 import WordToHtml from "./components/wordtohtml";
+import PrivateRoute from "./components/privateroute";
 
 // export const URL = "http://localhost:3001/crmAveza/";
 
@@ -249,7 +250,7 @@ function App() {
         <Route path="/contrato" element={<Contrato />} />
         <Route path="/previsualizarcontrato" element={<PrevisualizarContrato />}/>
         <Route path="/litigiosporcliente" element={<LitigiosPorCliente />} />
-        <Route path="/conocimientodelitigios" element={<ConocimientoDeLitigios />}/>
+        <PrivateRoute path="/conocimientodelitigios" element={<ConocimientoDeLitigios />} />
       </Routes>
 
     </div>

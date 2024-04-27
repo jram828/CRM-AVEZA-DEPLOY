@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
 import logo from "../../img/logoAveza.png";
 import { GoogleLogin } from "@react-oauth/google";
+import { useDispatch } from "react-redux";
+import { setAuth } from "../../redux/actions";
 
 const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
   const [userData, setUserData] = useState({
@@ -18,6 +20,9 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
     password: "",
   });
 
+  const dispatch = useDispatch();
+  
+  
   const navigate = useNavigate();
 
 
@@ -37,6 +42,10 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
   };
 
   const responseMessage = (response) => {
+
+
+      dispatch(setAuth(true));
+
     login();
     // navigate("/home");
     console.log(response);

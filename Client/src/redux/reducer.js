@@ -1,9 +1,10 @@
-import { ADD_FAV, FILTER_CARDS, GET_CLIENTES, GET_CLIENTE_BY_CEDULA, ORDER_CARDS, REMOVE_FAV, SET_CLIENTE } from "./actions";
+import { ADD_FAV, FILTER_CARDS, GET_CLIENTES, GET_CLIENTE_BY_CEDULA, ORDER_CARDS, REMOVE_FAV, SET_CLIENTE,SET_AUTHENTICATED } from "./actions";
 
 let initialState = {
-  cliente:{},
-  clientes: []
-  };
+  cliente: {},
+  clientes: [],
+  isAuthenticated:false,
+};
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -68,7 +69,12 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         cliente: action.payload,
       };
-    
+    case SET_AUTHENTICATED:
+      return {
+        ...state,
+        isAuthenticated: action.payload,
+      };
+
     default:
       return state;
   }
