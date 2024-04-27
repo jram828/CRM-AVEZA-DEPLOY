@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { saveAs } from "file-saver"; 
 import JSZip from "jszip";
 import Docxtemplater from "docxtemplater";
 
@@ -126,7 +127,7 @@ function WordToHtml() {
     setFile(selectedFile);
   };
 
-  const handleDownload = () => {
+  const handleModify = () => {
     if (!file) return;
 
     // Leer el archivo .docx (puedes usar FileReader o cualquier otra forma)
@@ -134,33 +135,22 @@ function WordToHtml() {
     reader.onload = (event) => {
       const fileContent = event.target.result;
 
-      // Modificar el archivo con los datos ingresados
-      const modifiedContent = replacePlaceholders(fileContent);
+      // Reemplazar los marcadores de posición con los datos ingresados
+      const modifiedContent = fileContent
+        .replace("{{nombre}}", nombre)
+        .replace("{{apellido}}", apellido);
 
       // Crear un Blob con el contenido modificado
       const blob = new Blob([modifiedContent], {
         type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
       });
 
-      // Crear una URL para el Blob
+      // Renderizar el archivo modificado (opcional)
       const url = URL.createObjectURL(blob);
-
-      // Crear un enlace para descargar el archivo
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = "archivo_modificado.docx"; // Nombre del archivo
-      link.click();
+      window.open(url, "_blank");
     };
 
     reader.readAsArrayBuffer(file);
-  };
-
-  const replacePlaceholders = (content) => {
-    // Reemplazar los marcadores de posición con los datos ingresados
-    console.log('Content: ', content)
-    const modifiedContent = content.replace("{{nombre}}", nombre).replace("{{apellido}}", apellido);
-
-    return modifiedContent;
   };
 
   return (
@@ -178,7 +168,7 @@ function WordToHtml() {
         value={apellido}
         onChange={(e) => setApellido(e.target.value)}
       />
-      <button onClick={handleDownload}>Descargar archivo modificado</button>
+      <button onClick={handleModify}>Modificar y Renderizar</button>
     </div>
   );
 }
