@@ -40,7 +40,7 @@ const Nav = ({logout }) => {
       {/* <Link to="/generarfactura">
         <Button>Generar Factura</Button>
       </Link> */}
-      <Link to="/home" onClick={logout}>
+      <Link to="/" onClick={logout}>
         <Button>Cerrar Sesión</Button>
       </Link>
     </div>
