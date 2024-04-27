@@ -251,7 +251,9 @@ function App() {
         <Route path="/contrato" element={<Contrato />} />
         <Route path="/previsualizarcontrato" element={<PrevisualizarContrato />}/>
         <Route path="/litigiosporcliente" element={<LitigiosPorCliente />} />
-        {isAuthenticated ?<Route path="/conocimientodelitigios" element={<ConocimientoDeLitigios />} />: <Navigate to="/" />}
+        {isAuthenticated ? <Route path="/conocimientodelitigios" element={<ConocimientoDeLitigios />} /> : <Route path="/conocimientodelitigios" element={<Form login={login}
+          clickHandlerRecordatorio={clickHandlerRecordatorio}
+          clickHandlerCrear={clickHandlerCrear} />} />}
       </Routes>
 
     </div>
