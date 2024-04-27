@@ -233,73 +233,71 @@ function App() {
               clickHandlerRecordatorio={clickHandlerRecordatorio}
               clickHandlerCrear={clickHandlerCrear} />} />
         <Route path="/crearusuario" element={<CrearUsuario crearUsuario={crearUsuario} />}/>
-        {isAuthenticated ? <Route path="/generarfactura" element={<WordToHtml />} /> : <Route path="/conocimientodelitigios" element={<Form login={login}
+        {isAuthenticated ? <Route path="/generarfactura" element={<WordToHtml />} /> : <Route path="/generarfactura" element={<Form login={login}
           clickHandlerRecordatorio={clickHandlerRecordatorio}
           clickHandlerCrear={clickHandlerCrear} />} />}
         
-        {isAuthenticated ? <Route path="/generar" element={<GenerarFactura />} />: <Route path="/conocimientodelitigios" element={<Form login={login}
+        {isAuthenticated ? <Route path="/generar" element={<GenerarFactura />} />: <Route path="/generar" element={<Form login={login}
           clickHandlerRecordatorio={clickHandlerRecordatorio}
           clickHandlerCrear={clickHandlerCrear} />} />}
         
-        {isAuthenticated ? <Route path="/cotizacion" element={<Cotizacion />} />: <Route path="/conocimientodelitigios" element={<Form login={login}
+        {isAuthenticated ? <Route path="/cotizacion" element={<Cotizacion />} />: <Route path="/cotizacion" element={<Form login={login}
           clickHandlerRecordatorio={clickHandlerRecordatorio}
           clickHandlerCrear={clickHandlerCrear} />} />}
         
-        {isAuthenticated ? <Route path="/autorizacion" element={<Autorizacion />} />: <Route path="/conocimientodelitigios" element={<Form login={login}
+        {isAuthenticated ? <Route path="/autorizacion" element={<Autorizacion />} />: <Route path="/autorizacion" element={<Form login={login}
           clickHandlerRecordatorio={clickHandlerRecordatorio}
           clickHandlerCrear={clickHandlerCrear} />} />}
         
-        {isAuthenticated ? <Route path="/poder" element={<Poder />} />: <Route path="/conocimientodelitigios" element={<Form login={login}
+        {isAuthenticated ? <Route path="/poder" element={<Poder />} />: <Route path="/poder" element={<Form login={login}
           clickHandlerRecordatorio={clickHandlerRecordatorio}
           clickHandlerCrear={clickHandlerCrear} />} />}
         
-        {isAuthenticated ? <Route path="/PDF" element={<PDF />} />: <Route path="/conocimientodelitigios" element={<Form login={login}
+        {isAuthenticated ? <Route path="/PDF" element={<PDF />} />: <Route path="/PDF" element={<Form login={login}
           clickHandlerRecordatorio={clickHandlerRecordatorio}
           clickHandlerCrear={clickHandlerCrear} />} />}
         
-        {isAuthenticated ? <Route path="/insolvencia" element={<Insolvencia />} />: <Route path="/conocimientodelitigios" element={<Form login={login}
+        {isAuthenticated ? <Route path="/insolvencia" element={<Insolvencia />} />: <Route path="/insolvencia" element={<Form login={login}
           clickHandlerRecordatorio={clickHandlerRecordatorio}
           clickHandlerCrear={clickHandlerCrear} />} />}
         
         {isAuthenticated ? <Route path="/registrocliente" element={<RegistroCliente
-          registroCliente={registroCliente} />}/>: <Route path="/conocimientodelitigios" element={<Form login={login}
+          registroCliente={registroCliente} />}/>: <Route path="/registrocliente" element={<Form login={login}
           clickHandlerRecordatorio={clickHandlerRecordatorio}
           clickHandlerCrear={clickHandlerCrear} />} />}
         
         {isAuthenticated ? <Route path="/detail" element={<Detail />} />
-          : <Route path="/conocimientodelitigios" element={<Form login={login}
+          : <Route path="/detail" element={<Form login={login}
           clickHandlerRecordatorio={clickHandlerRecordatorio}
             clickHandlerCrear={clickHandlerCrear} />} />}
         
-        {isAuthenticated ? <Route path="/previsualizarcontrato" element={<PrevisualizarContrato />}/>: <Route path="/conocimientodelitigios" element={<Form login={login}
+        {isAuthenticated ? <Route path="/previsualizarcontrato" element={<PrevisualizarContrato />}/>: <Route path="/previsualizarcontrato" element={<Form login={login}
           clickHandlerRecordatorio={clickHandlerRecordatorio}
           clickHandlerCrear={clickHandlerCrear} />} />}
         
-        {isAuthenticated ? <Route path="/configurarrecordatorios" element={<ConfigurarRecordatorios />}/>: <Route path="/conocimientodelitigios" element={<Form login={login}
+        {isAuthenticated ? <Route path="/configurarrecordatorios" element={<ConfigurarRecordatorios />}/>: <Route path="/configurarrecordatorios" element={<Form login={login}
           clickHandlerRecordatorio={clickHandlerRecordatorio}
           clickHandlerCrear={clickHandlerCrear} />} />}
         
-        {isAuthenticated ? <Route path="/agendarcitas" element={<AgendarCitas />} />: <Route path="/conocimientodelitigios" element={<Form login={login}
+        {isAuthenticated ? <Route path="/agendarcitas" element={<AgendarCitas />} />: <Route path="/agendarcitas" element={<Form login={login}
           clickHandlerRecordatorio={clickHandlerRecordatorio}
           clickHandlerCrear={clickHandlerCrear} />} />}
         
-        {isAuthenticated ? <Route path="/recordatoriocontrasena" element={<RecordatorioContrasena />}/>: <Route path="/conocimientodelitigios" element={<Form login={login}
+        <Route path="/recordatoriocontrasena" element={<RecordatorioContrasena />}/>
+        
+        {isAuthenticated ? <Route path="/documentoslegales" element={<DocumentosLegales />} />: <Route path="/documentoslegales" element={<Form login={login}
           clickHandlerRecordatorio={clickHandlerRecordatorio}
           clickHandlerCrear={clickHandlerCrear} />} />}
         
-        {isAuthenticated ? <Route path="/documentoslegales" element={<DocumentosLegales />} />: <Route path="/conocimientodelitigios" element={<Form login={login}
+        {isAuthenticated ? <Route path="/contrato" element={<Contrato />} />: <Route path="/contrato" element={<Form login={login}
           clickHandlerRecordatorio={clickHandlerRecordatorio}
           clickHandlerCrear={clickHandlerCrear} />} />}
         
-        {isAuthenticated ? <Route path="/contrato" element={<Contrato />} />: <Route path="/conocimientodelitigios" element={<Form login={login}
+        {isAuthenticated ? <Route path="/previsualizarcontrato" element={<PrevisualizarContrato />}/>: <Route path="/previsualizarcontrato" element={<Form login={login}
           clickHandlerRecordatorio={clickHandlerRecordatorio}
           clickHandlerCrear={clickHandlerCrear} />} />}
         
-        {isAuthenticated ? <Route path="/previsualizarcontrato" element={<PrevisualizarContrato />}/>: <Route path="/conocimientodelitigios" element={<Form login={login}
-          clickHandlerRecordatorio={clickHandlerRecordatorio}
-          clickHandlerCrear={clickHandlerCrear} />} />}
-        
-        {isAuthenticated ? <Route path="/litigiosporcliente" element={<LitigiosPorCliente />} />: <Route path="/conocimientodelitigios" element={<Form login={login}
+        {isAuthenticated ? <Route path="/litigiosporcliente" element={<LitigiosPorCliente />} />: <Route path="/litigiosporcliente" element={<Form login={login}
           clickHandlerRecordatorio={clickHandlerRecordatorio}
           clickHandlerCrear={clickHandlerCrear} />} />}
         
