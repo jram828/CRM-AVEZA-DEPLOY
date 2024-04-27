@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import JSZip from "jszip";
 import Docxtemplater from "docxtemplater";
-
+import PizZip from "PizZip"
 
 // const fs = require("fs");
 // const path = require("path");
@@ -117,71 +117,60 @@ import Docxtemplater from "docxtemplater";
 // fs.writeFileSync(path.resolve(__dirname, "output.docx"), buf);
 
 function WordToHtml() {
-  const [file, setFile] = useState(null);
-  const [nombre, setNombre] = useState("");
-  const [apellido, setApellido] = useState("");
+    const [file, setFile] = useState(null);
+  const [nombre, setNombre] = useState('');
+  const [apellido, setApellido] = useState('');
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     setFile(selectedFile);
   };
 
-  const handleModify = () => {
-    if (!file) return;
+  const handleNombreChange = (e) => {
+    setNombre(e.target.value);
+  };
 
-    // Leer el archivo .docx (puedes usar FileReader o cualquier otra forma)
+  const handleApellidoChange = (e) => {
+    setApellido(e.target.value);
+  };
+
+  const handleGenerateDocx = () => {
+    if (!file) {
+      console.log('Por favor selecciona un archivo .docx');
+      return;
+    }
+
     const reader = new FileReader();
     reader.onload = (event) => {
-      const fileContent = event.target.result;
+      const content = event.target.result;
+      const zip = new JSZip(content);
+      const doc = new Docxtemplater(zip);
 
-      // Crear un objeto docxtemplater
-      const doc = new Docxtemplater();
-      doc.loadZip(fileContent);
-
-      // Definir los datos a reemplazar
-      const data = {
+      doc.setData({
         nombre,
         apellido,
-      };
-
-      // Reemplazar los marcadores de posición con los datos
-      doc.setData(data);
-      doc.render();
-
-      // Obtener el archivo modificado
-      const modifiedFileContent = doc.getZip().generate({ type: "nodebuffer" });
-
-      // Crear un Blob con el contenido modificado
-      const blob = new Blob([modifiedFileContent], {
-        type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
       });
 
-      // Renderizar el archivo modificado (opcional)
-      const url = URL.createObjectURL(blob);
-      window.open(url, "_blank");
+      try {
+        doc.render();
+        const updatedContent = doc.getZip().generate({ type: 'blob' });
+        const url = URL.createObjectURL(updatedContent);
+        window.open(url);
+      } catch (error) {
+        console.error('Error al renderizar el documento:', error);
+      }
     };
 
-    reader.readAsArrayBuffer(file);
+    reader.readAsBinaryString(file);
   };
 
   return (
     <div>
-      <input type="file" onChange={handleFileChange} />
-      <input
-        type="text"
-        placeholder="Nombre"
-        value={nombre}
-        onChange={(e) => setNombre(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Apellido"
-        value={apellido}
-        onChange={(e) => setApellido(e.target.value)}
-      />
-      <button onClick={handleModify}>Modificar y Renderizar</button>
+      <input type="file" onChange={handleFileChange} accept=".docx" />
+      <input type="text" placeholder="Nombre" value={nombre} onChange={handleNombreChange} />
+      <input type="text" placeholder="Apellido" value={apellido} onChange={handleApellidoChange} />
+      <button onClick={handleGenerateDocx}>Generar y Descargar</button>
     </div>
   );
-}
-
+};
 export default WordToHtml;
