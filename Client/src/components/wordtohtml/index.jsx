@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import JSZip from "jszip";
 import Docxtemplater from "docxtemplater";
-import PizZip from "PizZip"
+// import PizZip from "PizZip"
 
 // const fs = require("fs");
 // const path = require("path");
