@@ -15,6 +15,7 @@
     "axios": "^1.6.7",
     "docxtemplater": "^3.47.0",
     "dom": "^0.0.3",
+    "file-saver": "^2.0.5",
     "html2canvas": "^1.4.1",
     "html2pdf": "^0.0.11",
     "jest-dom": "^4.0.0",
