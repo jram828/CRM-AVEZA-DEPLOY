@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 // import Cards from "./components/cards";
 import Nav from "./components/nav";
-import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { Routes, Route, useLocation, useNavigate, Navigate } from "react-router-dom";
 import PrevisualizarContrato from "./components/previsualizarcontrato";
 import Detail from "./components/detail";
 import Form from "./components/login";
@@ -251,7 +251,7 @@ function App() {
         <Route path="/contrato" element={<Contrato />} />
         <Route path="/previsualizarcontrato" element={<PrevisualizarContrato />}/>
         <Route path="/litigiosporcliente" element={<LitigiosPorCliente />} />
-        {isAuthenticated ?<Route path="/conocimientodelitigios" element={<ConocimientoDeLitigios />} />: navigate("/")}
+        {isAuthenticated ?<Route path="/conocimientodelitigios" element={<ConocimientoDeLitigios />} />: <Navigate to="/" />}
       </Routes>
 
     </div>
