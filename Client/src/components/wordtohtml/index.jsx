@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { saveAs } from "file-saver"; 
 import JSZip from "jszip";
 import Docxtemplater from "docxtemplater";
 
@@ -135,13 +134,25 @@ function WordToHtml() {
     reader.onload = (event) => {
       const fileContent = event.target.result;
 
-      // Reemplazar los marcadores de posición con los datos ingresados
-      const modifiedContent = fileContent
-        .replace("{{nombre}}", nombre)
-        .replace("{{apellido}}", apellido);
+      // Crear un objeto docxtemplater
+      const doc = new Docxtemplater();
+      doc.loadZip(fileContent);
+
+      // Definir los datos a reemplazar
+      const data = {
+        nombre,
+        apellido,
+      };
+
+      // Reemplazar los marcadores de posición con los datos
+      doc.setData(data);
+      doc.render();
+
+      // Obtener el archivo modificado
+      const modifiedFileContent = doc.getZip().generate({ type: "nodebuffer" });
 
       // Crear un Blob con el contenido modificado
-      const blob = new Blob([modifiedContent], {
+      const blob = new Blob([modifiedFileContent], {
         type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
       });
 
