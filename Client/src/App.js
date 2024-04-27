@@ -43,7 +43,7 @@ function App() {
   const [access, setAccess] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-
+  const isAuthenticated = useSelector((state) => state.isAuthenticated);
   // useEffect(() => {
   //   !access && navigate("/");
   // }, []);
@@ -250,7 +250,7 @@ function App() {
         <Route path="/contrato" element={<Contrato />} />
         <Route path="/previsualizarcontrato" element={<PrevisualizarContrato />}/>
         <Route path="/litigiosporcliente" element={<LitigiosPorCliente />} />
-        <PrivateRoute path="/conocimientodelitigios" element={<ConocimientoDeLitigios />} />
+        {isAuthenticated ?<Route path="/conocimientodelitigios" element={<ConocimientoDeLitigios />} />: navigate("/")}
       </Routes>
 
     </div>
