@@ -30,7 +30,7 @@ import { codigoPaises } from "./utils/codigoPaises";
 import { codigoCiudades } from "./utils/codigoCiudades";
 import { codigoDepartamentos } from "./utils/codigoDepartamentos";
 import WordToHtml from "./components/wordtohtml";
-import PrivateRoute from "./components/privateroute";
+import {PrivateRoute} from "./components/privateroute";
 
 // export const URL = "http://localhost:3001/crmAveza/";
 
