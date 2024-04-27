@@ -31,6 +31,7 @@ import { codigoCiudades } from "./utils/codigoCiudades";
 import { codigoDepartamentos } from "./utils/codigoDepartamentos";
 import WordToHtml from "./components/wordtohtml";
 import {PrivateRoute} from "./components/privateroute";
+import { useSelector } from "react-redux";
 
 // export const URL = "http://localhost:3001/crmAveza/";
 
