@@ -176,6 +176,8 @@ function WordToHtml() {
          // For a 50MB output document, expect 500ms additional CPU time
          compression: "DEFLATE",
        });
+
+       console.log('Blob:',blob)
        // Output the document using Data-URI
        saveAs(blob, "output.docx");
      };
