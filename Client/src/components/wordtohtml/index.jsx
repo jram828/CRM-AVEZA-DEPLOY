@@ -95,7 +95,7 @@ import Docxtemplater from "docxtemplater";
 //   "binary"
 // );
 
-// const zip = new PizZip(content);
+// const zip = new(content);
 // const doc = new Docxtemplater(zip, {
 //   paragraphLoop: true,
 //   linebreaks: true,
@@ -140,28 +140,46 @@ function WordToHtml() {
       return;
     }
 
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const content = event.target.result;
-      const zip = new JSZip(content);
-      const doc = new Docxtemplater(zip);
+   const docs = document.getElementById("doc");
+   window.generate = function generate() {
+     const reader = new FileReader();
+     if (docs.files.length === 0) {
+       alert("No files selected");
+     }
+     reader.readAsBinaryString(docs.files.item(0));
 
-      doc.setData({
-        nombre,
-        apellido,
-      });
+     reader.onerror = function (evt) {
+       console.log("error reading file", evt);
+       alert("error reading file" + evt);
+     };
+     reader.onload = function (evt) {
+       const content = evt.target.result;
+       const zip = new PizZip(content);
+       const doc = new window.docxtemplater(zip, {
+         paragraphLoop: true,
+         linebreaks: true,
+       });
 
-      try {
-        doc.render();
-        const updatedContent = doc.getZip().generate({ type: 'blob' });
-        const url = URL.createObjectURL(updatedContent);
-        window.open(url);
-      } catch (error) {
-        console.error('Error al renderizar el documento:', error);
-      }
-    };
+       // Render the document (Replace {first_name} by John, {last_name} by Doe, ...)
+       doc.render({
+         nombre: "John",
+         apellidos: "Doe",
+         phone: "0652455478",
+         description: "New Website",
+       });
 
-    reader.readAsBinaryString(file);
+       const blob = doc.getZip().generate({
+         type: "blob",
+         mimeType:
+           "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+         // compression: DEFLATE adds a compression step.
+         // For a 50MB output document, expect 500ms additional CPU time
+         compression: "DEFLATE",
+       });
+       // Output the document using Data-URI
+       saveAs(blob, "output.docx");
+     };
+   };
   };
 
   return (
@@ -174,3 +192,5 @@ function WordToHtml() {
   );
 };
 export default WordToHtml;
+
+
