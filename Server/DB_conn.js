@@ -14,9 +14,7 @@ const CitaModel = require("./models/Cita");
 const DocumentosLegalesModel = require("./models/DocumentosLegales");
 const FacturaModel = require("./models/Factura");
 const CasoModel = require("./models/Caso");
-// EJERCICIO 03
-// A la instancia de Sequelize le falta la URL de conexión. ¡Agrégala!
-// Recuerda pasarle la información de tu archivo '.env'.
+
 console.log("Datos conexion Postgre");
 // URL ----> postgres://DB_USER:DB_PASSWORD@DB_HOST/rickandmorty
 // const sequelize = new Sequelize(
@@ -33,8 +31,7 @@ const sequelize = new Sequelize(DB_DEPLOY, {
     },
   },
 });
-// EJERCICIO 05
-// Debajo de este comentario puedes ejecutar la función de los modelos.
+
 UsuarioModel(sequelize);
 ClienteModel(sequelize);
 PaisModel(sequelize);

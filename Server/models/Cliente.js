@@ -9,13 +9,10 @@ module.exports = (sequelize) => {
         allowNull: false,
         primaryKey: true,
       },
-      // password: { type: DataTypes.STRING, allowNull: false },
       email: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      // tipo_usuario: { type: DataTypes.STRING, allowNull: false },
-      // tipo_de_caso: { type: DataTypes.STRING, allowNull: true },
       nombres: { type: DataTypes.STRING, allowNull: false },
       apellidos: { type: DataTypes.STRING, allowNull: false },
       direccion: { type: DataTypes.STRING, allowNull: false },

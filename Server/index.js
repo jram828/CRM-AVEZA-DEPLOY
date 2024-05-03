@@ -1,5 +1,4 @@
 const express = require("express");
-// const mySql = require('mysql');
 const router = require("../Server/routes/clientes.route");
 const server = express();
 const PORT = 3001;
@@ -18,13 +17,8 @@ server.use((req, res, next) => {
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
   next();
 });
-
 server.use(express.json());
 server.use("/crmAveza", router);
-
-// server.listen(PORT, () => {
-//   console.log("Server en puerto: " + PORT);
-// });
 
 conn.sync({ alter:true}).then(() => {
   server.listen(PORT, () => {
