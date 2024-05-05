@@ -46,12 +46,13 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
 
       dispatch(setAuth(true));
 
-    login();
-    // navigate("/home");
+    // login();
+    navigate("/home");
     console.log(response);
   };
   const errorMessage = (error) => {
     console.log(error);
+    window.alert("Usuario o contraseña incorrectos");
   };
 
   return (
