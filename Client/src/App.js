@@ -233,11 +233,11 @@ function App() {
               clickHandlerRecordatorio={clickHandlerRecordatorio}
               clickHandlerCrear={clickHandlerCrear} />} />
         <Route path="/crearusuario" element={<CrearUsuario crearUsuario={crearUsuario} />}/>
-        {isAuthenticated ? <Route path="/generarfactura" element={<WordToHtml />} /> : <Route path="/generarfactura" element={<Form login={login}
+        {isAuthenticated ? <Route path="/generar" element={<WordToHtml />} /> : <Route path="/generar" element={<Form login={login}
           clickHandlerRecordatorio={clickHandlerRecordatorio}
           clickHandlerCrear={clickHandlerCrear} />} />}
         
-        {isAuthenticated ? <Route path="/generar" element={<GenerarFactura />} />: <Route path="/generar" element={<Form login={login}
+        {isAuthenticated ? <Route path="/generarfactura" element={<GenerarFactura />} />: <Route path="/generarfactura" element={<Form login={login}
           clickHandlerRecordatorio={clickHandlerRecordatorio}
           clickHandlerCrear={clickHandlerCrear} />} />}
         
