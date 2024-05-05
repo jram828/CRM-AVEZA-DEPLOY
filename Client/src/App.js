@@ -50,7 +50,7 @@ function App() {
   // }, []);
 
   //Funcion para verificar datos de ingreso
-  async function login() {
+  async function login(userData) {
     const { cedula, password } = userData;
     const URL = "/login";
     console.log("Datos login:", { cedula, password });
