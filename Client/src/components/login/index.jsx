@@ -71,7 +71,7 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
             <td></td>
             <td></td>
           </tr>
-          {/* <tr>
+          <tr>
             <td></td>
             <td>
               <label htmlFor="usuario" className="label">
@@ -191,7 +191,7 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
               </Link>
             </td>
             <td></td>
-          </tr> */}
+          </tr>
         </table>
       </form>
       <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
