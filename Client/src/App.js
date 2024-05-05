@@ -31,7 +31,7 @@ import { codigoCiudades } from "./utils/codigoCiudades";
 import { codigoDepartamentos } from "./utils/codigoDepartamentos";
 import WordToHtml from "./components/wordtohtml";
 import {PrivateRoute} from "./components/privateroute";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 // export const URL = "http://localhost:3001/crmAveza/";
 
@@ -44,6 +44,7 @@ function App() {
   const [access, setAccess] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.isAuthenticated);
   // useEffect(() => {
   //   !access && navigate("/");
@@ -60,9 +61,9 @@ function App() {
       );
       console.log("Login 2:", data);
       const { access } = data;
-      setAccess(true);
-
-      access && navigate("/home");
+      // setAccess(true);
+      dispatch(setAuth(data));
+      navigate("/home");
     } catch (error) {
       window.alert("Usuario o contraseña incorrectos");
     }
