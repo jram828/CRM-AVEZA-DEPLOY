@@ -55,7 +55,7 @@ function App() {
     // const { cedula, password } = userData;
     // const URL = "/login";
     // console.log("Datos login:", { cedula, password });
-    // try {
+    try {
     //   const { data } = await axios(
     //     URL + `?cedula=${cedula}&password=${password}`
     //   );
