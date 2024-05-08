@@ -52,17 +52,17 @@ function App() {
 
   //Funcion para verificar datos de ingreso
   async function login(userData) {
-    const { cedula, password } = userData;
-    const URL = "/login";
-    console.log("Datos login:", { cedula, password });
-    try {
-      const { data } = await axios(
-        URL + `?cedula=${cedula}&password=${password}`
-      );
-      console.log("Login 2:", data);
-      const { access } = data;
+    // const { cedula, password } = userData;
+    // const URL = "/login";
+    // console.log("Datos login:", { cedula, password });
+    // try {
+    //   const { data } = await axios(
+    //     URL + `?cedula=${cedula}&password=${password}`
+    //   );
+    //   console.log("Login 2:", data);
+    //   const { access } = data;
       // setAccess(true);
-      dispatch(setAuth(access));
+      dispatch(setAuth(true));
       navigate("/home");
     } catch (error) {
       window.alert("Usuario o contraseña incorrectos");
