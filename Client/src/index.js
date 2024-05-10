@@ -11,14 +11,21 @@ const container = document.getElementById("root");
 const root = createRoot(container);
 
 root.render(
-  <GoogleOAuthProvider clientId="844309234209-e072sos6qgabufkk0tmgv74900fknd62.apps.googleusercontent.com">
+  // <GoogleOAuthProvider clientId="844309234209-e072sos6qgabufkk0tmgv74900fknd62.apps.googleusercontent.com">
+  <Auth0Provider
+    domain="https://crm-aveza-prueba.vercel.app"
+    clientId="4wGkjRgEWRfdFNtdeAg48PWXFIsIuq2j"
+    authorizationParams={{
+      redirect_uri: "https://crm-aveza-prueba.vercel.app/home",
+    }}
+  >
     <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </Provider>
-  </GoogleOAuthProvider>
-  
+  </Auth0Provider>
+  // </GoogleOAuthProvider>
 );
 
 
