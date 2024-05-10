@@ -32,6 +32,7 @@ import { codigoDepartamentos } from "./utils/codigoDepartamentos";
 import WordToHtml from "./components/wordtohtml";
 import {PrivateRoute} from "./components/privateroute";
 import { useDispatch, useSelector } from "react-redux";
+import { setAuth } from "./redux/actions";
 
 // export const URL = "http://localhost:3001/crmAveza/";
 
@@ -61,7 +62,7 @@ function App() {
       );
       console.log("Login 2:", data);
       const { access } = data;
-      // setAccess(true);
+     setAccess(access);
       dispatch(setAuth(true));
       navigate("/home");
     } catch (error) {
