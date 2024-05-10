@@ -8,6 +8,7 @@ import logo from "../../img/logoAveza.png";
 import { GoogleLogin } from "@react-oauth/google";
 import { useDispatch } from "react-redux";
 import { setAuth } from "../../redux/actions";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
   const [userData, setUserData] = useState({
@@ -54,6 +55,12 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
     console.log(error);
     window.alert("Usuario o contraseña incorrectos");
   };
+
+
+
+
+
+  const { loginWithRedirect } = useAuth0();
 
   return (
     <div className="containerLogin">
@@ -196,6 +203,7 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
         </table>
       </form>
       <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
+      <button onClick={() => loginWithRedirect()}>Log In</button>;
     </div>
   );
 };
