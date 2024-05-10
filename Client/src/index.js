@@ -13,7 +13,7 @@ const root = createRoot(container);
 root.render(
   // <GoogleOAuthProvider clientId="844309234209-e072sos6qgabufkk0tmgv74900fknd62.apps.googleusercontent.com">
   <Auth0Provider
-    domain="https://crm-aveza-prueba.vercel.app"
+    domain="dev-775klnkxc5s72nhv.us.auth0.com"
     clientId="4wGkjRgEWRfdFNtdeAg48PWXFIsIuq2j"
     authorizationParams={{
       redirect_uri: window.location.origin,
