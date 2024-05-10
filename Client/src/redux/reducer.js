@@ -3,7 +3,7 @@ import { ADD_FAV, FILTER_CARDS, GET_CLIENTES, GET_CLIENTE_BY_CEDULA, ORDER_CARDS
 let initialState = {
   cliente: {},
   clientes: [],
-  isAuthenticated:false,
+  isAuthenticated:true,
 };
 
 const rootReducer = (state = initialState, action) => {
