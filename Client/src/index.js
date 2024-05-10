@@ -16,7 +16,7 @@ root.render(
     domain="https://crm-aveza-prueba.vercel.app"
     clientId="4wGkjRgEWRfdFNtdeAg48PWXFIsIuq2j"
     authorizationParams={{
-      redirect_uri: "https://crm-aveza-prueba.vercel.app/home",
+      redirect_uri: window.location.origin,
     }}
   >
     <Provider store={store}>
