@@ -5,7 +5,7 @@ import "./login.css";
 import { Link } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
 import logo from "../../img/logoAveza.png";
-// import { GoogleLogin } from "@react-oauth/google";
+import { GoogleLogin } from "@react-oauth/google";
 import { useDispatch } from "react-redux";
 import { setAuth } from "../../redux/actions";
 import { useAuth0 } from "@auth0/auth0-react";
