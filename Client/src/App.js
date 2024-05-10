@@ -56,11 +56,11 @@ function App() {
     const URL = "/login";
     console.log("Datos login:", { cedula, password });
     try {
-    //   const { data } = await axios(
-    //     URL + `?cedula=${cedula}&password=${password}`
-    //   );
-    //   console.log("Login 2:", data);
-    //   const { access } = data;
+      const { data } = await axios(
+        URL + `?cedula=${cedula}&password=${password}`
+      );
+      console.log("Login 2:", data);
+      const { access } = data;
       // setAccess(true);
       dispatch(setAuth(true));
       navigate("/home");
