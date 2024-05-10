@@ -60,11 +60,10 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
 
 
 
-  const { loginWithRedirect } = useAuth0();
+  // const { loginWithRedirect } = useAuth0();
 
   return (
     <div className="containerLogin">
-      {/* <GoogleLogin onSuccess={responseMessage} onError={errorMessage} /> */}
       <form onSubmit={submitHandler}>
         <table>
           <tr>
@@ -202,8 +201,8 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
           </tr>
         </table>
       </form>
-      {/* <GoogleLogin onSuccess={responseMessage} onError={errorMessage} /> */}
-      <button onClick={() => loginWithRedirect()}>Log In</button>;
+      <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
+      {/* <button onClick={() => loginWithRedirect()}>Log In</button> */}
     </div>
   );
 };
