@@ -34,9 +34,9 @@ function AgendarCitas() {
 
    console.log("casos", casos);
 
-   useEffect(() => {
-     dispatch(getCasos());
-   }, [dispatch]);
+  //  useEffect(() => {
+  //    dispatch(getCasos());
+  //  }, [dispatch]);
 
    const submitHandlerRegistro = async (e) => {
      e.preventDefault();
@@ -52,9 +52,9 @@ function AgendarCitas() {
 
    console.log("casos2", casos);
 
-   if (!casos || !casos.datosPagina) {
-     return null;
-   }
+  //  if (!casos || !casos.datosPagina) {
+  //    return null;
+  //  }
 
   console.log("registro", dataRegistro);
   
