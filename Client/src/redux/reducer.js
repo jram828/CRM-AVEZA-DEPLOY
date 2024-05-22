@@ -1,68 +1,49 @@
-import { ADD_FAV, FILTER_CARDS, GET_CLIENTES, GET_CLIENTE_BY_CEDULA, ORDER_CARDS, REMOVE_FAV, SET_CLIENTE,SET_AUTHENTICATED } from "./actions";
+import {
+  GET_CLIENTES,
+  GET_CLIENTE_BY_CEDULA,
+  SET_CLIENTE,
+  SET_AUTHENTICATED, 
+  SET_USERTOKEN,
+  GET_ABOGADOS,
+  GET_BY_ID_ABOGADO,
+  GET_BY_ID_CLIENTE,
+  FILTER_ABOGADO,
+  FILTER_CLIENTE,
+  SET_SOURCE,
+  ORDER_ABOGADOS,
+  ORDER_CLIENTES,
+  DELETE_ABOGADO,
+  DELETE_CLIENTE,
+  GET_TIPOSDECASOS,
+  GET_CASOS,
+  FILTER_CASOS,
+  ORDER_CASOS,
+  POST_CITA,
+  GET_CITAS,
+  POST_CONSULTA,
+} from "./actions";
 
 let initialState = {
-  cliente: {},
+  usuario: {},
+  isAuthenticated: false,
+  user: {},
+  abogados: [],
   clientes: [],
-  isAuthenticated:true,
+  abogado: {},
+  cliente: {},
+  tiposDeCasos: [],
+  casos: [],
+  cita: [],
+  consultas: [],
+  source: "cliente",
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_FAV:
-      return {
-        ...state,
-        allCharacters: [...state.allCharacters, action.payload],
-        myFavorites: [...state.myFavorites, action.payload],
-      };
-    case REMOVE_FAV:
-      const myFavoritesFilter = state.myFavorites.filter(
-        (character) => character.id !== action.payload
-      );
-
-      return { ...state, myFavorites: myFavoritesFilter };
-    case FILTER_CARDS:
-      if (action.payload.toUpperCase() === "ALL") {
-        return {
-          ...state,
-          myFavorites: state.allCharacters,
-        };
-      } else {
-        const charactersFilter = state.allCharacters.filter(
-          (character) =>
-            character.gender.toUpperCase() === action.payload.toUpperCase()
-        );
-
-        return {
-          ...state,
-          myFavorites: charactersFilter,
-        };
-      }
-
-    case ORDER_CARDS:
-      if (action.payload.toUpperCase() === "A") {
-        return {
-          ...state,
-          myFavorites: state.allCharacters.sort((a, b) =>
-            a.name > b.name ? 1 : -1
-          ),
-        };
-      } else {
-        return {
-          ...state,
-          myFavorites: state.allCharacters.sort((a, b) =>
-            a.name < b.name ? 1 : -1
-          ),
-        };
-      }
     case GET_CLIENTE_BY_CEDULA:
       return {
         ...state,
         cliente: action.payload,
-      };
-    case GET_CLIENTES:
-      return {
-        ...state,
-        clientes: action.payload,
       };
     case SET_CLIENTE:
       return {
@@ -74,7 +55,103 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         isAuthenticated: action.payload,
       };
+    case SET_USERTOKEN:
+      return {
+        ...state,
+        user: action.payload,
+      };
+    case GET_ABOGADOS:
+      return {
+        ...state,
+        abogados: action.payload,
+      };
+    case GET_CLIENTES:
+      return {
+        ...state,
+        clientes: action.payload,
+      };
+    case GET_BY_ID_ABOGADO:
+      return {
+        ...state,
+        abogado: action.payload,
+      };
+    case GET_BY_ID_CLIENTE:
+      return {
+        ...state,
+        cliente: action.payload,
+      };
+    case FILTER_ABOGADO:
+      return {
+        ...state,
+        abogados: action.payload,
+      };
+    case FILTER_CLIENTE:
+      return {
+        ...state,
+        clientes: action.payload,
+      };
 
+    case SET_SOURCE:
+      return {
+        ...state,
+        source: action.payload,
+      };
+    case ORDER_ABOGADOS:
+      return {
+        ...state,
+        abogados: action.payload,
+      };
+
+    case ORDER_CLIENTES:
+      return {
+        ...state,
+        clientes: action.payload,
+      };
+    case DELETE_ABOGADO:
+      return {
+        ...state,
+        abogados: action.payload,
+      };
+    case DELETE_CLIENTE:
+      return {
+        ...state,
+        clientes: action.payload,
+      };
+    case GET_TIPOSDECASOS:
+      return {
+        ...state,
+        tiposDeCasos: action.payload,
+      };
+    case GET_CASOS:
+      return {
+        ...state,
+        casos: action.payload,
+      };
+    case FILTER_CASOS:
+      return {
+        ...state,
+        casos: action.payload,
+      };
+    case ORDER_CASOS:
+      return {
+        ...state,
+        casos: action.payload,
+      };
+    case POST_CITA:
+      return {
+        ...state,
+        citas: action.payload,
+      };
+    case GET_CITAS:
+      return {
+        ...state,
+        citas: action.payload,
+      };
+    case POST_CONSULTA:
+      return {
+        ...state,
+        consultas: action.payload,
+      };
     default:
       return state;
   }
