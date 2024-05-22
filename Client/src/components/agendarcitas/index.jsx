@@ -1,9 +1,9 @@
-import "./diary.css";
+import "./agendarcitas.css";
 import Calendario from "../../components/calendar";
 import FormCita from "../../components/formCrearCita/index";
 import logo from "../../img/logoAveza.png";
 
-function Diary() {
+function AgendarCitas() {
   return (
     <div className="containerDiary">
       <div className="calendario">
@@ -21,7 +21,7 @@ function Diary() {
   );
 }
 
-export default Diary;
+export default AgendarCitas;
 
 // import logo from "../../img/logoAveza.png";
 // import "./agendarcitas.css";
