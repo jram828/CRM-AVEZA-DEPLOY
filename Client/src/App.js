@@ -7,7 +7,6 @@ import { Routes, Route, useLocation, useNavigate, Navigate } from "react-router-
 import PrevisualizarContrato from "./components/previsualizarcontrato";
 import Detail from "./components/detail";
 import Form from "./components/login";
-import Favorites from "./components/favorites";
 import GenerarFactura from "./components/generarfactura";
 import DocumentosLegales from "./components/documentoslegales";
 import Cotizacion from "./components/cotizacion";
