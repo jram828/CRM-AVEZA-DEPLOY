@@ -66,6 +66,7 @@ function AgendarCitas() {
         </div>
         <p className="titulo">Agendar Cita</p>
         {/* <p className="agenda">Agenda</p> */}
+        <br /><br /><br />
         <Calendario></Calendario>
       </div>
       {/* <div className="formCita">
