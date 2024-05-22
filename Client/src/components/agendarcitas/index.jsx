@@ -119,11 +119,11 @@ function AgendarCitas() {
             onChange={(event) => handleChangeRegistro(event)}
           >
             <option value="">Seleccionar...</option>
-            {casos.datosPagina.map((caso) => (
+            {/* {casos.datosPagina.map((caso) => (
               <option key={caso.id} value={caso.id}>
                 {caso.id}
               </option>
-            ))}
+            ))} */}
           </select>
 
           <br></br>
