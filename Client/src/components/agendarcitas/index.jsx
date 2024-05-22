@@ -1,6 +1,6 @@
 import "./agendarcitas.css";
 import Calendario from "../../components/calendar";
-import FormCita from "../formCrearCita"
+import FormCita from "../formCrearCita/index";
 import logo from "../../img/logoAveza.png";
 
 function AgendarCitas() {
