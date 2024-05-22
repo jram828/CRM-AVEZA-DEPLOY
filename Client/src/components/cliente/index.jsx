@@ -2,7 +2,7 @@ import React from "react";
 import "../../App.css";
 import { Link } from "react-router-dom";
 import { connect, useDispatch } from "react-redux";
-import { addFav, clienteActual, getClienteByCedula, removeFav } from "../../redux/actions";
+import { clienteActual, getClienteByCedula} from "../../redux/actions";
 import { useState, useEffect} from "react";
 import { numeroALetras } from "../convertiraletras";
 import { useNavigate } from "react-router-dom";
@@ -103,4 +103,4 @@ const Cliente = (props) => {
     return { myFavorites: state.myFavorites };
   };
 
-export default connect(mapStateToProps, {addFav,removeFav})(Cliente);
+export default connect(mapStateToProps)(Cliente);
