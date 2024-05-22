@@ -62,8 +62,8 @@ function App() {
       );
       console.log("Login 2:", data);
       const { access } = data;
-     setAccess(access);
-      dispatch(setAuth(true));
+    //  setAccess(access);
+      dispatch(setAuth(access));
       navigate("/home");
     } catch (error) {
       window.alert("Usuario o contraseña incorrectos");
