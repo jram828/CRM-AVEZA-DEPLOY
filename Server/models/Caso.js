@@ -1,28 +1,32 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize)=>{
-    sequelize.define('Caso',{
+    sequelize.define(
+      "Caso",
+      {
         idCaso: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
+          type: DataTypes.INTEGER,
+          primaryKey: true,
+          autoIncrement: true,
         },
-        fecha:{
-            type: DataTypes.DATE,
-            allowNull: false
+        fecha: {
+          type: DataTypes.DATE,
+          allowNull: false,
         },
-        fechaFin:{
-            type: DataTypes.DATE,
-            allowNull: true
+        fechaFin: {
+          type: DataTypes.DATE,
+          allowNull: true,
         },
-        descripcion:{
-            type: DataTypes.TEXT,
-            allowNull: false,
-            validate:{
-                len: [1,100]
-            }
-        }
-    })
+        descripcion: {
+          type: DataTypes.TEXT,
+          allowNull: false,
+          validate: {
+            len: [1, 100],
+          },
+        },
+      },
+      { timestamps: false }
+    );
 }
 
 // const { DataTypes } = require("sequelize");

@@ -15,8 +15,6 @@ const relacionarPaises = async (req, res) => {
       nombre_pais: "COLOMBIA",
     });
     newPais.addDepartamento(codigosDepartamentos);
-    // newUser.addTipoDeCaso(tipo_de_caso);
-    // newUser.addTipoDeUsuario(tipo_usuario);
     return res.status(200).json(newPais);
   } catch (error) {
     console.log(error);

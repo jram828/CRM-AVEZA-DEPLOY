@@ -22,8 +22,6 @@ const relacionarDepartamentos = async (req, res) => {
     newDepartamento.addCiudad(newCodes.map((ciudad)=>ciudad.codigo_ciudad).map((codigo)=>Number(codigo)));
     }
 
-    // newUser.addTipoDeCaso(tipo_de_caso);
-    // newUser.addTipoDeUsuario(tipo_usuario);
     return res.status(200).json(newDepartamento);
   } catch (error) {
     console.log(error);

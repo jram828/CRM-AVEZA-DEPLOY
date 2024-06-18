@@ -1,19 +1,110 @@
 import { useSelector } from "react-redux";
 import "../../App.css";
 import "../previsualizarcontrato/previsualizar.css";
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../img/logoAveza.png";
 // import { URL } from "../../App";
 import { printDivContent } from "../../utils/printDivContent";
+import Docxtemplater from "docxtemplater";
+import PizZip from "pizzip";
+import PizZipUtils from "pizzip/utils/index.js";
+import { saveAs } from "file-saver";
+// import template from "../../../public/tag-example.docx"
+// import fs from "fs";
+// import path from "path";
 
-function generatePDF() {
-printDivContent('contenedorcontrato');
+// import { Url } from "url";
+// function generatePDF() {
+//   printDivContent('contenedorcontrato');
+
+// }
+
+function loadFile(url, callback) {
+  PizZipUtils.getBinaryContent(url, callback);
 }
 
 const PrevisualizarContrato = () => {
-
   const cliente = useSelector((state) => state.cliente);
   console.log("Cliente Prev Contrato:", cliente);
+  var [selectedFile, setSelectedFile] = useState(null);
+
+  const handleChangeTemplate = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
+
+  const generatePDF = () => {
+        // const __filename = Url(import.meta.url);
+        // const __dirname = path.dirname(__filename);
+
+        // const templatePath = path.join(__dirname, "", "tag-example.docx");
+        // const docxTemplate = fs.readFileSync(templatePath, "Utf8");
+    // loadFile(
+    //   selectedFile,
+    //   function (error, content) {
+    //     if (error) {
+    //       throw error;
+    //     }
+    //     const zip = new PizZip(content);
+    //     const doc = new Docxtemplater(zip, {
+    //       paragraphLoop: true,
+    //       linebreaks: true,
+    //     });
+    //     doc.render({
+    //       first_name: cliente.nombres,
+    //       last_name: cliente.apellidos,
+    //       phone: "3205641789",
+    //       description: "New Website",
+    //     });
+    //     const out = doc.getZip().generate({
+    //       type: "blob",
+    //       mimeType:
+    //         "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    //     });
+    //     saveAs(out, "prueba2-contrato.docx");
+    //   }
+    // );
+                    const docs = document.getElementById("doc");
+                    const reader = new FileReader();
+                    if (docs.files.length === 0) {
+                      alert("No files selected");
+                    }
+                    reader.readAsBinaryString(docs.files.item(0));
+
+                    reader.onerror = function (evt) {
+                      console.log("error reading file", evt);
+                      alert("error reading file" + evt);
+                    };
+                    reader.onload = function (evt) {
+                      const content = evt.target.result;
+                      const zip = new PizZip(content);
+                      const doc = new Docxtemplater(zip, {
+                        paragraphLoop: true,
+                        linebreaks: true,
+                      });
+
+                      // Render the document (Replace {first_name} by John, {last_name} by Doe, ...)
+                      doc.render({
+                        nombre: cliente.nombres.toUpperCase(),
+                        apellido: cliente.apellidos.toUpperCase(),
+                        cedula: cliente.cedula,
+                        pretensiones: cliente.valor_pretensiones,
+                        pretensiones_letras:cliente.valor_pretensiones_letras.toUpperCase(),
+                      });
+
+                      const blob = doc.getZip().generate({
+                        type: "blob",
+                        mimeType:
+                          "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                        // compression: DEFLATE adds a compression step.
+                        // For a 50MB output document, expect 500ms additional CPU time
+                        compression: "DEFLATE",
+                      });
+                      // Output the document using Data-URI
+                      saveAs(blob, `Contrato ${cliente.nombres} ${cliente.apellidos}.docx`);
+                    };
+  };
+
+
 
   return (
     <div className="contrato">
@@ -22,6 +113,7 @@ const PrevisualizarContrato = () => {
       </div>
       <h1 className="titulo">Vista previa del contrato</h1>
       <br />
+      <input type="file" id="doc" onChange={handleChangeTemplate} />
       <div id="divToPrint" className="divToPrint">
         <br />
         <br />
@@ -79,8 +171,8 @@ const PrevisualizarContrato = () => {
             demás normas concordantes en aquellos aspectos sobre los cuales no
             haya estipulación expresa en el texto del presente contrato.{" "}
             <b>TERCERA</b>. OBLIGACIONES ESPECIALES DEL APODERADO. 1- En el
-            desarrollo de las facultades conferidas en el poder, el 
-            <b> APODERADO</b> se compromete a mantener fidelidad con el 
+            desarrollo de las facultades conferidas en el poder, el
+            <b> APODERADO</b> se compromete a mantener fidelidad con el
             <b>
               <b> PODERDANTE</b>
             </b>
@@ -89,34 +181,34 @@ const PrevisualizarContrato = () => {
             compromete a adelantar la gestión de la mejor manera posible, en
             atención de la acción encomendada, desplegando en ello el empeño
             profesional necesario y en los términos exigidos por los Artículos
-            73 y siguientes del Código General del Proceso. 3- El{" "} 
-            <b>APODERADO</b> adelantará los trámites procedentes conforme a lo 
-            que él considere conveniente en el operador de insolvencia y/o ante 
-            notaría, legalmente habilitado para conocer de INSOLVENCIA DE 
-            PERSONAS NATURALES NO COMERCIANTES, que el apoderado considere tiene 
-            experiencia en el caso concreto. 4- Adelantar para el{" "} 
+            73 y siguientes del Código General del Proceso. 3- El{" "}
+            <b>APODERADO</b> adelantará los trámites procedentes conforme a lo
+            que él considere conveniente en el operador de insolvencia y/o ante
+            notaría, legalmente habilitado para conocer de INSOLVENCIA DE
+            PERSONAS NATURALES NO COMERCIANTES, que el apoderado considere tiene
+            experiencia en el caso concreto. 4- Adelantar para el{" "}
             <b>
-              <b>PODERDANTE </b> 
+              <b>PODERDANTE </b>
             </b>
-             el proceso en forma diligente rindiendo informes sobre el estado de
-            este en la forma más eficaz posible. 5- Comunicar cualquier anomalía 
-            o situación que tenga que ver con los intereses del 
-            <b> PODERDANTE</b>. Se aclara que las obligaciones del {" "}
-            <b>APODERADO </b> 
-            son de medio mas no de resultado. <b>CUARTA</b>. OBLIGACIONES DE EL {" "}
-            <b>PODERDANTE</b>. 1- el <b>PODERDANTE</b> a su vez, se compromete a 
-            obrar con fidelidad respecto del poder conferido y el 
-            <b> APODERADO</b>, manteniéndose siempre dentro de los parámetros 
-            impuestos por la verdad, la buena fe, el respeto y las obligaciones 
-            que en su calidad le impone la ley civil y en particular las 
-            contenidas en el Artículo 2184 del Código Civil. 2- Igualmente el 
+            el proceso en forma diligente rindiendo informes sobre el estado de
+            este en la forma más eficaz posible. 5- Comunicar cualquier anomalía
+            o situación que tenga que ver con los intereses del
+            <b> PODERDANTE</b>. Se aclara que las obligaciones del{" "}
+            <b>APODERADO </b>
+            son de medio mas no de resultado. <b>CUARTA</b>. OBLIGACIONES DE EL{" "}
+            <b>PODERDANTE</b>. 1- el <b>PODERDANTE</b> a su vez, se compromete a
+            obrar con fidelidad respecto del poder conferido y el
+            <b> APODERADO</b>, manteniéndose siempre dentro de los parámetros
+            impuestos por la verdad, la buena fe, el respeto y las obligaciones
+            que en su calidad le impone la ley civil y en particular las
+            contenidas en el Artículo 2184 del Código Civil. 2- Igualmente el
             <b> PODERDANTE</b>
-            queda obligado a suministrar toda la información que requiera el 
-            <b> APODERADO</b> para cumplir con la labor encomendada y será de 
-            absoluta responsabilidad del <b>PODERDANTE</b> lo dicho y las 
-            aseveraciones que exponga para su representación, en especial todo 
-            lo relativo a las pruebas, suministro de documentos y la 
-            comparecencia de testigos para el éxito del objeto planteado, EL 
+            queda obligado a suministrar toda la información que requiera el
+            <b> APODERADO</b> para cumplir con la labor encomendada y será de
+            absoluta responsabilidad del <b>PODERDANTE</b> lo dicho y las
+            aseveraciones que exponga para su representación, en especial todo
+            lo relativo a las pruebas, suministro de documentos y la
+            comparecencia de testigos para el éxito del objeto planteado, EL
             <b> PODERDANTE</b> se compromete a entregar AL <b>APODERADO</b> toda
             la información indispensable para la elaboración de la solicitud del
             trámite de negociación de deudas, así mismo se obliga EL
@@ -166,11 +258,10 @@ const PrevisualizarContrato = () => {
             económicamente por el <b>PODERDANTE</b> quien deberá entregarle al
             <b> APODERADO</b> los valores generados por lo anterior.{" "}
             <b>QUINTA</b>. REMUNERACIÓN. El <b>APODERADO</b> recibirá por parte
-            del 
+            del
             <b>PODERDANTE</b>,{" "}
             <b>
-              LA SUMA DE {cliente.honorarios_letras.toUpperCase()} M/C
-              ($
+              LA SUMA DE {cliente.honorarios_letras.toUpperCase()} M/C ($
               {cliente.honorarios}.00) ANTES DE IMPUESTOS
             </b>
             , este valor contempla las tarifas legales que se deben pagar a los
@@ -193,8 +284,8 @@ const PrevisualizarContrato = () => {
             pero <b>NO</b> contempla los honorarios del liquidador que sea
             asignado POR EL JUEZ en el caso que el trámite avance a la etapa de
             LIQUIDACIÓN PATRIMONIAL. <b>PARÁGRAFO 2. </b>
-            FORMA DE PAGO: Los valores antes mencionados se deben consignar
-            en la cuenta Ahorros número XXXXXXXXXXXXX del banco de Colombia a
+            FORMA DE PAGO: Los valores antes mencionados se deben consignar en
+            la cuenta Ahorros número XXXXXXXXXXXXX del banco de Colombia a
             nombre de Julián Avellaneda C.C. No. 79.046.803. y porta{" "}
             <b>PARÁGRAFO 3</b>. Los valorespagados se entenderán como honorarios
             definitivos si el <b>PODERDANTE</b> no continúa con el proceso,
@@ -210,11 +301,11 @@ const PrevisualizarContrato = () => {
             <b>PODERDANTE</b> como si fueran suyos, la gestión del
             <b> APODERADO</b> es de medio más no de resultado. <b>SEXTA</b>.
             TERMINACIÓN DEL CONTRATO Y REVOCATORIA DEL PODER OTORGADO. El
-            <b> PODERDANTE</b> no podrá revocar el mandato o el presente contrato
-            salvo concepto previo del abogado o cuando se presenten las causales
-            para darlo por terminado unilateralmente que para el efecto serían
-            aquellas contempladas en la Ley 1123 de 2007; en caso de que el{" "}
-            <b>PODERDANTE</b> decida revocar unilateralmente este mandato sin
+            <b> PODERDANTE</b> no podrá revocar el mandato o el presente
+            contrato salvo concepto previo del abogado o cuando se presenten las
+            causales para darlo por terminado unilateralmente que para el efecto
+            serían aquellas contempladas en la Ley 1123 de 2007; en caso de que
+            el <b>PODERDANTE</b> decida revocar unilateralmente este mandato sin
             que se demuestre la responsabilidad del <b>APODERADO</b>, deberá
             cancelar al <b>APODERADO</b> la correspondiente indemnización de
             perjuicios. En el evento en que el <b>PODERDANTE</b> llegare a
@@ -264,7 +355,7 @@ const PrevisualizarContrato = () => {
             <b> APODERADO</b> para que retire o dé por terminado el proceso de
             negociación con las implicaciones legales y comerciales que tienen
             para el <b> PODERDANTE</b> ante el incumplimiento del{" "}
-            <b>PODERDANTE </b> 
+            <b>PODERDANTE </b>
             en cualquier pago de las cuotas pactadas en el presente contrato.{" "}
             <u>EN NINGÚN CASO HABRÁ DEVOLUCIÓN DE DINERO</u>.<b> SÉPTIMA</b>.
             DURACIÓN. El presente contrato tendrá vigencia hasta que se den los
@@ -279,7 +370,8 @@ const PrevisualizarContrato = () => {
             <b>OCTAVA</b>. DOMICILIO, CONTROL DE CALIDAD EN LA ATENCIÓN Y
             TRATAMIENTO DE BASE DE DATOS PERSONALES: Para todos los efectos
             legales, el domicilio actual de las partes será: Por parte del{" "}
-            <b>PODERDANTE</b>. Dirección física: {cliente.direccion.toUpperCase()}
+            <b>PODERDANTE</b>. Dirección física:{" "}
+            {cliente.direccion.toUpperCase()}
             Celular: {cliente.telefono} correo electronico: {cliente.correo}y
             por parte del <b>APODERADO</b>, Dirección física: Cra. 10 N0 97ª 13
             Oficina 202 torre B. al correo electrónico: J.AVELLANEDA@AVEZA.CO
@@ -354,9 +446,11 @@ const PrevisualizarContrato = () => {
               <br />
               <br />
               <h2 className="firma">
-                {cliente.nombres.toUpperCase()} {cliente.apellidos.toUpperCase()} <br />
+                {cliente.nombres.toUpperCase()}{" "}
+                {cliente.apellidos.toUpperCase()} <br />
                 C.C. No. {cliente.cedula} <br />
-                {cliente.direccion.toUpperCase()}, {cliente.Ciudads[0].nombre_ciudad}
+                {cliente.direccion.toUpperCase()},{" "}
+                {cliente.Ciudads[0].nombre_ciudad}
                 <br />
                 Cel: {cliente.celular}
               </h2>

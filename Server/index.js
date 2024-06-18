@@ -4,10 +4,10 @@ const server = express();
 const PORT = 3001;
 const { conn } = require("./DB_conn");
 
+// "https://crm-aveza-prueba.vercel.app"
 server.use((req, res, next) => {
   res.header(
-    "Access-Control-Allow-Origin",
-    "https://crm-aveza-prueba.vercel.app"
+    "Access-Control-Allow-Origin","*"
   );
   res.header("Access-Control-Allow-Credentials", "true");
   res.header(
