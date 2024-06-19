@@ -7,7 +7,7 @@ const Nav = ({logout }) => {
     <div
       style={{
         display: "flex",
-        flexDirection: "row-reverse",
+        flexDirection: "column",
         justifyContent: "center",
       }}
     >

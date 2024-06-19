@@ -9,6 +9,7 @@ import { GoogleLogin } from "@react-oauth/google";
 import { useDispatch } from "react-redux";
 import { setAuth } from "../../redux/actions";
 import { useAuth0 } from "@auth0/auth0-react";
+import photo from "../../assets/login.jpg";
 
 const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
   const [userData, setUserData] = useState({
@@ -63,146 +64,151 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
   // const { loginWithRedirect } = useAuth0();
 
   return (
-    <div className="containerLogin">
-      <form onSubmit={submitHandler}>
-        <table>
-          <tr>
-            <td></td>
-            <td colSpan={2} className="celdas">
-              <img
-                src={logo}
-                alt="Logo Aveza"
-                style={{ height: "90px", width: "100%" }}
-              />
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <label htmlFor="usuario" className="label">
-                Usuario:
-              </label>
-            </td>
-            <td>
-              <input
-                type="number"
-                name="cedula"
-                id="username"
-                //className="cajausuario"
-                placeholder="Ingrese su Usuario"
-                value={userData.cedula}
-                onChange={handleChange}
-              />
-            </td>
-            <td></td>
-          </tr>
-          <tr>
-            <td colSpan={4}>
-              {errores.cedula !== "" && (
-                <h5 className="errores">{errores.cedula}</h5>
-              )}
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <label className="label" htmlFor="password">
-                Contraseña:
-              </label>
-            </td>
-            <td>
-              <input
-                name="password"
-                type="password"
-                placeholder="Ingrese su contraseña"
-                value={userData.password}
-                onChange={handleChange}
-              />
-            </td>
-            <td></td>
-          </tr>
-          <tr>
-            <td colSpan={4}>
-              {errores.password !== "" && (
-                <h5 className="errores">{errores.password}</h5>
-              )}
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <label htmlFor="tipodeusuario">Tipo de usuario:</label>
-            </td>
-            <td>
-              <select name="tipodeusuario" id="idusuario">
-                <option value="">Elija una opcion</option>
-                <option value="1">Administrador</option>
-                <option value="2">Cliente</option>
-              </select>
-            </td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>
-              <br></br>
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td className="celdas"></td>
-            <td className="celdas">
-              <input
-                type="button"
-                name="cancelar"
-                value="Cancelar"
-                className="botonesiniciosesion"
-              />
-            </td>
-            <td className="celdas">
-              {" "}
-              {errores.cedula || errores.password ? null : (
+    <div className="containerLogin-photo">
+      <div className="containerLogin">
+        <form onSubmit={submitHandler}>
+          <table>
+            <tr>
+              <td></td>
+              <td colSpan={2} className="celdas">
+                <img
+                  src={logo}
+                  alt="Logo Aveza"
+                  style={{ height: "90px", width: "100%" }}
+                />
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <label htmlFor="usuario" className="label">
+                  Usuario:
+                </label>
+              </td>
+              <td>
                 <input
-                  type="submit"
-                  value="Ingresar"
+                  type="number"
+                  name="cedula"
+                  id="username"
+                  //className="cajausuario"
+                  placeholder="Ingrese su Usuario"
+                  value={userData.cedula}
+                  onChange={handleChange}
+                />
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td colSpan={4}>
+                {errores.cedula !== "" && (
+                  <h5 className="errores">{errores.cedula}</h5>
+                )}
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <label className="label" htmlFor="password">
+                  Contraseña:
+                </label>
+              </td>
+              <td>
+                <input
+                  name="password"
+                  type="password"
+                  placeholder="Ingrese su contraseña"
+                  value={userData.password}
+                  onChange={handleChange}
+                />
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td colSpan={4}>
+                {errores.password !== "" && (
+                  <h5 className="errores">{errores.password}</h5>
+                )}
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <label htmlFor="tipodeusuario">Tipo de usuario:</label>
+              </td>
+              <td>
+                <select name="tipodeusuario" id="idusuario">
+                  <option value="">Elija una opcion</option>
+                  <option value="1">Administrador</option>
+                  <option value="2">Cliente</option>
+                </select>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <br></br>
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td className="celdas"></td>
+              <td className="celdas">
+                <input
+                  type="button"
+                  name="cancelar"
+                  value="Cancelar"
                   className="botonesiniciosesion"
                 />
-              )}
-            </td>
-            <td className="celdas"></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td className="celdas">
-              <Link to={"/crearusuario"} onClick={clickHandlerCrear}>
-                <button className="botonesiniciosesion">Crear Usuario</button>
-              </Link>
-            </td>
-            <td className="celdas">
-              <Link
-                to={"/recordatoriocontrasena"}
-                onClick={clickHandlerRecordatorio}
-              >
-                <button className="botonesiniciosesion">
-                  ¿Olvidó su contraseña?
-                </button>
-              </Link>
-            </td>
-            <td></td>
-          </tr>
-        </table>
-      </form>
-      <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
-      {/* <button onClick={() => loginWithRedirect()}>Log In</button> */}
+              </td>
+              <td className="celdas">
+                {" "}
+                {errores.cedula || errores.password ? null : (
+                  <input
+                    type="submit"
+                    value="Ingresar"
+                    className="botonesiniciosesion"
+                  />
+                )}
+              </td>
+              <td className="celdas"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td className="celdas">
+                <Link to={"/crearusuario"} onClick={clickHandlerCrear}>
+                  <button className="botonesiniciosesion">Crear Usuario</button>
+                </Link>
+              </td>
+              <td className="celdas">
+                <Link
+                  to={"/recordatoriocontrasena"}
+                  onClick={clickHandlerRecordatorio}
+                >
+                  <button className="botonesiniciosesion">
+                    ¿Olvidó su contraseña?
+                  </button>
+                </Link>
+              </td>
+              <td></td>
+            </tr>
+          </table>
+        </form>
+        <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
+        {/* <button onClick={() => loginWithRedirect()}>Log In</button> */}
+      </div>
+      <div className="containerPhoto">
+        <img src={photo} alt="Foto login" className="imglogin" />
+      </div>
     </div>
   );
 };

@@ -8,28 +8,27 @@ import Docxtemplater from "docxtemplater";
 import PizZip from "pizzip";
 // import PizZipUtils from "pizzip/utils/index.js";
 import { saveAs } from "file-saver";
+import logo from "../../img/logoAveza.png";
 
 const Detail = () => {
   const cliente = useSelector((state) => state.cliente);
 
-  console.log('Cliente detail:',cliente)
+  console.log("Cliente detail:", cliente);
   // useEffect(() => {
   //   dispatch(clienteActual(cliente));
   // }, [dispatch]);
 
-    const onClickEliminar = async () => {
-      try {
-        await axios.delete(`/${cliente.celular}`);
-        // console.log("Data verificar clientes:", data);
-      } catch (error) {
-        console.log(error.message);
-        window.alert("No se eliminó el cliente!");
-      }
+  const onClickEliminar = async () => {
+    try {
+      await axios.delete(`/${cliente.celular}`);
+      // console.log("Data verificar clientes:", data);
+    } catch (error) {
+      console.log(error.message);
+      window.alert("No se eliminó el cliente!");
+    }
   };
-  
 
   const generarContrato = () => {
-
     const docs = document.getElementById("doc");
     const reader = new FileReader();
     if (docs.files.length === 0) {
@@ -54,8 +53,13 @@ const Detail = () => {
         nombre: cliente.nombres.toUpperCase(),
         apellido: cliente.apellidos.toUpperCase(),
         cedula: cliente.cedula,
+        celular: cliente.celular,
+        ciudad: cliente.Ciudads[0].nombre_ciudad,
+        direccion: cliente.direccion,
         pretensiones: cliente.valor_pretensiones,
         pretensiones_letras: cliente.valor_pretensiones_letras.toUpperCase(),
+        honorarios: cliente.honorarios,
+        honorarios_letras: cliente.honorarios_letras.toUpperCase(),
       });
 
       const blob = doc.getZip().generate({
@@ -67,20 +71,54 @@ const Detail = () => {
         compression: "DEFLATE",
       });
       // Output the document using Data-URI
-      saveAs(blob, `Contrato ${cliente.nombres} ${cliente.apellidos}.docx`);
+      saveAs(blob, `Documento ${cliente.nombres} ${cliente.apellidos}.docx`);
     };
   };
 
   return (
     <div className="container">
       <div className="detail" key={cliente.cedula}>
-        <div className="nombre">
-          {cliente.nombres && (
-            <h1 className="nombredetail">
-              {cliente.nombres.toUpperCase()} {cliente.apellidos.toUpperCase()}{" "}
-            </h1>
-          )}
+        <div className="encabezado">
+          <img
+            src={logo}
+            alt="logo-aveza"
+            title="AVEZA SAS"
+            className="logo-aveza"
+          />
+          <br />
+          <h5 className="titulo">Detalles del cliente</h5>
         </div>
+        {/* <div className="nombre"> */}
+        <div className="menu-detail">
+          <Link to={"/cotizacion"}>
+            <Button className="botonesiniciosesion">Cotización</Button>
+          </Link>
+          <Button onClick={onClickEliminar} className="botonesiniciosesion">
+            Eliminar cliente
+          </Button>
+          <Link to={"/generarfactura"}>
+            <Button className="botonesiniciosesion">Generar factura</Button>
+          </Link>
+            <Button className="botonesiniciosesion" onClick={generarContrato}>
+              Generar Documentos
+            </Button>
+          </div>
+          <div className="generardocumento">
+            {/* <Link to={"/previsualizarcontrato"}> */}
+            <input type="file" id="doc" />
+            {/* </Link> */}
+          </div>
+          {/* <Link to={"/documentoslegales"}>
+          <Button className="botonesiniciosesion">
+            Generar Documentos Legales
+          </Button>
+        </Link> */}
+        {cliente.nombres && (
+          <h4 className="nombredetail">
+            {cliente.nombres.toUpperCase()} {cliente.apellidos.toUpperCase()}{" "}
+          </h4>
+        )}
+        {/* </div> */}
         {/* <img className="photo" src={character.image} alt={character.name} /> */}
         <div className="info">
           <div className="personal">
@@ -103,35 +141,8 @@ const Detail = () => {
           </div>
         </div>
       </div>
-      <div>
-        <Link to={"/cotizacion"}>
-          <Button className="botonesiniciosesion">Cotización</Button>
-        </Link>
-        <Button onClick={onClickEliminar} className="botonesiniciosesion">
-          Eliminar cliente
-        </Button>
-        <Link to={"/generarfactura"}>
-          <Button className="botonesiniciosesion">Generar factura</Button>
-        </Link>
-        <div>
-          <input type="file" id="doc" />
-          {/* <Link to={"/previsualizarcontrato"}> */}
-          <Button
-            className="botonesiniciosesion"
-            onClick={generarContrato}
-          >
-            Generar Contrato
-          </Button>
-          {/* </Link> */}
-        </div>
-        <Link to={"/documentoslegales"}>
-          <Button className="botonesiniciosesion">
-            Generar Documentos Legales
-          </Button>
-        </Link>
-      </div>
     </div>
   );
 };
 
-export default Detail
+export default Detail;

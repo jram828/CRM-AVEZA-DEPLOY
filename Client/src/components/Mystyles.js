@@ -8,18 +8,18 @@ export const ContainerNav = styled.div`
   margin-left: 10px;
 `;
 export const Button = styled.button`
-  border-radius: 10%;
+  border-radius: 8px;
   margin: 10px;
   cursor: pointer;
   background-color: white;
   color: black;
-  height: 55px;
-  width: 200px;
+  height: 40px;
+  width: 150px;
   font-weight: bold;
 `;
 
 export const Input = styled.input`
-border-radius:10px;
+border-radius:8px;
 margin: 10px;
 height: 30px;
 width: 150px;
