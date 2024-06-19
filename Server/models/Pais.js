@@ -1,7 +1,7 @@
-const { DataTypes } = require("sequelize");
+import { DataTypes } from "sequelize";
 
-module.exports = (sequelize) => {
-  sequelize.define(
+export default (sequelize) => {
+  const Pais=sequelize.define(
     "Pais",
     {
       codigo_pais: {
@@ -11,6 +11,7 @@ module.exports = (sequelize) => {
       },
       nombre_pais: { type: DataTypes.STRING, allowNull: false },
     },
-    { timestamps: false },
+    { timestamps: false }
   );
+  return Pais;
 };

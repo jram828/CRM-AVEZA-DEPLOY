@@ -1,7 +1,7 @@
-const { DataTypes } = require("sequelize");
+import { DataTypes } from "sequelize";
 
-module.exports = (sequelize) => {
-  sequelize.define(
+export default (sequelize) => {
+  const Cliente=sequelize.define(
     "Cliente",
     {
       cedula: {
@@ -23,12 +23,12 @@ module.exports = (sequelize) => {
       tiene_contrato: { type: DataTypes.STRING, allowNull: true },
       honorarios: { type: DataTypes.BIGINT, allowNull: false },
       forma_de_pago: { type: DataTypes.STRING, allowNull: false },
-      comentarios: { type: DataTypes.STRING, allowNull: false},
+      comentarios: { type: DataTypes.STRING, allowNull: false },
     },
     { timestamps: false }
   );
+  return Cliente;
 };
-
 
 // const { DataTypes } = require("sequelize");
 

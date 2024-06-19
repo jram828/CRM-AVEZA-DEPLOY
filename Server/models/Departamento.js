@@ -1,7 +1,7 @@
-const { DataTypes } = require("sequelize");
+import { DataTypes } from "sequelize";
 
-module.exports = (sequelize) => {
-  sequelize.define(
+export default (sequelize) => {
+  const Departamento=sequelize.define(
     "Departamento",
     {
       codigo_departamento: {
@@ -17,4 +17,5 @@ module.exports = (sequelize) => {
     },
     { timestamps: false }
   );
+  return Departamento;
 };

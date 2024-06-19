@@ -1,7 +1,7 @@
-const { DataTypes } = require("sequelize");
+import { DataTypes } from "sequelize";
 
-module.exports = (sequelize) => {
-  sequelize.define(
+export default (sequelize) => {
+  const TipoUsuario=sequelize.define(
     "TipoUsuario",
     {
       tipo_usuario: {
@@ -13,4 +13,5 @@ module.exports = (sequelize) => {
     },
     { timestamps: false }
   );
+  return TipoUsuario;
 };

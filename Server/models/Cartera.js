@@ -1,7 +1,7 @@
-const { DataTypes } = require("sequelize");
+import { DataTypes } from "sequelize";
 
-module.exports = (sequelize) => {
-  sequelize.define(
+export default (sequelize) => {
+  const Cartera=sequelize.define(
     "Cartera",
     {
       id: {
@@ -14,4 +14,5 @@ module.exports = (sequelize) => {
     },
     { timestamps: false }
   );
+  return Cartera;
 };

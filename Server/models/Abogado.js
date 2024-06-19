@@ -1,68 +1,46 @@
-const { DataTypes } = require("sequelize");
+import { DataTypes } from "sequelize";
 
-module.exports = (sequelize) => {
-  sequelize.define("Abogado", {
+export default (sequelize) => {
+  const Abogado=sequelize.define("Abogado", {
     cedulaAbogado: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       allowNull: false,
     },
-    matricula: {
+    tarjetaProf: {
       type: DataTypes.INTEGER,
       unique: true,
     },
-    apellido: {
+    apellidos: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1, 100],
       },
     },
-    nombre: {
+    nombres: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1, 100],
       },
     },
-    correo: {
+    email: {
       type: DataTypes.STRING,
       unique: true,
       validate: {
         len: [1, 100],
       },
     },
-    telefono: {
+    celular: {
       type: DataTypes.STRING,
       unique: false,
       validate: {
         len: [1, 50],
       },
     },
-    calle: {
+    direccion: {
       type: DataTypes.STRING,
-      validate: {
-        len: [1, 100],
-      },
-    },
-    numero: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    codigoPostal: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    ciudad: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1, 100],
-      },
-    },
-    pais: {
-      type: DataTypes.STRING,
-      allowNull: false,
       validate: {
         len: [1, 100],
       },
@@ -80,4 +58,5 @@ module.exports = (sequelize) => {
       defaultValue: false,
     },
   });
+  return Abogado;
 };

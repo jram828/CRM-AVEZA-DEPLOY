@@ -1,10 +1,11 @@
-const { DataTypes } = require('sequelize');
+import { DataTypes } from "sequelize";
 
-module.exports = (sequelize) => {
-    sequelize.define('Contrato', {
-        archivo:{
-            type: DataTypes.STRING,
-            unique: true
-        }
-    })
-}
+export default (sequelize) => {
+  const Contrato= sequelize.define("Contrato", {
+    archivo: {
+      type: DataTypes.STRING,
+      unique: true,
+    },
+  });
+    return Contrato;
+};

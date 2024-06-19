@@ -1,18 +1,19 @@
-const { DataTypes } = require('sequelize');
+import { DataTypes } from "sequelize";
 
-module.exports = (sequelize) => {
-    sequelize.define('Cotizacion',{
-        fecha:{
-            type: DataTypes.DATE,
-            allowNull: false
-        },
-        valor:{
-            type: DataTypes.DECIMAL,
-            allowNull: false
-        },
-        fechaVigencia:{
-            type: DataTypes.DATE,
-            allowNull: false
-        }
-    })
-}
+export default (sequelize) => {
+  const Cotizacion=sequelize.define("Cotizacion", {
+    fecha: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    valor: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+    },
+    fechaVigencia: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+  });
+    return Cotizacion;
+};

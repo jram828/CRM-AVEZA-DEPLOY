@@ -1,29 +1,37 @@
-const { DataTypes } = require('sequelize');
+import { DataTypes } from "sequelize";
 
-module.exports = (sequelize) => {
-   sequelize.define(
-     "Usuario",
-     {
-       cedula: {
-         type: DataTypes.BIGINT,
-         allowNull: false,
-         primaryKey: true,
-       },
-       password: { type: DataTypes.STRING,
-         allowNull: false, },
-       email: {
-         type: DataTypes.STRING,
-         allowNull: false,
-       },
+export default (sequelize) => {
+  const Usuario = sequelize.define(
+    "Usuario",
+    {
+      cedula: {
+        type: DataTypes.BIGINT,
+        allowNull: false,
+        primaryKey: true,
+      },
+      password: { type: DataTypes.STRING, allowNull: false },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       //  tipo_usuario: { type: DataTypes.STRING, allowNull: false, },
-       nombres: { type: DataTypes.STRING, allowNull: false },
-       apellidos: { type: DataTypes.STRING, allowNull: false },
-       direccion: { type: DataTypes.STRING, allowNull: false },
+      nombres: { type: DataTypes.STRING, allowNull: false },
+      apellidos: { type: DataTypes.STRING, allowNull: false },
+      direccion: { type: DataTypes.STRING, allowNull: false },
       //  nombre_ciudad: { type: DataTypes.STRING, allowNull: false },
-       celular: { type: DataTypes.BIGINT, allowNull: false},
-     },
-     { timestamps: false }
-   );
+      celular: { type: DataTypes.BIGINT, allowNull: false },
+      rol: {
+        type: DataTypes.ENUM("Abogado", "Administrador", "Cliente"),
+        allowNull: false, // Si el campo no puede ser nulo
+      },
+      activo: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true,
+      },
+    },
+    { timestamps: false }
+  );
+  return Usuario;
 };
 
 // const { DataTypes } = require("sequelize");
