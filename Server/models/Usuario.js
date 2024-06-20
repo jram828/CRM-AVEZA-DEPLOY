@@ -20,10 +20,10 @@ export default (sequelize) => {
       direccion: { type: DataTypes.STRING, allowNull: false },
       //  nombre_ciudad: { type: DataTypes.STRING, allowNull: false },
       celular: { type: DataTypes.BIGINT, allowNull: false },
-      rol: {
-        type: DataTypes.ENUM("Abogado", "Administrador", "Cliente"),
-        allowNull: false, // Si el campo no puede ser nulo
-      },
+      // rol: {
+      //   type: DataTypes.ENUM("Abogado", "Administrador", "Cliente"),
+      //   allowNull: false, // Si el campo no puede ser nulo
+      // },
       activo: {
         type: DataTypes.BOOLEAN,
         defaultValue: true,

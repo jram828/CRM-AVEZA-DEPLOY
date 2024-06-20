@@ -1,4 +1,4 @@
- import {models} from '../DB.js'
+ import {models} from '../../DB.js'
  const { Consulta } = models;
 const deleteConsulta = async (id)=>{
    

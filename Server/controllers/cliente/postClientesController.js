@@ -1,23 +1,23 @@
 import { models } from "../../DB.js";
-import codigoCiudades from "../../utils/codigoCiudades.js";
+import {codigoCiudades} from "../../utils/codigoCiudades.js";
 import { sendEmailCliente } from "../../utils/emailNotifier.js";
 
 const { Cliente } = models;
 const createClienteBd = async (
-  cedulaCliente,
   email,
   nombres,
   apellidos,
-  direccion,
+  cedulaCliente,
   celular,
-  valor_pretensiones,
-  honorarios,
-  forma_de_pago,
-  comentarios,
-  cuotas,
+  direccion,
   nombre_ciudad,
   tipo_usuario,
-  tipo_de_caso
+  tipo_de_caso,
+  forma_de_pago,
+  honorarios,
+  cuotas,
+  comentarios,
+  valor_pretensiones
 ) => {
   const ciudadfilter = codigoCiudades.filter(
     (ciudad) => ciudad.nombre_ciudad === nombre_ciudad.toUpperCase()
@@ -27,20 +27,20 @@ const createClienteBd = async (
 
   console.log("ciudad:", ciudadfilter);
   console.log("Body:", {
-    cedulaCliente,
     email,
     nombres,
     apellidos,
-    direccion,
+    cedulaCliente,
     celular,
-    valor_pretensiones,
-    honorarios,
-    forma_de_pago,
-    comentarios,
-    cuotas,
+    direccion,
     nombre_ciudad,
     tipo_usuario,
     tipo_de_caso,
+    forma_de_pago,
+    honorarios,
+    cuotas,
+    comentarios,
+    valor_pretensiones,
   });
   if (
     !email ||
@@ -54,7 +54,7 @@ const createClienteBd = async (
     celular.length === 0
   ) {
     console.log("Faltan datos.");
-    res.status(400).send("Faltan datos");
+    // res.status(400).send("Faltan datos");
   } else {
     try {
       const newCliente = await Cliente.create({
@@ -68,14 +68,14 @@ const createClienteBd = async (
         honorarios: honorarios,
         forma_de_pago: forma_de_pago,
         comentarios: comentarios,
-        cuotas: cuotas,
       });
+      // cuotas: cuotas,
 
-      newCliente.addCiudad(codigo_ciudad);
-      newCliente.addTipoDeCaso(tipo_de_caso);
-      newCliente.addTipoUsuario(tipo_usuario);
+      // newCliente.addCiudad(codigo_ciudad);
+      // newCliente.addTipoDeCaso(tipo_de_caso);
+      // newCliente.addTipoUsuario(tipo_usuario);
 
-      if (newCliente) sendEmailCliente(newCliente);
+      // if (newCliente) sendEmailCliente(newCliente);
       console.log(newCliente);
       return {
         ...newCliente.toJSON(),

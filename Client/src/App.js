@@ -25,9 +25,9 @@ import LitigiosPorCliente from "./components/litigiosporcliente";
 import Autorizacion from "./components/autorizacion";
 import Insolvencia from "./components/insolvencia";
 import Poder from "./components/poder";
-import { codigoPaises } from "./utils/codigoPaises";
-import { codigoCiudades } from "./utils/codigoCiudades";
-import { codigoDepartamentos } from "./utils/codigoDepartamentos";
+import { codigoPaises } from "./utils/codigoPaises.js";
+import { codigoCiudades } from "./utils/codigoCiudades.js";
+import { codigoDepartamentos } from "./utils/codigoDepartamentos.js";
 import WordToHtml from "./components/wordtohtml";
 import {PrivateRoute} from "./components/privateroute";
 import { useDispatch, useSelector } from "react-redux";
@@ -83,13 +83,13 @@ function App() {
       nombre_ciudad,
       tipo_usuario,
     } = userDataCrear;
-
+ console.log("Userdata: ", userDataCrear);
     const ciudad = codigoCiudades.filter((ciudad) => ciudad.nombre_ciudad === nombre_ciudad.toUpperCase());
 
-    console.log('Codigo ciudad Userdata: ', ciudad[0].codigo_ciudad)
+    console.log('Codigo ciudad Userdata: ', ciudad)
     // const URL = "/crearusuario";
     try {
-      await axios.post("/crearusuario", {
+      await axios.post("/usuarios", {
         email: `${email}`,
         password: `${password}`,
         nombres: `${nombres}`,
@@ -113,7 +113,7 @@ function App() {
         email,
         nombres,
         apellidos,
-        cedula,
+        cedulaCliente,
         celular,
         direccion,
         nombre_ciudad,
@@ -128,14 +128,14 @@ function App() {
 
    console.log('User data registro:', userDataRegistro)
 
-      const URL = "/registrocliente";
+      const URL = "/clientes/registrocliente";
       try {
         await axios.post(URL, {
           email: `${email}`,
           // password: `${password}`,
           nombres: `${nombres}`,
           apellidos: `${apellidos}`,
-          cedula: `${cedula}`,
+          cedulaCliente: `${cedulaCliente}`,
           celular: `${celular}`,
           direccion: `${direccion}`,
           nombre_ciudad: `${nombre_ciudad}`,

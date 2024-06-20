@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { allUsuarios, postUsuariosHandler } from "../handlers/usuariosHandlers";
+import { allUsuarios, postUsuariosHandler } from "../handlers/usuariosHandlers.js";
 
 const usuariosRouter = Router();
 

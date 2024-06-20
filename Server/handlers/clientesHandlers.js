@@ -54,36 +54,40 @@ const getClientByEmailHandler = async (req, res) => {
 };
 
 const postClientesHandler = async (req, res) => {
-  console.log("Body post cliente:", req.body);
+  console.log("Body post cliente handler:", req.body);
   const {
-    cedulaCliente,
-    nombre,
-    apellido,
-    correo,
-    telefono,
-    calle,
-    numero,
-    codigoPostal,
-    ciudad,
-    pais,
-    imagen,
-    password,
+      email,
+      nombres,
+      apellidos,
+      cedulaCliente,
+      celular,
+      direccion,
+      nombre_ciudad,
+      tipo_usuario,
+      tipo_de_caso,
+      forma_de_pago,
+      honorarios,
+      cuotas,
+      comentarios,
+      valor_pretensiones
   } = req.body;
 
   try {
     const response = await createClienteBd(
+      email,
+      nombres,
+      apellidos,
       cedulaCliente,
-      nombre,
-      apellido,
-      correo,
-      telefono,
-      calle,
-      numero,
-      codigoPostal,
-      ciudad,
-      pais,
-      imagen,
-      password,
+      celular,
+      direccion,
+      nombre_ciudad,
+      tipo_usuario,
+      tipo_de_caso,
+      forma_de_pago,
+      honorarios,
+      cuotas,
+      comentarios,
+      valor_pretensiones
     );
     console.log("Response crear cliente", response);
     if (response) res.status(200).json(response);
@@ -91,7 +95,6 @@ const postClientesHandler = async (req, res) => {
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
-  // res.status(200).send(`creando actividades`);
 };
 
 const postEliminaClientes = async (req, res) => {

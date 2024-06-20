@@ -9,7 +9,7 @@ const RegistroCliente = ({registroCliente}) => {
       email: "",
       nombres: "",
       apellidos: "",
-      cedula: "",
+      cedulaCliente: "",
       celular: "",
       direccion: "",
       nombre_ciudad: "",
@@ -73,7 +73,7 @@ const RegistroCliente = ({registroCliente}) => {
           <input
             type="number"
             className="cajaregistrocliente"
-            name="cedula"
+            name="cedulaCliente"
             id="cedula"
             value={userDataRegistro.cedula}
             onChange={handleChangeRegistro}
@@ -243,7 +243,7 @@ const RegistroCliente = ({registroCliente}) => {
             value="Guardar"
             disabled={
               !userDataRegistro.email ||
-              !userDataRegistro.cedula ||
+              !userDataRegistro.cedulaCliente ||
               !userDataRegistro.nombres ||
               !userDataRegistro.apellidos
             }

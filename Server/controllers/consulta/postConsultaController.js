@@ -1,4 +1,4 @@
-import { models } from "../DB.js";
+import { models } from "../../DB.js";
 const { Consulta } = models;
 const { ACCOUNTSID, AUTHTOKEN, NUMBER, } = process.env;
 import twilio from "twilio";

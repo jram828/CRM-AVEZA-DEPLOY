@@ -9,6 +9,10 @@ const Nav = ({logout }) => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
+        height: "100vh",
+        width: "300px",
+        alignItems: "center",
+        // backgroundColor:"red"
       }}
     >
       {/* <SearchBar onVerificarCliente={onVerificarCliente} /> */}

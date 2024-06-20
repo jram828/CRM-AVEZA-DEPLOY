@@ -4,8 +4,8 @@ import { getPassword } from '../controllers/usuario/password.js'
 
 const loginHandler = async (req, res)=>{
     try {
-        const { password, email,rol } = req.query
-        const response = await getLogin(password, email,rol)
+        const {cedula, password} = req.query
+        const response = await getLogin(cedula, password)
         res.status(200).json(response)
     } catch (error) {
         res.status(400).json({error:error.message})

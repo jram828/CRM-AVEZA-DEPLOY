@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { deleteConsultaHandler, postConsultaHandler, getConsultaHandler } from "../handlers/consultasHandlers";
+import { deleteConsultaHandler, postConsultaHandler, getConsultaHandler } from "../handlers/consultasHandlers.js";
 
 const consultaRouter = Router();
 

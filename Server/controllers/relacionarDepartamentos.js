@@ -1,4 +1,4 @@
-import { models } from "../../DB.js";
+import { models } from "../../Server/DB.js";
 import { codigoCiudades } from "../utils/codigoCiudades.js";
 import { codigoDepartamentos } from "../utils/codigoDepartamentos.js";
 
