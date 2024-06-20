@@ -4,7 +4,7 @@ export default (sequelize) => {
   const Cliente=sequelize.define(
     "Cliente",
     {
-      cedula: {
+      cedulaCliente: {
         type: DataTypes.BIGINT,
         allowNull: false,
         primaryKey: true,

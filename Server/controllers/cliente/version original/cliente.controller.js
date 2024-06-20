@@ -3,7 +3,7 @@
  * se requiere primero el modelo empleado
  */
 
-const Cliente = require("../../models/Cliente");
+const Cliente = require("../../../models/Cliente");
 const clienteCtrl = {};
 
 /**

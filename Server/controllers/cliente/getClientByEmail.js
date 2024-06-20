@@ -1,17 +1,17 @@
 import {models} from "../../DB.js";
 
  const { Cliente, Abogado } = models;
-const getClientByEmail = async (correo) => {
+const getClientByEmail = async (email) => {
   const cliente = await Cliente.findOne({
     where: {
-      correo,
+      email,
     },
   });
 
   if (!cliente) {
     const abogado = await Abogado.findOne({
       where: {
-        correo,
+        email,
       },
     });
     return abogado;

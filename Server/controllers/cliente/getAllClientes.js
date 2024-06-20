@@ -50,9 +50,40 @@ const getAllCliente = async (filters) => {
       activo: true,
       ...newFilters, // agrego los campos cuyos valores existan
     },
+      include: [
+        {
+          model: Ciudad,
+          attributes: ["nombre_ciudad"],
+          through: { attributes: [] },
+          include: [
+            {
+              model: Departamento,
+              attributes: ["nombre_departamento"],
+              through: { attributes: [] },
+              include: [
+                {
+                  model: Pais,
+                  attributes: ["nombre_pais"],
+                  through: { attributes: [] },
+                },
+              ],
+            },
+          ],
+        },
+        {
+          model: TipoUsuario,
+          attributes: ["descripcion"],
+          through: { attributes: [] },
+        },
+        {
+          model: TipoDeCaso,
+          attributes: ["descripcion"],
+          through: { attributes: [] },
+        },
+      ],
     order,
     offset: offset || 0,
-    limit: limit2 || 100, //3
+    limit: limit2 || 6, //3
   };
 
   const allClient = await Cliente.findAll(consulta);

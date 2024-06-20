@@ -1,5 +1,5 @@
 const { Cliente, Ciudad, TipoDeCaso, TipoUsuario } = require("../../DB_conn");
-const codigoCiudades = require("../../utils/codigoCiudades");
+const codigoCiudades = require("../../utils/codigoCiudades").default;
 const tipoUsuarios = require("../../utils/tipoUsuarios");
 const tipoDeCasos = require("../../utils/tipoDeCasos");
 
@@ -21,22 +21,6 @@ const postCliente = async (req, res) => {
     valor_pretensiones,
   } = req.body;
 
-  //   for (let i = 0; i < tipoUsuarios.length; i++){
-  //     var newTipoUsuario = await TipoUsuario.create({
-  //       tipo_usuario: tipoUsuarios[i].tipo_usuario,
-  //       descripcion: tipoUsuarios[i].descripcion,
-  //     });
-  //   }
-  // console.log("Tipo usuario: ",newTipoUsuario);
-  //     for (let i = 0; i < tipoDeCasos.length; i++) {
-  //       var newTipoCaso = await TipoDeCaso.create({
-  //         tipo_caso: tipoDeCasos[i].tipo_caso,
-  //         descripcion: tipoDeCasos[i].descripcion,
-  //       });
-  //   }
-
-  // console.log('Tipo de caso: ',newTipoCaso);
-  // console.log('Codigo ciudades: ', codigoCiudades)
   const ciudadfilter = codigoCiudades.filter(
     (ciudad) => ciudad.nombre_ciudad === nombre_ciudad.toUpperCase()
   );
@@ -76,10 +60,10 @@ const postCliente = async (req, res) => {
   } else {
     try {
       const newCliente = await Cliente.create({
+        cedulaCliente: cedulaCliente,
         email: email,
         nombres: nombres,
         apellidos: apellidos,
-        cedula: cedula,
         celular: celular,
         direccion: direccion,
         forma_de_pago: forma_de_pago,

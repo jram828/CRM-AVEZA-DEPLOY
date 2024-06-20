@@ -4,39 +4,42 @@ const { Cliente } = models;
 
 const actualizaCliente = async (
   cedulaCliente,
-  nombre,
-  apellido,
-  correo,
-  telefono,
-  calle,
-  numero,
-  codigoPostal,
-  ciudad,
-  pais,
-  imagen,
-  password,
+  nombres,
+  apellidos,
+  email,
+  celular,
+  direccion,
+  valor_pretensiones,
+  aceptacion_cotizacion,
+  tiene_contrato,
+  honorarios,
+  forma_de_pago,
+  comentarios,
+  // password,
 ) => {
   // console.log('imagen',imagen)
 
   const [updateCount, updateClient] = await Cliente.update(
     {
-      nombre: nombre,
-      apellido: apellido,
-      correo: correo,
-      telefono: telefono,
-      calle: calle,
+      nombres: nombres,
+      apellidos: apellidos,
+      email: email,
+      celular: celular,
+      direccion: direccion,
       numero: numero,
-      codigoPostal: codigoPostal,
-      ciudad: ciudad,
-      pais: pais,
-      imagen: imagen,
-      password: password,
+      valor_pretensiones: valor_pretensiones,
+      aceptacion_cotizacion: aceptacion_cotizacion,
+      tiene_contrato: tiene_contrato,
+      honorarios: honorarios,
+      forma_de_pago: forma_de_pago,
+      comentarios: comentarios
+      // password: password,
     },
     {
       where: {
         cedulaCliente: cedulaCliente,
       },
-    },
+    }
   );
 
   if (updateCount > 0) {

@@ -1,14 +1,15 @@
-const { Pais, Departamento, Ciudad } = require("../DB_conn");
-const departamentos = require("../utils/codigoDepartamentos");
+import { models } from "../../DB.js";
+import { codigoDepartamentos } from "../utils/codigoDepartamentos.js";
 
-const relacionarPaises = async (req, res) => {
+const { Pais} = models;
+
+export const relacionarPaises = async (req, res) => {
   // const { codigos, codigos_departamentos } = req.body;
   //  codigoPaises, codigoCiudades,
-   const codigosDepartamentos = departamentos.map((departamento) => (departamento.codigo_departamento))
-  console.log(
-    "Codigos departamentos: ",
-    codigosDepartamentos
+  const codigosDepartamentos = codigoDepartamentos.map(
+    (departamento) => departamento.codigo_departamento
   );
+  console.log("Codigos departamentos: ", codigosDepartamentos);
   try {
     const newPais = await Pais.create({
       codigo_pais: 169,
@@ -21,5 +22,3 @@ const relacionarPaises = async (req, res) => {
     res.status(500).send(error.message);
   }
 };
-
-module.exports = relacionarPaises;

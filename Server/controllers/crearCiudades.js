@@ -1,13 +1,17 @@
-const { Pais, Departamento, Ciudad } = require("../DB_conn");
-const ciudades = require("../utils/codigoCiudades");
+import { models } from "../../DB.js";
+import { codigoCiudades } from "../utils/codigoCiudades.js";
+const {Ciudad } = models;
 
-const crearCiudades = async (req, res) => {
+
+
+
+export const crearCiudades = async (req, res) => {
   try {
-    for (let i = 0; i < ciudades.length; i++) {
+    for (let i = 0; i < codigoCiudades.length; i++) {
       var newCiudad = await Ciudad.create({
-        codigo_ciudad: ciudades[i].codigo_ciudad,
-        nombre_ciudad: ciudades[i].nombre_ciudad,
-        codigo_departamento: ciudades[i].codigo_departamento,
+        codigo_ciudad: codigoCiudades[i].codigo_ciudad,
+        nombre_ciudad: codigoCiudades[i].nombre_ciudad,
+        codigo_departamento: codigoCiudades[i].codigo_departamento,
       });
     }
     console.log("Ultima ciudad: ", newCiudad);
@@ -17,5 +21,3 @@ const crearCiudades = async (req, res) => {
     res.status(500).send(error.message);
   }
 };
-
-module.exports = crearCiudades;
