@@ -17,8 +17,11 @@ const Nav = ({logout }) => {
       <Link to="/abogados">
         <Button>Abogados</Button>
       </Link>
-      <Link to="/conocimientodelitigios">
-        <Button>Conocimiento de Litigios</Button>
+      <Link to="/clientes">
+        <Button>Clientes</Button>
+      </Link>
+      <Link to="/casos">
+        <Button>Casos</Button>
       </Link>
       {/* <Link to="cotizacion/">
         <Button>Cotizacion</Button>

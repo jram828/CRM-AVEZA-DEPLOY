@@ -10,7 +10,7 @@ import Form from "./components/login";
 import GenerarFactura from "./components/generarfactura";
 import DocumentosLegales from "./components/documentoslegales";
 import Cotizacion from "./components/cotizacion";
-import ConocimientoDeLitigios from "./components/conocimientodelitigios";
+import Clientes from "./components/clientes";
 import Contrato from "./components/contrato";
 import ConfigurarRecordatorios from "./components/configurarrecordatorios";
 import AgendarCitas from "./components/agendarcitas";
@@ -34,7 +34,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { setAuth } from "./redux/actions";
 import Abogados from "./components/abogados/index.jsx";
 import RegistroAbogado from "./components/registroabogado/index.jsx";
-
+import Casos from "./components/casos/index.jsx";
+import DetailCasos from "./components/detailCasos/detailCasos.jsx";
+import CrearCaso from "./components/CrearCaso/crearCaso.jsx";
 // export const URL = "http://localhost:3001/crmAveza/";
 
 // const URL = import.meta.env.VITE_URL;
@@ -347,7 +349,19 @@ function App() {
           clickHandlerRecordatorio={clickHandlerRecordatorio}
           clickHandlerCrear={clickHandlerCrear} />} />}
         
-        {isAuthenticated ? <Route path="conocimientodelitigios" element={<ConocimientoDeLitigios />} /> : <Route path="conocimientodelitigios" element={<Form login={login}
+        {isAuthenticated ? <Route path="clientes" element={<Clientes />} /> : <Route path="clientes" element={<Form login={login}
+          clickHandlerRecordatorio={clickHandlerRecordatorio}
+          clickHandlerCrear={clickHandlerCrear} />} />}
+        
+        {isAuthenticated ? <Route path="casos" element={<Casos />} /> : <Route path="casos" element={<Form login={login}
+          clickHandlerRecordatorio={clickHandlerRecordatorio}
+          clickHandlerCrear={clickHandlerCrear} />} />}
+        
+        {isAuthenticated ? <Route path="casos/:id" element={<DetailCasos />} /> : <Route path="casos/:id" element={<Form login={login}
+          clickHandlerRecordatorio={clickHandlerRecordatorio}
+          clickHandlerCrear={clickHandlerCrear} />} />}
+        
+                {isAuthenticated ? <Route path="casos/crearcaso" element={<CrearCaso />} /> : <Route path="casos/crearcaso" element={<Form login={login}
           clickHandlerRecordatorio={clickHandlerRecordatorio}
           clickHandlerCrear={clickHandlerCrear} />} />}
         

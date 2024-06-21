@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 
 export default (sequelize) => {
-  const Caso=sequelize.define(
+  const Caso = sequelize.define(
     "Caso",
     {
       idCaso: {
@@ -20,6 +20,14 @@ export default (sequelize) => {
       descripcion: {
         type: DataTypes.TEXT,
         allowNull: false,
+        validate: {
+          len: [1, 3000],
+        },
+      },
+      etapa: {
+        type: DataTypes.STRING,
+        defaultValue: "prospecto",
+        // allowNull: false,
         validate: {
           len: [1, 100],
         },

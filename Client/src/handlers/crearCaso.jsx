@@ -7,7 +7,7 @@ export async function postCaso(data) {
     fecha,
     fechaFin,
     descripcion,
-    TipoDeCasoId,
+    TipoDeCasoid,
   } = data;
   console.log("data del post", data);
 
@@ -19,7 +19,7 @@ export async function postCaso(data) {
       fecha: `${fecha}`,
       fechaFin: `${fechaFin}`,
       descripcion: `${descripcion}`,
-      TipoDeCasoId: `${TipoDeCasoId}`,
+      TipoDeCasoid: `${TipoDeCasoid}`,
     });
     window.alert("Se ha registrado el caso con éxito.");
   } catch (error) {

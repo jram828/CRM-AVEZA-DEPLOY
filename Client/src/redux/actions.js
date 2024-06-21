@@ -18,6 +18,7 @@ export const DELETE_ABOGADO = "DELETE_ABOGADO";
 export const DELETE_CLIENTE = "DELETE_CLIENTES";
 export const GET_TIPOSDECASOS = "GET_TIPOSDECASOS";
 export const GET_CASOS = "GET_CASOS";
+export const GET_CASOS_TODOS= "GET_CASOS_TODOS";
 export const FILTER_CASOS = "FILTER_CASOS";
 export const ORDER_CASOS = "ORDER_CASOS";
 export const GET_CASO_BY_ID = "GET_CASO_BY_ID";
@@ -242,13 +243,25 @@ export const getTiposDeCasos = () => {
   };
 };
 
-export const getCasos = () => {
-  const endpoint = `${URL}casos?porPagina=20`;
+export const getCasos = (page) => {
+  const endpoint = `${URL}casos?pagina=${page}&porPagina=6`;
   return async (dispatch) => {
-    const { data } = await axios.get(endpoint);
+    const { data } = await axios.get("/casos?pagina=1&porPagina=6");
     return dispatch({
       type: GET_CASOS,
       payload: data,
+    });
+  };
+};
+
+export const getCasosTodos = () => {
+  const endpoint = `${URL}casos`;
+  return async (dispatch) => {
+    const { data } = await axios.get('/casos');
+    console.log('Data casos:',data)
+    return dispatch({
+      type: GET_CASOS_TODOS,
+      payload: data.datosPagina,
     });
   };
 };

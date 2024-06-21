@@ -61,13 +61,10 @@ function AgendarCitas() {
   return (
     <div className="containerDiary">
         <div className="logo-aveza">
-          <img src={logo} alt="logo-aveza" title="AVEZA SAS" />
         <p className="titulo">Agendar Cita</p>
         </div>
       <div className="calendario">
         {/* <p className="agenda">Agenda</p> */}
-        <br />
-        <br />
         <br />
         <Calendario></Calendario>
 

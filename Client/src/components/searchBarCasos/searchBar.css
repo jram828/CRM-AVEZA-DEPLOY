@@ -1,0 +1,34 @@
+.input {
+   width: 80%;
+   padding: 10px;
+   margin-bottom: 10px;
+   border: 1px solid white; /* Color del borde */
+   border-radius: 5px;
+   background-color: transparent; /* Fondo transparente */
+   color: white; /* Color del texto */
+   font-family: "Outfit", sans-serif; /* Estilo de fuente */
+   outline: none; /* Elimina el contorno al seleccionar el campo */
+ }
+
+ .select {
+   width: 92%;
+   padding: 10px;
+   margin-bottom: 10px;
+   border: 1px solid white; 
+   border-radius: 5px;
+   background-color: transparent; 
+   color: white; 
+   font-family: "Outfit", sans-serif; 
+   outline: none; 
+ }
+
+ .select option {
+   background-color: var(--color-two); /* Color de fondo */
+   color: white; /* Color del texto */
+   font-family: "Outfit", sans-serif; /* Estilo de fuente */
+}
+
+.searchbar{
+  display: flex;
+  flex-direction: row;
+}

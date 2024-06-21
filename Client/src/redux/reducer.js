@@ -2,7 +2,7 @@ import {
   GET_CLIENTES,
   GET_CLIENTE_BY_CEDULA,
   SET_CLIENTE,
-  SET_AUTHENTICATED, 
+  SET_AUTHENTICATED,
   SET_USERTOKEN,
   GET_ABOGADOS,
   GET_BY_ID_ABOGADO,
@@ -16,6 +16,7 @@ import {
   DELETE_CLIENTE,
   GET_TIPOSDECASOS,
   GET_CASOS,
+  GET_CASOS_TODOS,
   FILTER_CASOS,
   ORDER_CASOS,
   POST_CITA,
@@ -123,6 +124,11 @@ const rootReducer = (state = initialState, action) => {
         tiposDeCasos: action.payload,
       };
     case GET_CASOS:
+      return {
+        ...state,
+        casos: action.payload,
+      };
+    case GET_CASOS_TODOS:
       return {
         ...state,
         casos: action.payload,

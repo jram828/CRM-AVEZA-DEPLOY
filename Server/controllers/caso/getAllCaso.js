@@ -31,23 +31,21 @@ const getAllCaso = async (filters) => {
         {
           model: Cliente,
           attributes: [
-            "apellido",
-            "nombre",
-            "calle",
-            "numero",
-            "ciudad",
-            "telefono",
+            "apellidos",
+            "nombres",
+            "direccion",
+            // "ciudad",
+            "celular",
           ],
         },
         {
           model: Abogado,
           attributes: [
-            "apellido",
-            "nombre",
-            "calle",
-            "numero",
-            "ciudad",
-            "telefono",
+            "apellidos",
+            "nombres",
+            "direccion",
+            // "ciudad",
+            "celular",
           ],
         },
         {
@@ -63,23 +61,21 @@ const getAllCaso = async (filters) => {
         {
           model: Cliente,
           attributes: [
-            "apellido",
-            "nombre",
-            "calle",
-            "numero",
-            "ciudad",
-            "telefono",
+            "apellidos",
+            "nombres",
+            "direccion",
+            // "ciudad",
+            "celular",
           ],
         },
         {
           model: Abogado,
           attributes: [
-            "apellido",
-            "nombre",
-            "calle",
-            "numero",
-            "ciudad",
-            "telefono",
+            "apellidos",
+            "nombres",
+            "direccion",
+            // "ciudad",
+            "celular",
           ],
         },
         {
@@ -96,18 +92,16 @@ const getAllCaso = async (filters) => {
     id: elemento.idCaso,
     descripcion: elemento.descripcion,
     fecha: elemento.fecha,
-    nombreCliente: elemento.Cliente.nombre,
-    apellidoCliente: elemento.Cliente.apellido,
-    calleCliente: elemento.Cliente.calle,
-    numeroCliente: elemento.Cliente.numero,
-    ciudadCliente: elemento.Cliente.ciudad,
-    telefonoCliente: elemento.Cliente.telefono,
-    nombreabogado: elemento.Abogado.nombre,
-    apellidoAbogado: elemento.Abogado.apellido,
-    calleAbogado: elemento.Abogado.calle,
-    numeroAbogado: elemento.Abogado.numero,
-    ciudadAbogado: elemento.Abogado.ciudad,
-    telefonoAbogado: elemento.Abogado.telefono,
+    nombreCliente: elemento.Cliente.nombres,
+    apellidoCliente: elemento.Cliente.apellidos,
+    direccionCliente: elemento.Cliente.direccion,
+    // ciudadCliente: elemento.Cliente.ciudad,
+    celularCliente: elemento.Cliente.celular,
+    nombresabogado: elemento.Abogado.nombres,
+    apellidosAbogado: elemento.Abogado.apellidos,
+    direccionAbogado: elemento.Abogado.direccion,
+    // ciudadAbogado: elemento.Abogado.ciudad,
+    celularAbogado: elemento.Abogado.celular,
     tipoCaso: elemento.TipoDeCaso.descripcion,
   }));
 
@@ -132,8 +126,8 @@ const getAllCaso = async (filters) => {
   switch (filters.query.ordenarPor) {
     case "apellidoCliente": {
       arregloOrdenado = datos.slice().sort((a, b) => {
-        let apellidoA=a.apellidoCliente.toUpperCase()
-        let apellidoB=a.apellidoCliente.toUpperCase()
+        let apellidoA=a.apellidosCliente.toUpperCase()
+        let apellidoB=a.apellidosCliente.toUpperCase()
 
         if (apellidoA < apellidoB)
           return -1;
@@ -154,8 +148,8 @@ const getAllCaso = async (filters) => {
     case "apellidoAbogado": {
       
       arregloOrdenado = datos.slice().sort((a, b) => {
-        let apellidoA=a.apellidoAbogado.toUpperCase()
-        let apellidoB=a.apellidoAbogado.toUpperCase()
+        let apellidoA=a.apellidosAbogado.toUpperCase()
+        let apellidoB=a.apellidosAbogado.toUpperCase()
         if (a.apellidoAbogado.toUpperCase() < b.apellidoAbogado.toUpperCase())
           return -1;
         if (a.apellidoAbogado.toUpperCase() > b.apellidoAbogado.toUpperCase())

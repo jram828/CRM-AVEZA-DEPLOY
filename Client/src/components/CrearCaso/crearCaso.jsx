@@ -13,7 +13,7 @@ function CrearCaso() {
     fecha: "",
     fechaFin: "",
     descripcion: "",
-    TipoDeCasoId: "",
+    TipoDeCasoid: "",
   });
   console.log(userDataRegistro);
 
@@ -101,14 +101,14 @@ function CrearCaso() {
       <div className="w-full px-4">
         <label className="w-full">
           <select
-            name="TipoDeCasoId"
-            id="TipoDeCasoId"
+            name="TipoDeCasoid"
+            id="TipoDeCasoid"
             className="input select-bordered text-lg pl-2 w-full"
             onChange={(event) => handleChangeRegistro(event)}
           >
             <option value="" className={style.customOption}>Tipo de caso</option>
             {tipos.allTipoDeCaso.map((tipo) => (
-              <option key={tipo.TipoDeCasoId} value={tipo.TipoDeCasoid} className={style.customOption}>
+              <option key={tipo.TipoDeCasoid} value={tipo.TipoDeCasoid} className={style.customOption}>
                 {tipo.descripcion}
               </option>
             ))}
@@ -200,7 +200,7 @@ function CrearCaso() {
       >
         Guardar
       </button>
-      <Link to="/home/cases">
+      <Link to="/casos">
         <button className="btn btn-sm btn-accent text-white">Volver</button>
       </Link>
     </div>
