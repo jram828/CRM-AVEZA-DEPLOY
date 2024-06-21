@@ -31,11 +31,11 @@ const getAllCita = async (filters) => {
           include: [
             {
               model: Cliente,
-              attributes: ["apellido", "nombre"],
+              attributes: ["apellidos", "nombres"],
             },
             {
               model: Abogado,
-              attributes: ["apellido", "nombre"],
+              attributes: ["apellidos", "nombres"],
             },
             {
               model: TipoDeCaso,
@@ -58,11 +58,11 @@ const getAllCita = async (filters) => {
         include: [
           {
             model: Cliente,
-            attributes: ["apellido", "nombre"],
+            attributes: ["apellidos", "nombres"],
           },
           {
             model: Abogado,
-            attributes: ["apellido", "nombre"],
+            attributes: ["apellidos", "nombres"],
           },
           {
             model: TipoDeCaso,
@@ -83,10 +83,10 @@ const getAllCita = async (filters) => {
     idCaso: elemento.Caso.idCaso,
     fechaCaso: elemento.Caso.fecha,
     descripcionCaso: elemento.Caso.descripcion,
-    nombreCliente: elemento.Caso.Cliente.nombre,
-    apellidoCliente: elemento.Caso.Cliente.apellido,
-    nombreabogado: elemento.Caso.Abogado.nombre,
-    apellidoAbogado: elemento.Caso.Abogado.apellido,
+    nombreCliente: elemento.Caso.Cliente.nombres,
+    apellidoCliente: elemento.Caso.Cliente.apellidos,
+    nombreabogado: elemento.Caso.Abogado.nombres,
+    apellidoAbogado: elemento.Caso.Abogado.apellidos,
     tipoCaso: elemento.Caso.TipoDeCaso.descripcion,
   }));
 

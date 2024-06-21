@@ -340,7 +340,7 @@ export const postCita = (payload) => {
 export const getCitas = () => {
   const endpoint = `${URL}citas?porPagina=20`;
   return async (dispatch) => {
-    const { data } = await axios.get(endpoint);
+    const { data } = await axios.get('/citas');
     return dispatch({
       type: GET_CITAS,
       payload: data,

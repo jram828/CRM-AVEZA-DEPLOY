@@ -60,9 +60,9 @@ function AgendarCitas() {
   
   return (
     <div className="containerDiary">
-        <div className="logo-aveza">
+      <div className="logo-aveza">
         <p className="titulo">Agendar Cita</p>
-        </div>
+      </div>
       <div className="calendario">
         {/* <p className="agenda">Agenda</p> */}
         <br />
@@ -75,57 +75,60 @@ function AgendarCitas() {
           <h1 className="tituloCita">Crear Cita</h1>
           <form onSubmit={submitHandlerRegistro} className="formularioCita">
             <div className="input-row">
-              <div>
+              <div className="labelinput">
                 <label className="label">Titulo:</label>
                 <input
                   type="text"
                   name="titulo"
                   id="titulo"
+                  className="input"
                   value={dataRegistro.titulo}
                   onChange={handleChangeRegistro}
                 />
               </div>
-              <label className="label">Fecha:</label>
-              <DatePicker
-                selected={dataRegistro.fechaCita}
-                name="fechaCita"
-                id="fechaCita"
-                onChange={(date) =>
-                  handleChangeRegistro({
-                    target: { name: "fechaCita", value: date },
-                  })
-                }
-              />
-              {/*<input type="text"
-            name="fechaCita"
-            id="fechaCita"
-            value={dataRegistro.fechaCita}
-  onChange={handleChangeRegistro} />*/}
+              <div className="labelinput">
+                <label className="label">Fecha:</label>
+                <DatePicker
+                  className="input"
+                  selected={dataRegistro.fechaCita}
+                  name="fechaCita"
+                  id="fechaCita"
+                  onChange={(date) =>
+                    handleChangeRegistro({
+                      target: { name: "fechaCita", value: date },
+                    })
+                  }
+                />
+              </div>
               <br />
-              <label className="label">Hora:</label>
-              <input
-                className="input"
-                type="text"
-                name="horaCita"
-                id="horaCita"
-                value={dataRegistro.horaCita}
-                onChange={handleChangeRegistro}
-              />
+              <div className="labelinput">
+                <label className="label">Hora:</label>
+                <input
+                  className="input"
+                  type="time"
+                  name="horaCita"
+                  id="horaCita"
+                  value={dataRegistro.horaCita}
+                  onChange={handleChangeRegistro}
+                />
+              </div>
+              <div className="labelinput">
+                <label className="label">Caso:</label>
+                <select
+                  className="input"
+                  name="idCaso"
+                  id="idCaso"
+                  onChange={(event) => handleChangeRegistro(event)}
+                >
+                  <option value="">Seleccionar...</option>
+                  {casos.map((caso) => (
+                    <option key={caso.id} value={caso.id}>
+                      {caso.id}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
-            <label className="label">Caso:</label>
-            <select
-              name="idCaso"
-              id="idCaso"
-              onChange={(event) => handleChangeRegistro(event)}
-            >
-              <option value="">Seleccionar...</option>
-              {/* {casos.datosPagina.map((caso) => (
-              <option key={caso.id} value={caso.id}>
-                {caso.id}
-              </option>
-            ))} */}
-            </select>
-
             <br></br>
             <div className="input-row">
               <label className="label">Detalles:</label>
