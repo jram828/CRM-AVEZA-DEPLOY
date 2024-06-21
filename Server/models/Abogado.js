@@ -55,7 +55,7 @@ export default (sequelize) => {
     },
     administrador: {
       type: DataTypes.BOOLEAN,
-      defaultValue: false,
+      defaultValue: true,
     },
   });
   return Abogado;

@@ -18,38 +18,42 @@ const getAbogadosHandler = async (req, res) => {
 // todo esto a continuacion puedo enviarlo como un objeto para evitar errores, pero debo modificarlo en todos los modulos que esten
 const postAbogadosHandler = async (req, res) => {
   const {
-    cedulaAbogado,
-    matricula,
-    nombre,
-    apellido,
-    correo,
-    telefono,
-    calle,
-    numero,
-    codigoPostal,
-    ciudad,
-    pais,
-    imagen,
-    password,
-    administrador,
+      email,
+      nombres,
+      apellidos,
+      cedulaAbogado,
+      celular,
+      direccion,
+      nombre_ciudad,
+      tarjetaProf,
+      password,
+    // administrador,
   } = req.body;
+
+  console.log("body crear abogado:", {
+    email,
+    nombres,
+    apellidos,
+    cedulaAbogado,
+    celular,
+    direccion,
+    nombre_ciudad,
+    tarjetaProf,
+    password,
+    // administrador,
+  });
 
   try {
     const response = await createAbogadoBd(
+      email,
+      nombres,
+      apellidos,
       cedulaAbogado,
-      matricula,
-      nombre,
-      apellido,
-      correo,
-      telefono,
-      calle,
-      numero,
-      codigoPostal,
-      ciudad,
-      pais,
-      password,
-      imagen,
-      administrador,
+      celular,
+      direccion,
+      nombre_ciudad,
+      tarjetaProf,
+      password
     );
     res.status(200).json(response);
   } catch (error) {

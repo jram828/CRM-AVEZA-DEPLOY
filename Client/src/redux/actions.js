@@ -104,13 +104,15 @@ export const getAbogados = () => {
   const endpoint = `${URL}abogados?pagina=1&porPagina=50`;
 
   return async (dispatch) => {
-    const { data } = await axios.get(endpoint);
+    const { data } = await axios.get("/abogados");
     return dispatch({
       type: GET_ABOGADOS,
       payload: data,
     });
   };
 };
+
+
 
 export const getByIdAbogado = (cedulaAbogado) => {
   const endpoint = `${URL}abogados/cedulaabogado?cedulaAbogado=${cedulaAbogado}`;

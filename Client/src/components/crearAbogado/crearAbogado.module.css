@@ -1,0 +1,78 @@
+.container {
+  background-color: var(--color-two);
+  opacity: 0.9;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 50px;
+  width: 100%;
+  margin: 0 auto;
+  color: white;
+  font-family: "Outfit", sans-serif;
+}
+
+.titulo {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.datos {
+  width: 100%;
+}
+
+.container2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.label {
+  font-size: 16px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  text-align: left;
+  width: 100px; /* Tamaño fijo para los labels */
+  flex: 0 0 auto; 
+}
+
+.caja,
+.cajaregistrocliente {
+  flex: 1; 
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: transparent; /* Color de fondo transparente */
+  color: white;
+  font-family: "Outfit", sans-serif;
+  outline: none;
+  margin: 10px;
+  box-sizing: border-box; 
+}
+
+.documentoagenerar {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.documentoagenerar input[type="submit"],
+.documentoagenerar button {
+  padding: 10px 20px;
+  background-color: var(--color-four);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.documentoagenerar input[type="submit"]:hover,
+.documentoagenerar button:hover {
+  background-color: darken(var(--color-four), 10%);
+}
+
+.documentoagenerar input[type="submit"]:focus,
+.documentoagenerar input[type="submit"]:focus-visible,
+.documentoagenerar button:focus,
+.documentoagenerar button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}

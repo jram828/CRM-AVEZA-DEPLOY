@@ -6,14 +6,19 @@ import "./nav.css";
 
 const Nav = ({logout }) => {
   return (
-    <div className="navbar" >
+    <div className="navbar">
       {/* <SearchBar onVerificarCliente={onVerificarCliente} /> */}
       <div className="logo-aveza">
         <img src={logo} alt="logo-aveza" title="AVEZA SAS" />
       </div>
-      <br /><br /><br />
-      <Link to="registrocliente/">
-        <Button>Registro de Cliente</Button>
+      <br />
+      <br />
+      <br />
+      <Link to="/abogados">
+        <Button>Abogados</Button>
+      </Link>
+      <Link to="/conocimientodelitigios">
+        <Button>Conocimiento de Litigios</Button>
       </Link>
       {/* <Link to="cotizacion/">
         <Button>Cotizacion</Button>
@@ -21,21 +26,19 @@ const Nav = ({logout }) => {
       {/* <Link to="financiamiento/">
         <Button>Financiamiento</Button>
       </Link> */}
-      {/* <Link to="/previsualizarcontrato" onVerificarCliente={onVerificarCliente}>
-        <Button>Contrato</Button>
-      </Link> */}
-      {/* <Link to="/documentoslegales">
-        <Button>Generar Documentos Legales</Button>
-      </Link> */}
+
       <Link to="/agendarcitas">
-        <Button>Agendar Citas</Button>
+        <Button>Agenda</Button>
       </Link>
-      <Link to="/configurarrecordatorios">
+      <Link to="/pagos">
+        <Button>Pagos</Button>
+      </Link>
+      <Link to="/consultas">
+        <Button>Consultas</Button>
+      </Link>
+      {/* <Link to="/configurarrecordatorios">
         <Button>Configurar Recordatorios</Button>
-      </Link>
-      <Link to="/conocimientodelitigios">
-        <Button>Conocimiento de Litigios</Button>
-      </Link>
+      </Link> */}
       {/* <Link to="/generarfactura">
         <Button>Generar Factura</Button>
       </Link> */}

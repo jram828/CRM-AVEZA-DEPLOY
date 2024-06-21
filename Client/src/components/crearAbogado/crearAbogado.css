@@ -1,0 +1,59 @@
+.contenedorcrearabogado {
+    background-color: var(--color-two);
+    opacity: 0.9;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 50px;
+    width: 100%;
+    color: white;
+    font-family: "Outfit", sans-serif;
+  }
+  
+  .titulo {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .formulario {
+    width: 100%;
+  }
+  
+  .nombreapellido,
+  .cedulamatricula,
+  .correo,
+  .direccioncelular,
+  .ciudadcontrasena,
+  .paiscontrasena {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .labelcrearabogado {
+    font-size: 16px;
+    margin-right: 20px;
+    margin-left: 10px;
+    flex: 1;
+    width: 30%;
+    text-align: left;
+  }
+  
+  .cajascrearabogado {
+    width: calc(70% - 20px); /* 70% - padding */
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+    font-family: "Outfit", sans-serif;
+    outline: none;
+    flex: 1;
+  }
+  
+  .botonescrearabogado {
+    display: flex;
+    justify-content: center;
+    
+  }
+  

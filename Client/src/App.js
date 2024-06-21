@@ -32,6 +32,8 @@ import WordToHtml from "./components/wordtohtml";
 import {PrivateRoute} from "./components/privateroute";
 import { useDispatch, useSelector } from "react-redux";
 import { setAuth } from "./redux/actions";
+import Abogados from "./components/abogados/index.jsx";
+import RegistroAbogado from "./components/registroabogado/index.jsx";
 
 // export const URL = "http://localhost:3001/crmAveza/";
 
@@ -153,7 +155,44 @@ function App() {
       } catch (error) {
         window.alert("No fue posible registrar el cliente.");
       }
+  }
+  
+  async function registroAbogado(userDataRegistro) {
+    const {
+      email,
+      nombres,
+      apellidos,
+      cedulaAbogado,
+      celular,
+      direccion,
+      nombre_ciudad,
+      tarjetaProf,
+      password,
+    } = userDataRegistro;
+
+    console.log("User data registro:", userDataRegistro);
+
+    const URL = "/abogados";
+    try {
+      await axios.post(URL, {
+        email: `${email}`,
+        // password: `${password}`,
+        nombres: `${nombres}`,
+        apellidos: `${apellidos}`,
+        cedulaAbogado: `${cedulaAbogado}`,
+        celular: `${celular}`,
+        direccion: `${direccion}`,
+        nombre_ciudad: `${nombre_ciudad}`,
+        tarjetaProf: `${tarjetaProf}`,
+        password: `${password}`,
+      });
+      window.alert("Se ha registrado el cliente con éxito.");
+      setAccess(true);
+      access && navigate("/abogados");
+    } catch (error) {
+      window.alert("No fue posible registrar el cliente.");
     }
+  }
 
   const logout = () => {
     alert("Ha salido exitosamente");
@@ -268,6 +307,11 @@ function App() {
           clickHandlerRecordatorio={clickHandlerRecordatorio}
           clickHandlerCrear={clickHandlerCrear} />} />}
         
+                {isAuthenticated ? <Route path="registroabogado" element={<RegistroAbogado
+          registroAbogado={registroAbogado} />}/>: <Route path="registroabogado" element={<Form login={login}
+          clickHandlerRecordatorio={clickHandlerRecordatorio}
+          clickHandlerCrear={clickHandlerCrear} />} />}
+        
         {isAuthenticated ? <Route path="detail" element={<Detail />} />
           : <Route path="detail" element={<Form login={login}
           clickHandlerRecordatorio={clickHandlerRecordatorio}
@@ -304,6 +348,10 @@ function App() {
           clickHandlerCrear={clickHandlerCrear} />} />}
         
         {isAuthenticated ? <Route path="conocimientodelitigios" element={<ConocimientoDeLitigios />} /> : <Route path="conocimientodelitigios" element={<Form login={login}
+          clickHandlerRecordatorio={clickHandlerRecordatorio}
+          clickHandlerCrear={clickHandlerCrear} />} />}
+        
+                {isAuthenticated ? <Route path="abogados" element={<Abogados />} /> : <Route path="abogados" element={<Form login={login}
           clickHandlerRecordatorio={clickHandlerRecordatorio}
           clickHandlerCrear={clickHandlerCrear} />} />}
       </Routes>
