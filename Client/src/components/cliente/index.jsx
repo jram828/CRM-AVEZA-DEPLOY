@@ -1,5 +1,6 @@
 import React from "react";
-import "../../App.css";
+// import "../../App.css";
+import "./cliente.css";
 import { Link } from "react-router-dom";
 import { connect, useDispatch } from "react-redux";
 import { clienteActual, getClienteByCedula} from "../../redux/actions";
@@ -35,8 +36,8 @@ const Cliente = (props) => {
  const newCliente = {
    cedula: Number(cedula).toLocaleString(),
    email,
-   tipo_usuario: TipoUsuarios[0].descripcion,
-   tipo_caso: TipoDeCasos[0].descripcion,
+  //  tipo_usuario: TipoUsuarios[0].descripcion,
+  //  tipo_caso: TipoDeCasos[0].descripcion,
    nombres,
    apellidos,
    direccion,
@@ -81,7 +82,7 @@ const Cliente = (props) => {
   // }, [props.myFavorites, props.cliente.cedula]);
 
   return (
-    <div className="container">
+    // <div className="container">
       <div className="card" key={cedula}>
         <a className="linkdetailcliente" onClick={onClickDetail}>
           <h1
@@ -95,7 +96,7 @@ const Cliente = (props) => {
           </h1>
         </a>
       </div>
-    </div>
+    // </div>
   );
 };
 

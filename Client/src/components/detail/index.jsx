@@ -52,9 +52,9 @@ const Detail = () => {
       doc.render({
         nombre: cliente.nombres.toUpperCase(),
         apellido: cliente.apellidos.toUpperCase(),
-        cedula: cliente.cedula,
+        cedula: cliente.cedulaCliente,
         celular: cliente.celular,
-        ciudad: cliente.Ciudads[0].nombre_ciudad,
+        // ciudad: cliente.Ciudads[0].nombre_ciudad,
         direccion: cliente.direccion,
         pretensiones: cliente.valor_pretensiones,
         pretensiones_letras: cliente.valor_pretensiones_letras.toUpperCase(),
@@ -126,11 +126,11 @@ const Detail = () => {
             <h4>Celular: {cliente.celular}</h4>
             <h4>Correo: {cliente.email}</h4>
             <h4>Direccion: {cliente.direccion.toUpperCase()}</h4>
-            <h4>Ciudad: {cliente.Ciudads[0].nombre_ciudad}</h4>
-            <h4>
+            {/* <h4>Ciudad: {cliente.Ciudads[0].nombre_ciudad}</h4> */}
+            {/* <h4>
               Departamento:
               {cliente.Ciudads[0].Departamentos[0].nombre_departamento}
-            </h4>
+            </h4> */}
           </div>
           <div className="casos">
             <h4>Tipo de caso: {cliente.tipo_caso} </h4>

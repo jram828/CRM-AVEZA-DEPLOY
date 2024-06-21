@@ -2,6 +2,7 @@ import logo from "../../img/logoAveza.png";
 import Cliente from "../cliente";
 import {useEffect } from "react";
 import "../../App.css";
+import "./litigiosporcliente.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getClienteAll } from "../../redux/actions";
 import Docxtemplater from "docxtemplater";
@@ -59,12 +60,12 @@ const LitigiosPorCliente = () => {
   };
 
   return (
-    <div>
+    <div className="contenedorlitigios">
       <div className="logo-aveza">
         <img src={logo} alt="logo-aveza" title="AVEZA SAS" />
-      </div>
       <h1 className="titulo">Conocimiento de Litigios</h1>
-      <br />
+      </div>
+      {/* <br /> */}
       <div>
         <input type="file" id="doc" />
         {/* <Link to={"/previsualizarcontrato"}> */}
@@ -73,7 +74,7 @@ const LitigiosPorCliente = () => {
         </Button>
         {/* </Link> */}
       </div>
-      <form>
+      {/* <form> */}
         <div className="divclientes">
           {clientes.map((cliente) => {
             return (
@@ -83,7 +84,7 @@ const LitigiosPorCliente = () => {
             );
           })}
         </div>
-      </form>
+      {/* </form> */}
     </div>
   );
 };

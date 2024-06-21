@@ -60,7 +60,7 @@ export const getClienteByCedula = (cedula) => {
 
 export  const getClienteAll = () => {
 return async (dispatch) => {
-  const { data } = await axios.get('/conocimientolitigios');
+  const { data } = await axios.get('/clientes/conocimientolitigios');
   console.log('Data Get clientes:',data)
   try {
     return dispatch({

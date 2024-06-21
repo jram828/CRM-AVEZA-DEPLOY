@@ -1,22 +1,17 @@
 // import SearchBar from "../searchbar";
 import { Link} from "react-router-dom";
 import { Button } from "../Mystyles";
+import logo from "../../img/logoAveza.png";
+import "./nav.css";
 
 const Nav = ({logout }) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        height: "100vh",
-        width: "300px",
-        alignItems: "center",
-        // backgroundColor:"red"
-      }}
-    >
+    <div className="navbar" >
       {/* <SearchBar onVerificarCliente={onVerificarCliente} /> */}
-      
+      <div className="logo-aveza">
+        <img src={logo} alt="logo-aveza" title="AVEZA SAS" />
+      </div>
+      <br /><br /><br />
       <Link to="registrocliente/">
         <Button>Registro de Cliente</Button>
       </Link>
