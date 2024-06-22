@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { setAuth } from "../../redux/actions";
 import { useAuth0 } from "@auth0/auth0-react";
 import photo from "../../assets/login.jpg";
+import { Button } from "../Mystyles";
 
 const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
   const [userData, setUserData] = useState({
@@ -163,21 +164,19 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
             <tr>
               <td className="celdas"></td>
               <td className="celdas">
-                <input
-                  type="button"
-                  name="cancelar"
-                  value="Cancelar"
-                  className="botonesiniciosesion"
-                />
+                <Link to="/consultas">
+                  <Button>Consultas</Button>
+                </Link>
               </td>
               <td className="celdas">
                 {" "}
                 {errores.cedula || errores.password ? null : (
-                  <input
-                    type="submit"
-                    value="Ingresar"
-                    className="botonesiniciosesion"
-                  />
+                  // <input
+                  //   type="submit"
+                  //   value="Ingresar"
+                  //   className="botonesiniciosesion"
+                  // />
+                  <Button type="submit">Ingresar</Button>
                 )}
               </td>
               <td className="celdas"></td>
@@ -186,7 +185,7 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
               <td></td>
               <td className="celdas">
                 <Link to={"/crearusuario"} onClick={clickHandlerCrear}>
-                  <button className="botonesiniciosesion">Crear Usuario</button>
+                  <Button>Crear usuario</Button>
                 </Link>
               </td>
               <td className="celdas">
@@ -194,9 +193,7 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
                   to={"/recordatoriocontrasena"}
                   onClick={clickHandlerRecordatorio}
                 >
-                  <button className="botonesiniciosesion">
-                    ¿Olvidó su contraseña?
-                  </button>
+                  <Button>¿Olvidó su contraseña?</Button>
                 </Link>
               </td>
               <td></td>

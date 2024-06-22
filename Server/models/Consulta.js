@@ -1,48 +1,49 @@
 import { DataTypes } from "sequelize";
 
 export default (sequelize) => {
-  const Consulta = sequelize.define("Consulta", {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    apellido: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1, 20],
+  const Consulta = sequelize.define(
+    "Consulta",
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
       },
-    },
-    nombre: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1, 20],
+      apellido: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [1, 20],
+        },
       },
-    },
-    correo: {
-      type: DataTypes.STRING,
-      unique: true,
-      validate: {
-        len: [1, 50],
+      nombre: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [1, 20],
+        },
       },
-    },
-    telefono: {
-      type: DataTypes.INTEGER,
-      unique: true,
-    },
-    consulta: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      validate: {
-        len: [1, 200],
+      correo: {
+        type: DataTypes.STRING,
+        validate: {
+          len: [1, 50],
+        },
       },
-    },
-    activo: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: true,
-    },
-  });
+      telefono: {
+        type: DataTypes.BIGINT,
+      },
+      consulta: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+        validate: {
+          len: [1, 200],
+        },
+      },
+      activo: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true,
+      },
+    }
+  );
     return Consulta
 };

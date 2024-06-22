@@ -22,6 +22,7 @@ import {
   POST_CITA,
   GET_CITAS,
   POST_CONSULTA,
+  GET_CONSULTAS,
 } from "./actions";
 
 let initialState = {
@@ -154,6 +155,11 @@ const rootReducer = (state = initialState, action) => {
         citas: action.payload,
       };
     case POST_CONSULTA:
+      return {
+        ...state,
+        consultas: action.payload,
+      };
+    case GET_CONSULTAS:
       return {
         ...state,
         consultas: action.payload,

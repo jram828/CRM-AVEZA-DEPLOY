@@ -1,0 +1,18 @@
+  h1{
+    font-family: "Outfit", sans-serif;
+    color: white;
+
+}
+
+  .label-text{
+    font-family: "Outfit", sans-serif;
+    color: white;
+    
+  }
+  .detail-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+  }
+  

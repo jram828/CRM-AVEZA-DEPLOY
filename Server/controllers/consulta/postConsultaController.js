@@ -25,16 +25,16 @@ const createConsultaBd = async (
     telefono,
     consulta,
   });
-  const client = new twilio(ACCOUNTSID, AUTHTOKEN, NUMBER);
-  const celular = "+573127461628";
-  client.messages
-    .create({
-      body: "Se ha creado una nueva consulta en Legaltech!",
-      from: "+12097210938",
-      to: celular,
-    })
-    .then((message) => console.log(message.sid))
-    .done();
+  // const client = new twilio(ACCOUNTSID, AUTHTOKEN, NUMBER);
+  // const celular = "+573127461628";
+  // client.messages
+  //   .create({
+  //     body: "Se ha creado una nueva consulta en Legaltech!",
+  //     from: "+12097210938",
+  //     to: celular,
+  //   })
+  //   .then((message) => console.log(message.sid))
+  //   .done();
   return newConsulta;
 };
 

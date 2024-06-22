@@ -1,0 +1,46 @@
+.contenedorconsultas{
+  background-color: white;
+  opacity: 0.85;
+  border-radius: 10px;
+  padding-top: 10px;
+  height: 90vh;
+  width: 70vw;
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.encabezado{
+  width: 300px;
+}
+
+.consultasconpagina{
+  display: flex;
+  flex-direction: column;
+}
+
+   .divconsultas{
+    display: grid;
+    /* flex-direction: row;
+    flex-wrap: wrap; */
+    justify-content: flex-start;
+        grid-template-columns: repeat(4, 1fr);
+    /* grid-gap: 15px; */
+    grid-auto-rows: minmax(20px, auto);
+   }
+
+   .card{
+  background-color: lightgray;
+  opacity: 0.85;
+  border-radius: 8px;
+ justify-content: flex-start;
+  margin-left: 10px;
+  width:220px;
+  height: 220px;
+}
+
+.labelconsulta{
+   font-size: 160%;
+   color: black;
+}

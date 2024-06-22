@@ -26,6 +26,7 @@ export const DELETE_CASO = "DELETE_CASO;";
 export const POST_CITA = "POST_CITA";
 export const GET_CITAS = "GET_CITAS";
 export const POST_CONSULTA = "POST_CONSULTA";
+export const GET_CONSULTAS = "GET_CONSULTAS";
 
 export const clienteActual = (cliente) => {
   console.log("Cliente Action:", cliente);
@@ -348,14 +349,37 @@ export const getCitas = () => {
   };
 };
 
-export const postConsulta = (payload) => {
+export const postConsulta =  async(payload) => {
   const endpoint = `${URL}consultas`;
-
-  return async (dispatch) => {
-    const data = await axios.post(endpoint, payload);
-    return dispatch({
-      type: POST_CONSULTA,
-      payload: data,
+   console.log('Payload post consulta:', payload)
+  const { nombre, apellido, consulta, correo, telefono} = payload;
+  
+  // return async (dispatch) => {
+  try{
+    const { data } = await axios.post("/consultas", {
+      nombre: `${nombre}`,
+      apellido: `${apellido}`,
+      consulta: `${consulta}`,
+      correo: `${correo}`,
+      telefono: `${telefono}`,
     });
+    console.log('respuesta post consulta:',data)
+    // return dispatch({
+    //   type: POST_CONSULTA,
+    //   payload: data,
+    // });
+   } catch (error) {
+    window.alert("No fue posible registrar la consulta.");
   };
 }; 
+
+  export const getConsultas = (page) => {
+    const endpoint = '/consultas';
+    return async (dispatch) => {
+      const { data } = await axios.get(endpoint);
+      return dispatch({
+        type: GET_CONSULTAS,
+        payload: data,
+      });
+    };
+  };

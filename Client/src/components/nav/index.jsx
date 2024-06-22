@@ -36,7 +36,7 @@ const Nav = ({logout }) => {
       <Link to="/pagos">
         <Button>Pagos</Button>
       </Link>
-      <Link to="/consultas">
+      <Link to="/verconsultas">
         <Button>Consultas</Button>
       </Link>
       {/* <Link to="/configurarrecordatorios">

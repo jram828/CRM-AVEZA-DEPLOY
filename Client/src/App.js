@@ -37,6 +37,8 @@ import RegistroAbogado from "./components/registroabogado/index.jsx";
 import Casos from "./components/casos/index.jsx";
 import DetailCasos from "./components/detailCasos/detailCasos.jsx";
 import CrearCaso from "./components/CrearCaso/crearCaso.jsx";
+import Consultas from "./components/consultas/consultas.jsx";
+import AllConsultas from "./components/allConsultas/allConsultas.jsx";
 // export const URL = "http://localhost:3001/crmAveza/";
 
 // const URL = import.meta.env.VITE_URL;
@@ -275,6 +277,7 @@ function App() {
               clickHandlerRecordatorio={clickHandlerRecordatorio}
               clickHandlerCrear={clickHandlerCrear} />} />
         <Route path="/crearusuario" element={<CrearUsuario crearUsuario={crearUsuario} />} />
+        <Route path="/consultas" element={<Consultas/>} />
         <Route path="/home/*" element={<LayoutWithNav />}></Route>
         {isAuthenticated ? <Route path="generar" element={<WordToHtml />} /> : <Route path="generar" element={<Form login={login}
           clickHandlerRecordatorio={clickHandlerRecordatorio}
@@ -366,6 +369,10 @@ function App() {
           clickHandlerCrear={clickHandlerCrear} />} />}
         
                 {isAuthenticated ? <Route path="abogados" element={<Abogados />} /> : <Route path="abogados" element={<Form login={login}
+          clickHandlerRecordatorio={clickHandlerRecordatorio}
+          clickHandlerCrear={clickHandlerCrear} />} />}
+        
+        {isAuthenticated ? <Route path="verconsultas" element={<AllConsultas />} /> : <Route path="verconsultas" element={<Form login={login}
           clickHandlerRecordatorio={clickHandlerRecordatorio}
           clickHandlerCrear={clickHandlerCrear} />} />}
       </Routes>
