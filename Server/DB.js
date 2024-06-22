@@ -19,7 +19,7 @@ import ciudadModel from "./models/Ciudad.js";
 import tipoUsuarioModel from "./models/TipoUsuario.js";
 import facturaModel from "./models/Factura.js";
 // import reviewModel from "./models/Review.js";
-// import pagoClienteModel from "./models/pagoCliente.js";
+import pagoClienteModel from "./models/pagoCliente.js";
 // import carteraModel from "./models/Cartera.js";
 // import documentoLegalModelTipoNoti from "./models/DocumentoLegalTipoNotificacion.js";
 
@@ -68,7 +68,7 @@ const Factura=facturaModel(sequelize);
 const TipoUsuario=tipoUsuarioModel(sequelize);
 // const DocumentoLegalTipoNotificacion = documentoLegalModelTipoNoti(sequelize);
 // const Cartera=carteraModel(sequelize);
-// const PagosCliente = pagoClienteModel(sequelize);
+const PagosCliente = pagoClienteModel(sequelize);
 // const Review = reviewModel(sequelize);
 
 
@@ -99,8 +99,8 @@ Caso.belongsTo(TipoDeCaso);
 
 Caso.hasOne(Cotizacion);
 
-// Caso.hasMany(PagosCliente, { foreignKey: "idCaso" });
-// PagosCliente.belongsTo(Caso, { foreignKey: "idCaso" });
+Caso.hasMany(PagosCliente, { foreignKey: "idCaso" });
+PagosCliente.belongsTo(Caso, { foreignKey: "idCaso" });
 
 Caso.hasMany(Cita, { foreignKey: "idCaso" });
 Cita.belongsTo(Caso, { foreignKey: "idCaso" });

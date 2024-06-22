@@ -39,6 +39,7 @@ import DetailCasos from "./components/detailCasos/detailCasos.jsx";
 import CrearCaso from "./components/CrearCaso/crearCaso.jsx";
 import Consultas from "./components/consultas/consultas.jsx";
 import AllConsultas from "./components/allConsultas/allConsultas.jsx";
+import Payments from "./components/payments/payments.component.jsx";
 // export const URL = "http://localhost:3001/crmAveza/";
 
 // const URL = import.meta.env.VITE_URL;
@@ -373,6 +374,10 @@ function App() {
           clickHandlerCrear={clickHandlerCrear} />} />}
         
         {isAuthenticated ? <Route path="verconsultas" element={<AllConsultas />} /> : <Route path="verconsultas" element={<Form login={login}
+          clickHandlerRecordatorio={clickHandlerRecordatorio}
+          clickHandlerCrear={clickHandlerCrear} />} />}
+        
+        {isAuthenticated ? <Route path="pagos" element={<Payments />} /> : <Route path="pagos" element={<Form login={login}
           clickHandlerRecordatorio={clickHandlerRecordatorio}
           clickHandlerCrear={clickHandlerCrear} />} />}
       </Routes>

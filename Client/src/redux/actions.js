@@ -27,6 +27,7 @@ export const POST_CITA = "POST_CITA";
 export const GET_CITAS = "GET_CITAS";
 export const POST_CONSULTA = "POST_CONSULTA";
 export const GET_CONSULTAS = "GET_CONSULTAS";
+export const GET_PAGOS = "GET_PAGOS";
 
 export const clienteActual = (cliente) => {
   console.log("Cliente Action:", cliente);
@@ -379,6 +380,24 @@ export const postConsulta =  async(payload) => {
       const { data } = await axios.get(endpoint);
       return dispatch({
         type: GET_CONSULTAS,
+        payload: data,
+      });
+    };
+};
+  
+export const recordarPassword = async (email) => {
+  const endpoint = `/login/password/?correo=${email}`;
+  console.log("PAYLOAD", email);
+  const data = await axios.get(endpoint);
+  return data;
+};
+
+  export const getPagos = () => {
+    const endpoint = `/pagosClientes`;
+    return async (dispatch) => {
+      const { data } = await axios.get(endpoint);
+      return dispatch({
+        type: GET_PAGOS,
         payload: data,
       });
     };

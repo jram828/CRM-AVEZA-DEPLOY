@@ -1,5 +1,5 @@
 import { models } from "../../DB.js";
-const { Caso, Cliente, Abogado, PagosCliente } = models;
+const { Caso, Cliente, Abogado, PagosCliente} = models;
 
 const getAllPagosClientes = async (filters) => {
   const pagina = [];
@@ -43,11 +43,11 @@ const getAllPagosClientes = async (filters) => {
         include: [
           {
             model: Abogado,
-            attributes: ["apellido", "nombre"],
+            attributes: ["apellidos", "nombres"],
           },
           {
             model: Cliente,
-            attributes: ["apellido", "nombre"],
+            attributes: ["apellidos", "nombres"],
           },
         ],
       },
