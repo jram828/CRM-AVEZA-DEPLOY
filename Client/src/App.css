@@ -1,11 +1,10 @@
 .App {
    display: flex;
    flex-direction: row;
-   gap: 10px;
    align-items: center;
-   min-height: 100vh;
+   min-height: 90%;
    min-width: 100vw;
-   background-color: #5173EE;
+   background-color: rgb(81, 115, 238, 0.75);
    }
 
    .navbar{

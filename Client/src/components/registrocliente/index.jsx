@@ -13,7 +13,7 @@ const RegistroCliente = ({registroCliente}) => {
       celular: "",
       direccion: "",
       nombre_ciudad: "",
-      tipo_usuario: "2",
+      tipo_usuario: "3",
       tipo_de_caso: "",
       forma_de_pago: "",
       honorarios: "",

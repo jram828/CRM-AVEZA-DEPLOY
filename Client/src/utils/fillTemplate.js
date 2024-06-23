@@ -18,7 +18,9 @@ const fillTemplate = () => {
   console.log("Clientes conocimiento: ", clientes);
 
   const generarContrato = () => {
+
     const docs = document.getElementById("doc");
+    
     const reader = new FileReader();
     if (docs.files.length === 0) {
       alert("No files selected");

@@ -13,7 +13,7 @@ const Cliente = (props) => {
   const navigate = useNavigate();
   //const cliente = useSelector((state) => state.cliente);
   const {
-    cedula,
+    cedulaCliente,
     email,
     TipoUsuarios,
     TipoDeCasos,
@@ -34,7 +34,7 @@ const Cliente = (props) => {
   console.log('Tipo usuarios', TipoUsuarios);
   console.log("Tipo casos", TipoDeCasos);
  const newCliente = {
-   cedula: Number(cedula).toLocaleString(),
+   cedulaCliente: Number(cedulaCliente).toLocaleString(),
    email,
   //  tipo_usuario: TipoUsuarios[0].descripcion,
   //  tipo_caso: TipoDeCasos[0].descripcion,
@@ -83,7 +83,7 @@ const Cliente = (props) => {
 
   return (
     // <div className="container">
-      <div className="card" key={cedula}>
+      <div className="card" key={cedulaCliente}>
         <a className="linkdetailcliente" onClick={onClickDetail}>
           <h1
             style={{

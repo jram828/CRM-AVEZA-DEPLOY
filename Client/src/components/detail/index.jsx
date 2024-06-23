@@ -99,16 +99,16 @@ const Detail = () => {
           <Link to={"/generarfactura"}>
             <Button className="botonesiniciosesion">Generar factura</Button>
           </Link>
-            <Button className="botonesiniciosesion" onClick={generarContrato}>
-              Generar Documentos
-            </Button>
-          </div>
-          <div className="generardocumento">
-            {/* <Link to={"/previsualizarcontrato"}> */}
-            <input type="file" id="doc" />
-            {/* </Link> */}
-          </div>
-          {/* <Link to={"/documentoslegales"}>
+          <Button className="botonesiniciosesion" onClick={generarContrato}>
+            Generar Documentos
+          </Button>
+        </div>
+        <div className="generardocumento">
+          {/* <Link to={"/previsualizarcontrato"}> */}
+          <input type="file" id="doc" />
+          {/* </Link> */}
+        </div>
+        {/* <Link to={"/documentoslegales"}>
           <Button className="botonesiniciosesion">
             Generar Documentos Legales
           </Button>
@@ -122,15 +122,25 @@ const Detail = () => {
         {/* <img className="photo" src={character.image} alt={character.name} /> */}
         <div className="info">
           <div className="personal">
-            <h4>Cedula: {cliente.cedula}</h4>
+            <label for="numerocedula" className="labelregistrodecliente">
+              Numero de cédula:
+            </label>
+            <input
+              type="number"
+              className="cajaregistrocliente"
+              name="cedulaCliente"
+              id="cedula"
+              value={cliente.cedulaCliente}
+              onChange={handleChangeRegistro}
+            />
             <h4>Celular: {cliente.celular}</h4>
             <h4>Correo: {cliente.email}</h4>
             <h4>Direccion: {cliente.direccion.toUpperCase()}</h4>
-            {/* <h4>Ciudad: {cliente.Ciudads[0].nombre_ciudad}</h4> */}
-            {/* <h4>
+            <h4>Ciudad: {cliente.Ciudads[0].nombre_ciudad}</h4>
+            <h4>
               Departamento:
               {cliente.Ciudads[0].Departamentos[0].nombre_departamento}
-            </h4> */}
+            </h4>
           </div>
           <div className="casos">
             <h4>Tipo de caso: {cliente.tipo_caso} </h4>

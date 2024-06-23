@@ -124,32 +124,41 @@ Ciudad.belongsToMany(Departamento, { through: "ciudad_departamento" });
 Cliente.hasMany(Factura);
 Factura.belongsTo(Cliente);
 
-Ciudad.hasMany(Cliente);
-Cliente.belongsTo(Ciudad);
+// Ciudad.hasMany(Cliente);
+// Cliente.belongsTo(Ciudad);
 
-Departamento.hasMany(Cliente);
-Cliente.belongsTo(Departamento);
+Cliente.belongsToMany(Ciudad, { through: "cliente_ciudad" });
+Ciudad.belongsToMany(Cliente, { through: "cliente_ciudad" });
 
-Pais.hasMany(Cliente);
-Cliente.belongsTo(Pais);
+Abogado.belongsToMany(Ciudad, { through: "abogado_ciudad" });
+Ciudad.belongsToMany(Abogado, { through: "abogado_ciudad" });
 
-Ciudad.hasMany(Abogado);
-Abogado.belongsTo(Ciudad);
+Usuario.belongsToMany(Ciudad, { through: "usuario_ciudad" });
+Ciudad.belongsToMany(Usuario, { through: "usuario_ciudad" });
 
-Departamento.hasMany(Abogado);
-Abogado.belongsTo(Departamento);
+// Departamento.hasMany(Cliente);
+// Cliente.belongsTo(Departamento);
 
-Pais.hasMany(Abogado);
-Abogado.belongsTo(Pais);
+// Pais.hasMany(Cliente);
+// Cliente.belongsTo(Pais);
 
-Ciudad.hasMany(Usuario);
-Usuario.belongsTo(Ciudad);
+// Ciudad.hasMany(Abogado);
+// Abogado.belongsTo(Ciudad);
 
-Departamento.hasMany(Usuario);
-Usuario.belongsTo(Departamento);
+// Departamento.hasMany(Abogado);
+// Abogado.belongsTo(Departamento);
 
-Pais.hasMany(Usuario);
-Usuario.belongsTo(Pais);
+// Pais.hasMany(Abogado);
+// Abogado.belongsTo(Pais);
+
+// Ciudad.hasMany(Usuario);
+// Usuario.belongsTo(Ciudad);
+
+// Departamento.hasMany(Usuario);
+// Usuario.belongsTo(Departamento);
+
+// Pais.hasMany(Usuario);
+// Usuario.belongsTo(Pais);
 
 TipoUsuario.hasMany(Cliente);
 Cliente.belongsTo(TipoUsuario);
