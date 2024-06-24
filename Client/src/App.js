@@ -70,7 +70,7 @@ function App() {
     console.log("Datos login:", { cedula, password, rol });
     try {
       const { data } = await axios(
-        URL + `?cedula=${cedula}&password=${password}&rol=${rol}`
+        URL + `?cedula=${cedula}&password=${password}`
       );
       console.log("Login propio:", data);
       const { access } = data;
@@ -78,14 +78,14 @@ function App() {
       //  setAccess(access);
       // dispatch(setAuth(access));
       // navigate("/home");
+      window.localStorage.setItem("loggedUser", JSON.stringify(data.usuario));
       if (access === true) {
-        window.localStorage.setItem("loggedUser", JSON.stringify(data.usuario));
         dispatch(setAuth(access));
 
         if (data.usuario.administrador || data.usuario.cedulaAbogado) {
-          navigate("/home/clientess");
+          navigate("/clientes");
         } else if (data.usuario.cedulaCliente) {
-          navigate("/home/casos");
+          navigate("/casos");
         } else {
           navigate("/home");
         }
@@ -221,6 +221,7 @@ function App() {
   }
 
   const logout = () => {
+     window.localStorage.setItem("loggedUser", JSON.stringify({}));
     alert("Ha salido exitosamente");
     setAccess(false);
     navigate("/");
@@ -314,9 +315,9 @@ function App() {
         />
         <Route path="/consultas" element={<Consultas />} />
         <Route path="/home/*" element={<LayoutWithNav />}></Route>
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? ( */}
           <Route path="generar" element={<WordToHtml />} />
-        ) : (
+        {/* ) : (
           <Route
             path="generar"
             element={
@@ -327,11 +328,11 @@ function App() {
               />
             }
           />
-        )}
+        )} */}
 
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? ( */}
           <Route path="generarfactura" element={<GenerarFactura />} />
-        ) : (
+        {/* ) : (
           <Route
             path="generarfactura"
             element={
@@ -342,11 +343,11 @@ function App() {
               />
             }
           />
-        )}
+        )} */}
 
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? ( */}
           <Route path="cotizacion" element={<Cotizacion />} />
-        ) : (
+        {/* ) : (
           <Route
             path="cotizacion"
             element={
@@ -357,11 +358,11 @@ function App() {
               />
             }
           />
-        )}
+        )} */}
 
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? ( */}
           <Route path="autorizacion" element={<Autorizacion />} />
-        ) : (
+        {/* ) : (
           <Route
             path="autorizacion"
             element={
@@ -372,11 +373,11 @@ function App() {
               />
             }
           />
-        )}
+        )} */}
 
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? ( */}
           <Route path="poder" element={<Poder />} />
-        ) : (
+        {/* ) : (
           <Route
             path="poder"
             element={
@@ -387,11 +388,11 @@ function App() {
               />
             }
           />
-        )}
+        )} */}
 
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? ( */}
           <Route path="PDF" element={<PDF />} />
-        ) : (
+        {/* ) : (
           <Route
             path="PDF"
             element={
@@ -402,11 +403,11 @@ function App() {
               />
             }
           />
-        )}
+        )} */}
 
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? ( */}
           <Route path="insolvencia" element={<Insolvencia />} />
-        ) : (
+        {/* ) : (
           <Route
             path="insolvencia"
             element={
@@ -417,14 +418,14 @@ function App() {
               />
             }
           />
-        )}
+        )} */}
 
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? ( */}
           <Route
             path="registrocliente"
             element={<RegistroCliente registroCliente={registroCliente} />}
           />
-        ) : (
+        {/* ) : (
           <Route
             path="registrocliente"
             element={
@@ -435,14 +436,14 @@ function App() {
               />
             }
           />
-        )}
+        )} */}
 
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? ( */}
           <Route
             path="registroabogado"
             element={<RegistroAbogado registroAbogado={registroAbogado} />}
           />
-        ) : (
+        {/* ) : (
           <Route
             path="registroabogado"
             element={
@@ -453,11 +454,11 @@ function App() {
               />
             }
           />
-        )}
+        )} */}
 
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? ( */}
           <Route path="detail" element={<Detail />} />
-        ) : (
+        {/* ) : (
           <Route
             path="detail"
             element={
@@ -468,14 +469,14 @@ function App() {
               />
             }
           />
-        )}
+        )} */}
 
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? ( */}
           <Route
             path="previsualizarcontrato"
             element={<PrevisualizarContrato />}
           />
-        ) : (
+        {/* ) : (
           <Route
             path="previsualizarcontrato"
             element={
@@ -486,14 +487,14 @@ function App() {
               />
             }
           />
-        )}
+        )} */}
 
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? ( */}
           <Route
             path="configurarrecordatorios"
             element={<ConfigurarRecordatorios />}
           />
-        ) : (
+        {/* ) : (
           <Route
             path="configurarrecordatorios"
             element={
@@ -504,11 +505,11 @@ function App() {
               />
             }
           />
-        )}
+        )} */}
 
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? ( */}
           <Route path="agendarcitas" element={<AgendarCitas />} />
-        ) : (
+        {/* ) : (
           <Route
             path="agendarcitas"
             element={
@@ -519,16 +520,16 @@ function App() {
               />
             }
           />
-        )}
+        )} */}
 
         <Route
           path="/recordatoriocontrasena"
           element={<RecordatorioContrasena />}
         />
 
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? ( */}
           <Route path="documentoslegales" element={<DocumentosLegales />} />
-        ) : (
+        {/* ) : (
           <Route
             path="documentoslegales"
             element={
@@ -539,11 +540,11 @@ function App() {
               />
             }
           />
-        )}
+        )} */}
 
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? ( */}
           <Route path="contrato" element={<Contrato />} />
-        ) : (
+        {/* ) : (
           <Route
             path="contrato"
             element={
@@ -554,14 +555,14 @@ function App() {
               />
             }
           />
-        )}
+        )} */}
 
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? ( */}
           <Route
             path="previsualizarcontrato"
             element={<PrevisualizarContrato />}
           />
-        ) : (
+        {/* ) : (
           <Route
             path="previsualizarcontrato"
             element={
@@ -572,11 +573,11 @@ function App() {
               />
             }
           />
-        )}
+        )} */}
 
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? ( */}
           <Route path="litigiosporcliente" element={<LitigiosPorCliente />} />
-        ) : (
+        {/* ) : (
           <Route
             path="litigiosporcliente"
             element={
@@ -587,11 +588,11 @@ function App() {
               />
             }
           />
-        )}
+        )} */}
 
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? ( */}
           <Route path="clientes" element={<Clientes />} />
-        ) : (
+        {/* ) : (
           <Route
             path="clientes"
             element={
@@ -602,11 +603,11 @@ function App() {
               />
             }
           />
-        )}
+        )} */}
 
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? ( */}
           <Route path="casos" element={<Casos />} />
-        ) : (
+        {/* ) : (
           <Route
             path="casos"
             element={
@@ -617,11 +618,11 @@ function App() {
               />
             }
           />
-        )}
+        )} */}
 
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? ( */}
           <Route path="casos/:id" element={<DetailCasos />} />
-        ) : (
+        {/* ) : (
           <Route
             path="casos/:id"
             element={
@@ -632,11 +633,11 @@ function App() {
               />
             }
           />
-        )}
+        )} */}
 
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? ( */}
           <Route path="casos/crearcaso" element={<CrearCaso />} />
-        ) : (
+        {/* ) : (
           <Route
             path="casos/crearcaso"
             element={
@@ -647,11 +648,11 @@ function App() {
               />
             }
           />
-        )}
+        )} */}
 
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? ( */}
           <Route path="abogados" element={<Abogados />} />
-        ) : (
+        {/* ) : (
           <Route
             path="abogados"
             element={
@@ -662,11 +663,11 @@ function App() {
               />
             }
           />
-        )}
+        )} */}
 
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? ( */}
           <Route path="verconsultas" element={<AllConsultas />} />
-        ) : (
+        {/* ) : (
           <Route
             path="verconsultas"
             element={
@@ -677,11 +678,11 @@ function App() {
               />
             }
           />
-        )}
+        )} */}
 
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? ( */}
           <Route path="pagos" element={<Payments />} />
-        ) : (
+        {/* ) : (
           <Route
             path="pagos"
             element={
@@ -692,7 +693,7 @@ function App() {
               />
             }
           />
-        )}
+        )} */}
       </Routes>
     </div>
   );
