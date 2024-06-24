@@ -15,26 +15,27 @@ const Cliente = (props) => {
   const {
     cedulaCliente,
     email,
-    TipoUsuarios,
-    TipoDeCasos,
+    // TipoUsuarios,
+    // TipoDeCasos,
     nombres,
     apellidos,
     direccion,
     codigo_ciudad,
     celular,
-    honorarios,
-    valor_pretensiones,
-    aceptacion_cotizacion,
+    // honorarios,
+    // valor_pretensiones,
+    // aceptacion_cotizacion,
     Ciudads,
     comentarios,
-    forma_de_pago,
+    // forma_de_pago,
     tiene_contrato
   } = props.cliente;
   console.log(props.cliente);
-  console.log('Tipo usuarios', TipoUsuarios);
-  console.log("Tipo casos", TipoDeCasos);
+  // console.log('Tipo usuarios', TipoUsuarios);
+  // console.log("Tipo casos", TipoDeCasos);
  const newCliente = {
-   cedulaCliente: Number(cedulaCliente).toLocaleString(),
+  //  cedulaCliente: Number(cedulaCliente).toLocaleString(),
+   cedulaCliente,
    email,
   //  tipo_usuario: TipoUsuarios[0].descripcion,
   //  tipo_caso: TipoDeCasos[0].descripcion,
@@ -43,46 +44,25 @@ const Cliente = (props) => {
    direccion,
    codigo_ciudad,
    celular,
-   valor_pretensiones_letras: numeroALetras(Number(valor_pretensiones)),
-   valor_pretensiones: Number(valor_pretensiones).toLocaleString(),
-   honorarios_letras: numeroALetras(Number(honorarios)),
-   honorarios: Number(honorarios).toLocaleString(),
-   aceptacion_cotizacion,
+  //  valor_pretensiones_letras: numeroALetras(Number(valor_pretensiones)),
+  //  valor_pretensiones: Number(valor_pretensiones).toLocaleString(),
+  //  honorarios_letras: numeroALetras(Number(honorarios)),
+  //  honorarios: Number(honorarios).toLocaleString(),
+  //  aceptacion_cotizacion,
    Ciudads,
    comentarios,
-   forma_de_pago,
+  //  forma_de_pago,
    tiene_contrato,
  }; 
 
-
-  // const { addFav, removeFav } = props;
-
-  // const [isFav, setIsFav] = useState(false);
-
-  // const handleFavorite = () => {
-    // if (isFav === false) {
-    //   setIsFav(true);
-    //   addFav(props.cliente);
-    // } else if (isFav === true) {
-    //   setIsFav(false);
-    //   removeFav(props.cliente.cedula);
-    // }
-  // };
 
   const onClickDetail = () => {
     dispatch(clienteActual(newCliente));
     navigate("/detail");
   };
-  // useEffect(() => {
-  //   props.myFavorites.forEach((fav) => {
-  //     if (fav.id === props.cliente.cedula) {
-  //       setIsFav(true);
-  //     }
-  //   });
-  // }, [props.myFavorites, props.cliente.cedula]);
+
 
   return (
-    // <div className="container">
       <div className="card" key={cedulaCliente}>
         <a className="linkdetailcliente" onClick={onClickDetail}>
           <h1
@@ -96,12 +76,8 @@ const Cliente = (props) => {
           </h1>
         </a>
       </div>
-    // </div>
   );
 };
 
-  var mapStateToProps = (state) => {
-    return { myFavorites: state.myFavorites };
-  };
 
-export default connect(mapStateToProps)(Cliente);
+export default Cliente;

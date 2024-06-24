@@ -93,7 +93,7 @@ export const setSource = (source) => {
 };
 
 export const getClientes = () => {
-  const endpoint = `${URL}clientes?pagina=1&porPagina=50`;
+  const endpoint = `/clientes?pagina=1&porPagina=50`;
   return async (dispatch) => {
     const { data } = await axios.get(endpoint);
     return dispatch({
@@ -104,7 +104,7 @@ export const getClientes = () => {
 };
 
 export const getAbogados = () => {
-  const endpoint = `${URL}abogados?pagina=1&porPagina=50`;
+  const endpoint = `/abogados?pagina=1&porPagina=50`;
 
   return async (dispatch) => {
     const { data } = await axios.get("/abogados");
@@ -118,7 +118,7 @@ export const getAbogados = () => {
 
 
 export const getByIdAbogado = (cedulaAbogado) => {
-  const endpoint = `${URL}abogados/cedulaabogado?cedulaAbogado=${cedulaAbogado}`;
+  const endpoint = `/abogados/cedulaabogado?cedulaAbogado=${cedulaAbogado}`;
   console.log("URL", endpoint);
   return async (dispatch) => {
     try {
@@ -134,7 +134,7 @@ export const getByIdAbogado = (cedulaAbogado) => {
 };
 
 export const getByIdCliente = (cedulaCliente) => {
-  const endpoint = `${URL}clientes/cedulacliente?cedulaCliente=${cedulaCliente}`;
+  const endpoint = `/clientes/cedulacliente?cedulaCliente=${cedulaCliente}`;
   console.log("URL", endpoint);
   return async (dispatch) => {
     try {
@@ -150,7 +150,7 @@ export const getByIdCliente = (cedulaCliente) => {
 };
 
 export const filterCliente = (filtro) => {
-  const endpoint = `${URL}clientes?${filtro}`;
+  const endpoint = `/clientes?${filtro}`;
   console.log("URL", endpoint);
   return async (dispatch) => {
     try {
@@ -167,7 +167,7 @@ export const filterCliente = (filtro) => {
 };
 
 export const filterAbogado = (filtro) => {
-  const endpoint = `${URL}abogados?${filtro}`;
+  const endpoint = `/abogados?${filtro}`;
   console.log("URL", endpoint);
   return async (dispatch) => {
     try {
@@ -183,7 +183,7 @@ export const filterAbogado = (filtro) => {
 };
 
 export const orderAbogados = (value) => {
-  const endpoint = `${URL}abogados?field=apellido&order=${value}`;
+  const endpoint = `/abogados?field=apellido&order=${value}`;
 
   return async (dispatch) => {
     const { data } = await axios.get(endpoint);
@@ -195,7 +195,7 @@ export const orderAbogados = (value) => {
 };
 
 export const orderClientes = (value) => {
-  const endpoint = `${URL}clientes?field=apellido&order=${value}`;
+  const endpoint = `/clientes?field=apellido&order=${value}`;
 
   return async (dispatch) => {
     const { data } = await axios.get(endpoint);
@@ -207,7 +207,7 @@ export const orderClientes = (value) => {
 };
 
 export const deleteAbogado = (cedulaAbogado) => {
-  const endpoint = `${URL}abogados/delete`;
+  const endpoint = `/abogados/delete`;
 
   return async (dispatch) => {
     const data = await axios.post(endpoint, { cedulaAbogado });
@@ -221,7 +221,7 @@ export const deleteAbogado = (cedulaAbogado) => {
 };
 
 export const deleteCliente = (cedulaCliente) => {
-  const endpoint = `${URL}clientes/elimina`;
+  const endpoint = `/clientes/elimina`;
 
   return async (dispatch) => {
     const data = await axios.post(endpoint, { cedulaCliente });
@@ -235,7 +235,7 @@ export const deleteCliente = (cedulaCliente) => {
 };
 
 export const getTiposDeCasos = () => {
-  const endpoint = `${URL}tiposdecasos`;
+  const endpoint = `/tiposdecasos`;
   return async (dispatch) => {
     const { data } = await axios.get(endpoint);
     return dispatch({
@@ -246,7 +246,7 @@ export const getTiposDeCasos = () => {
 };
 
 export const getCasos = (page) => {
-  const endpoint = `${URL}casos?pagina=${page}&porPagina=6`;
+  const endpoint = `/casos?pagina=${page}&porPagina=6`;
   return async (dispatch) => {
     const { data } = await axios.get("/casos?pagina=1&porPagina=6");
     return dispatch({
@@ -257,7 +257,7 @@ export const getCasos = (page) => {
 };
 
 export const getCasosTodos = () => {
-  const endpoint = `${URL}casos`;
+  const endpoint = `/casos`;
   return async (dispatch) => {
     const { data } = await axios.get('/casos');
     console.log('Data casos:',data)
@@ -269,7 +269,7 @@ export const getCasosTodos = () => {
 };
 
 export const filterCasos = (filtro) => {
-  const endpoint = `${URL}casos?${filtro}`;
+  const endpoint = `/casos?${filtro}`;
   console.log("URL", endpoint);
   return async (dispatch) => {
     try {
@@ -286,7 +286,7 @@ export const filterCasos = (filtro) => {
 };
 
 export const orderCasos = (value) => {
-  const endpoint = `${URL}casos?ordenarPor=${value}&porPagina=20`;
+  const endpoint = `/casos?ordenarPor=${value}&porPagina=20`;
 
   return async (dispatch) => {
     const { data } = await axios.get(endpoint);
@@ -298,7 +298,7 @@ export const orderCasos = (value) => {
 };
 
 export const getCasoById = (id) => {
-  const endpoint = `${URL}casos/:${id}`;
+  const endpoint = `/casos/:${id}`;
   console.log("URL", endpoint);
   return async (dispatch) => {
     try {
@@ -314,7 +314,7 @@ export const getCasoById = (id) => {
 };
 
 export const deleteCaso = (id) => {
-  const endpoint = `${URL}casos/elimina`;
+  const endpoint = `/casos/elimina`;
 
   return async (dispatch) => {
     const data = await axios.post(endpoint, { id });
@@ -328,7 +328,7 @@ export const deleteCaso = (id) => {
 };
 
 export const postCita = (payload) => {
-  const endpoint = `${URL}citas`;
+  const endpoint = `/citas`;
 
   return async (dispatch) => {
     const data = await axios.post(endpoint, payload);
@@ -340,7 +340,7 @@ export const postCita = (payload) => {
 };
 
 export const getCitas = () => {
-  const endpoint = `${URL}citas?porPagina=20`;
+  const endpoint = `/citas?porPagina=20`;
   return async (dispatch) => {
     const { data } = await axios.get('/citas');
     return dispatch({
@@ -351,7 +351,7 @@ export const getCitas = () => {
 };
 
 export const postConsulta =  async(payload) => {
-  const endpoint = `${URL}consultas`;
+  const endpoint = `/consultas`;
    console.log('Payload post consulta:', payload)
   const { nombre, apellido, consulta, correo, telefono} = payload;
   

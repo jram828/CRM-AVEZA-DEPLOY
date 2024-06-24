@@ -12,6 +12,7 @@ import SearchBar from "../../components/searchBarCasos/searchBar";
 // import OrderCasos from "../../components/orderCasos/orderCasos";
 import { Link } from "react-router-dom";
 import loading from "../../assets/loading.gif";
+import { Button } from "../Mystyles";
 
 function Casos() {
   const user = JSON.parse(localStorage.getItem("loggedUser"));
@@ -93,15 +94,12 @@ function Casos() {
       </div>
       <br />
       <div className="flex justify-end p-2">
+        <SearchBar onFilter={handleFilter} />
         {/* {user.administrador === true || user.cedulaAbogado ? ( */}
-        <Link
-          to="/casos/crearcaso"
-          className="btn btn-sm w-40 bg-accent text-white hover:bg-primary hover:text-white"
-        >
-          Crear caso
+        <Link to="/casos/crearcaso" className="botoncrearcaso">
+          <Button>Crear caso</Button>
         </Link>
         {/* ) : null} */}
-        <SearchBar onFilter={handleFilter} />
         {filterApplied && (
           <button
             onClick={handleVerTodosClick}
@@ -140,8 +138,8 @@ function Casos() {
                 </button>
               )}
             </div>
-            )}
-            <br />
+          )}
+          <br />
           <div className="divcasos">
             {casos.map((caso) => (
               <TarjetaCaso caso={caso} key={caso.id} />

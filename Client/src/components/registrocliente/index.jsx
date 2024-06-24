@@ -40,7 +40,7 @@ const RegistroCliente = ({registroCliente}) => {
       <form className="datos" method="post" onSubmit={submitHandlerRegistro}>
         {/* <div className="logo-aveza"> */}
         <h1 className="titulo">Registro De Cliente</h1>
-          {/* <img src={logo} alt="logo-aveza" /> */}
+        {/* <img src={logo} alt="logo-aveza" /> */}
         {/* </div> */}
         <br />
         <br />
@@ -67,6 +67,10 @@ const RegistroCliente = ({registroCliente}) => {
             value={userDataRegistro.apellidos}
             onChange={handleChangeRegistro}
           />
+        </div>
+        <br />
+        <br />
+        <div className="numerocedula">
           <label for="numerocedula" className="labelregistrodecliente">
             Numero de cédula:
           </label>
@@ -76,36 +80,6 @@ const RegistroCliente = ({registroCliente}) => {
             name="cedulaCliente"
             id="cedula"
             value={userDataRegistro.cedula}
-            onChange={handleChangeRegistro}
-          />
-        </div>
-        <br />
-        <br />
-        <div className="numerocedula">
-          <label for="correo" className="labelregistrodecliente">
-            Email:
-          </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            className="cajaregistrocliente"
-            value={userDataRegistro.email}
-            onChange={handleChangeRegistro}
-          />
-          {/* </div>
-        <br />
-        <br />
-        <div className="nombreapellidos"> */}
-          <label for="direccion" className="labelregistrodecliente">
-            Dirección:
-          </label>
-          <input
-            type="text"
-            name="direccion"
-            id="address"
-            className="cajaregistrocliente"
-            value={userDataRegistro.direccion}
             onChange={handleChangeRegistro}
           />
 
@@ -125,8 +99,32 @@ const RegistroCliente = ({registroCliente}) => {
 
         <br />
         <br />
-
         <div className="nombreapellidos">
+          <label for="correo" className="labelregistrodecliente">
+            Email:
+          </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            className="cajaregistrocliente"
+            value={userDataRegistro.email}
+            onChange={handleChangeRegistro}
+          />
+          <label for="direccion" className="labelregistrodecliente">
+            Dirección:
+          </label>
+          <input
+            type="text"
+            name="direccion"
+            id="address"
+            className="cajaregistrocliente"
+            value={userDataRegistro.direccion}
+            onChange={handleChangeRegistro}
+          />
+        </div>
+        <br /><br />
+        <div className="ciudad">
           <label for="ciudad" className="labelregistrodecliente">
             Ciudad:
           </label>
@@ -138,85 +136,6 @@ const RegistroCliente = ({registroCliente}) => {
             value={userDataRegistro.nombre_ciudad}
             onChange={handleChangeRegistro}
           />
-          <label for="numerocedula" className="labelregistrodecliente">
-            Valor pretensiones:
-          </label>
-          <input
-            type="number"
-            className="cajaregistrocliente"
-            name="valor_pretensiones"
-            id="valorpretensiones"
-            value={userDataRegistro.valor_pretensiones}
-            onChange={handleChangeRegistro}
-          />
-          <label for="tIpo-de-caso" className="labelregistrodecliente">
-            Tipo de caso
-          </label>{" "}
-          <br />
-          <select
-            name="tipo_de_caso"
-            className="cajaregistrocliente"
-            id="casos"
-            onChange={handleChangeRegistro}
-          >
-            <option value="">Elija una opcion</option>
-            <option value="1">Insolvencia</option>
-            <option value="2">Divorcio</option>
-            <option value="3">
-              {" "}
-              Protección de patrimonio
-            </option>
-            <option value="4">Derecho laboral</option>
-            <option value="5">Derecho corporativo</option>
-            <option value="6">
-              Recaudo
-            </option>
-            <option value="7">
-              Gestión de contratación estatal
-            </option>
-          </select>
-        </div>
-        <br />
-        <br />
-        <div className="honorarios">
-          <label for="honorarios" className="labelregistrodecliente">
-            Honorarios:
-          </label>
-          <input
-            type="number"
-            className="cajaregistrocliente"
-            name="honorarios"
-            id="honorarios"
-            value={userDataRegistro.honorarios}
-            onChange={handleChangeRegistro}
-          />
-          <label htmlFor="tipodeusuario" className="labelregistrodecliente">
-            Forma de pago:
-          </label>
-          <select
-            className="cajaregistrocliente"
-            name="forma_de_pago"
-            id="idusuario"
-            onChange={handleChangeRegistro}
-            value={userDataRegistro.forma_de_pago}
-          >
-            <option value="">Elija una opcion</option>
-            <option value="Contado">Contado</option>
-            <option value="Crédito">Crédito</option>
-          </select>{" "}
-          <label for="cuotas" className="labelregistrodecliente">
-            Numero de cuotas:
-          </label>
-          <input
-            type="number"
-            className="cajaregistrocliente"
-            name="cuotas"
-            id="cuotas"
-            value={userDataRegistro.cuotas}
-            onChange={handleChangeRegistro}
-          />
-          <br />
-          <br />
         </div>
         <div className="comentarios">
           <br />

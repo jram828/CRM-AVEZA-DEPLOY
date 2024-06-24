@@ -39,10 +39,24 @@ const fillTemplate = () => {
         linebreaks: true,
       });
 
-      // Render the document (Replace {first_name} by John, {last_name} by Doe, ...)
+      // !Reemplazar contenido de array en una tabla
       doc.render({
         clientes: clientes,
       });
+
+      // !Reemplazar campos en una plantilla (Documentos legales)
+      // doc.render({
+      //   nombre: datos.nombres.toUpperCase(),
+      //   apellido: datos.apellidos.toUpperCase(),
+      //   cedula: datos.cedulaCliente,
+      //   celular: datos.celular,
+      //   // ciudad: datos.Ciudads[0].nombre_ciudad,
+      //   direccion: datos.direccion,
+      //   pretensiones: datos.valor_pretensiones,
+      //   pretensiones_letras: datos.valor_pretensiones_letras.toUpperCase(),
+      //   honorarios: datos.honorarios,
+      //   honorarios_letras: datos.honorarios_letras.toUpperCase(),
+      // });
 
       const blob = doc.getZip().generate({
         type: "blob",

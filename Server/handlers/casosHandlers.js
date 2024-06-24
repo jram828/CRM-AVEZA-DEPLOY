@@ -9,7 +9,10 @@ const createCasosHandler = async (req, res) => {
     cedulaAbogado,
     fecha,
     descripcion,
-    TipoDeCasoid
+    TipoDeCasoid,
+    forma_de_pago,
+    honorarios,
+    valor_pretensiones,
   } = req.body;
   //const fecha_caso= new Date(fecha)
   console.log(
@@ -31,7 +34,10 @@ const createCasosHandler = async (req, res) => {
       parseInt(cedulaAbogado),
       fecha,
       descripcion,
-      TipoDeCasoid
+      TipoDeCasoid,
+      forma_de_pago,
+      honorarios,
+      valor_pretensiones
     );
     res.status(200).json(response);
   } catch (error) {

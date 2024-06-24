@@ -45,10 +45,10 @@ export default (sequelize) => {
         len: [1, 100],
       },
     },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+    // password: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
     activo: {
       type: DataTypes.BOOLEAN,
       defaultValue: true,

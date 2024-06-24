@@ -19,6 +19,11 @@
   color: black;
 }
 
+.ciudad{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
 .honorarios {
   text-align:flex-start;
   font-size: 100%;
@@ -32,4 +37,5 @@
   height: 18px;
   width: 150px;
   border-radius: 5px;
+  margin-right: 40px;
 }

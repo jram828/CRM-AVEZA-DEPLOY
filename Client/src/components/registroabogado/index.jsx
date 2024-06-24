@@ -60,6 +60,10 @@ const RegistroAbogado = ({registroAbogado}) => {
             value={userDataRegistro.apellidos}
             onChange={handleChangeRegistro}
           />
+        </div>
+        <br />
+        <br />
+        <div className="numerocedula">
           <label for="numerocedula" className="labelregistrodecliente">
             Numero de cédula:
           </label>
@@ -69,36 +73,6 @@ const RegistroAbogado = ({registroAbogado}) => {
             name="cedulaAbogado"
             id="cedula"
             value={userDataRegistro.cedulaAbogado}
-            onChange={handleChangeRegistro}
-          />
-        </div>
-        <br />
-        <br />
-        <div className="numerocedula">
-          <label for="correo" className="labelregistrodecliente">
-            Email:
-          </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            className="cajaregistrocliente"
-            value={userDataRegistro.email}
-            onChange={handleChangeRegistro}
-          />
-          {/* </div>
-        <br />
-        <br />
-        <div className="nombreapellidos"> */}
-          <label for="direccion" className="labelregistrodecliente">
-            Dirección:
-          </label>
-          <input
-            type="text"
-            name="direccion"
-            id="address"
-            className="cajaregistrocliente"
-            value={userDataRegistro.direccion}
             onChange={handleChangeRegistro}
           />
 
@@ -118,7 +92,34 @@ const RegistroAbogado = ({registroAbogado}) => {
 
         <br />
         <br />
+        <div className="nombreapellidos">
+          <label for="correo" className="labelregistrodecliente">
+            Email:
+          </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            className="cajaregistrocliente"
+            value={userDataRegistro.email}
+            onChange={handleChangeRegistro}
+          />
 
+          <label for="direccion" className="labelregistrodecliente">
+            Dirección:
+          </label>
+          <input
+            type="text"
+            name="direccion"
+            id="address"
+            className="cajaregistrocliente"
+            value={userDataRegistro.direccion}
+            onChange={handleChangeRegistro}
+          />
+        </div>
+
+        <br />
+        <br />
         <div className="nombreapellidos">
           <label for="ciudad" className="labelregistrodecliente">
             Ciudad:
@@ -142,7 +143,7 @@ const RegistroAbogado = ({registroAbogado}) => {
             value={userDataRegistro.tarjetaProf}
             onChange={handleChangeRegistro}
           />
-          <label for="password" className="labelregistrodecliente">
+          {/* <label for="password" className="labelregistrodecliente">
             Password:
           </label>
           <input
@@ -152,11 +153,11 @@ const RegistroAbogado = ({registroAbogado}) => {
             id="passsword"
             value={userDataRegistro.password}
             onChange={handleChangeRegistro}
-          />
-          
+          /> */}
         </div>
         <br />
-        <div className="documentoagenerar">
+        <br /><br />
+        <div className="nombreapellidos">
           <input className="botones" type="button" value="Modificar" />
           <input
             className="botones"

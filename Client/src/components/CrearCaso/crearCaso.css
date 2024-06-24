@@ -1,0 +1,91 @@
+.contenedorcrearcaso{
+  background-color: white;
+  opacity: 0.85;
+  border-radius: 10px;
+  padding: 10px;
+  height: 90vh;
+  width: 70vw;
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 40px;
+}
+
+.comentarios {
+  text-align: center;
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+}
+
+.ciudad{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.honorarios {
+  text-align:flex-start;
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.cajacrearcaso{
+  height: 30px;
+  width: 250px;
+  border-radius: 5px;
+  margin: 10px;
+  /* color: red; */
+}
+
+.inputcrearcaso{
+  display: flex;
+  flex-direction: row;
+}
+
+.encabezado{
+     grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    height: fit-content;
+    margin: 10px;
+}
+
+.titulo{
+  font-size:large;
+}
+
+.datoscrearcaso{
+  display: flex;
+  flex-direction: row;
+  /* align-items: space-between;
+  background-color: blue;
+  justify-content: space-between; */
+}
+.datoscrear{
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  background-color: blue;
+  justify-content: space-between;
+}
+
+.honorarios{
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  background-color: red;
+  justify-content: space-between;
+}
+
+.labelcrearcaso{
+  width: 200px;
+  align-content: center;
+  font-size: medium;
+}

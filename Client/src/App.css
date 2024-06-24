@@ -7,53 +7,7 @@
    background-color: rgb(81, 115, 238, 0.75);
    }
 
-   .navbar{
-    display: flex;
-    flex-direction: column;
-   }
 
-.cards{
-   display: flex;
-   flex-wrap: wrap; 
-   flex-direction: row;
-   justify-content: center;
-   }
-
-.card{
-   border-radius: 10px;
-   font-size: 50%;
-   background-color: white;
-   width: 100%;
-   height: 400 px;
-   display:flex;
-   vertical-align: middle;
-   
-   margin: 10px;
-   padding: 10px;
-   flex-direction: column;
-   /* position: relative; */
-   align-items: center;
-   
-}
-
-.card .photo{
-   width: 60%;
-   height: 60 px;
-   border-radius: 70%;
-   
-}
-
-.card .boton{
-   position: absolute;
-   top: 10px;
-   right: 10px;
-}
-
-.container{
-   display: flex;
-   justify-content: center;
-   flex-wrap: wrap;
-}
 
 
 .errores{
@@ -66,21 +20,6 @@
    color: black;
    margin: 10px;
 }
-
-.textoAbout{
-   font-size: 180%;
-   color: aqua
-}
-
-
-
-.favorites{
-   display: flex;
-   flex-wrap: wrap; 
-   flex-direction: row;
-   justify-content: center;
-   gap: 10px;
-   }
 
    .logo-aveza {
   text-align: center;
@@ -126,43 +65,7 @@
   text-align: center;
 }
 
-/*menu principal  */
-.menu-principal {
-  padding: 1em;
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-.menu-principal ul {
-  list-style: none;
-  padding: auto;
-  margin: auto;
-  background: rgb(255, 255, 255);
-  display: flex;
-  justify-content: center;
-  vertical-align: bottom;
-  text-align: center;
-}
-
-.menu-principal li a:hover {
-  background: rgb(116, 114, 196);
-  color: black;
-}
-
-.menu-vertical {
-  position: absolute;
-  display: none;
-  list-style: none;
-  width: 180px;
-  background-color: rgb(255, 255, 255);
-  justify-content: left;
-}
-
-.menu-principal li:hover .menu-vertical {
-  display: block;
-  justify-content: center;
-}
 
 .ingresousuario {
   display: flex;
@@ -204,19 +107,6 @@
   text-align: justify;
   margin: 80px;
   padding: 20px;
-}
-
-.menu-principal li a {
-  color: black;
-  display: block;
-  text-decoration: none;
-  padding: 0.5em 1em;
-}
-
-.menu-principal li a:hover {
-  background: rgb(194, 193, 193);
-  border-radius: 39px;
-  color: black;
 }
 
 .titulo {
@@ -292,7 +182,7 @@
 }
 .nombreapellido {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 .cedulaemail {
   display: flex;
@@ -310,20 +200,7 @@
   display: flex;
   justify-content: center;
 }
-.repetircontrasena {
-  display: flex;
-  margin: 0 0 0 600px;
-  
-}
-.labelrepetircontrasena {
-  height: 25px;
-  width: 21%;
-  font-size: 100%;
-  font-family: Arial, Helvetica, sans-serif;
-  color: black;
-  text-align: justify;
-  padding-left: 10px;
-}
+
 
 /* css para documentos legales */
 .documentoagenerar {
@@ -510,14 +387,6 @@
   background-color: rgb(75, 127, 231);
 }
 
-.menu-principal li {
-  border-style: solid;
-  border-radius: 22px;
-  background-color: rgb(255, 255, 255);
-  border-color: rgb(255, 255, 255);
-  margin: 10px;
-}
-
 
 /* clases generar contrato */
    .tituloo{
@@ -539,30 +408,30 @@
    }
    .cajacedulacliente{
       border: 0;
-      background-color: #eee;
+      /* background-color: #eee; */
       outline: none;
 
    }
 
    .valordeuda{
       border: 0;
-      background-color: #eee;
+      /* background-color: #eee; */
       outline: none;
    }
 
    .abogado{
       border: 0;
-      background-color: #eee;
+      /* background-color: #eee; */
       outline: none;
  }
  .cedulaabogado{
       border: 0;
-      background-color: #eee;
+      /* background-color: #eee; */
       outline: none;
  }
   .Notarjetaprofecional{
       border: 0;
-      background-color: #eee;
+      /* background-color: #eee; */
       outline: none;
 
   }
@@ -595,9 +464,9 @@ table.deudas td {
   padding: 8px;
 }
 
-table.deudas th {
+/* table.deudas th {
   background-color: #f2f2f2;
-}
+} */
 .insolvencia {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -611,19 +480,6 @@ table.deudas2 td {
 padding: 8px;
 }
    
-
-
-/* 
- p{
-    font-size: 16px;
-  color: rgb(12, 12, 12);
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 20px;
-  text-align: justify;
- }
-  */
-
-
 
 footer{
   font-size: 1.4rem;
@@ -650,7 +506,7 @@ footer{
       flex-wrap: wrap;
       border-radius: 10px;
       text-align: justify;
-      background-color:white;
+      /* background-color:white; */
       margin-bottom: 40px;
       padding: 20px;
       width: 60%;

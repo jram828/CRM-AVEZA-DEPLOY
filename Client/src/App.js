@@ -3,7 +3,13 @@ import { useState, useEffect } from "react";
 import "./App.css";
 // import Cards from "./components/cards";
 import Nav from "./components/nav";
-import { Routes, Route, useLocation, useNavigate, Outlet } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  useLocation,
+  useNavigate,
+  Outlet,
+} from "react-router-dom";
 import PrevisualizarContrato from "./components/previsualizarcontrato";
 import Detail from "./components/detail";
 import Form from "./components/login";
@@ -29,7 +35,7 @@ import { codigoPaises } from "./utils/codigoPaises.js";
 import { codigoCiudades } from "./utils/codigoCiudades.js";
 import { codigoDepartamentos } from "./utils/codigoDepartamentos.js";
 import WordToHtml from "./components/wordtohtml";
-import {PrivateRoute} from "./components/privateroute";
+import { PrivateRoute } from "./components/privateroute";
 import { useDispatch, useSelector } from "react-redux";
 import { setAuth } from "./redux/actions";
 import Abogados from "./components/abogados/index.jsx";
@@ -48,7 +54,6 @@ const { URL } = process.env;
 
 axios.defaults.baseURL = "http://localhost:3001/crmAveza";
 function App() {
-
   const [access, setAccess] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -60,23 +65,37 @@ function App() {
 
   //Funcion para verificar datos de ingreso
   async function login(userData) {
-    const { cedula, password } = userData;
+    const { cedula, password, rol } = userData;
     const URL = "/login";
-    console.log("Datos login:", { cedula, password });
+    console.log("Datos login:", { cedula, password, rol });
     try {
       const { data } = await axios(
-        URL + `?cedula=${cedula}&password=${password}`
+        URL + `?cedula=${cedula}&password=${password}&rol=${rol}`
       );
-      console.log("Login 2:", data);
+      console.log("Login propio:", data);
       const { access } = data;
-    //  setAccess(access);
-      dispatch(setAuth(access));
-      navigate("/home");
+      console.log("Access: ", access);
+      //  setAccess(access);
+      // dispatch(setAuth(access));
+      // navigate("/home");
+      if (access === true) {
+        window.localStorage.setItem("loggedUser", JSON.stringify(data.usuario));
+        dispatch(setAuth(access));
+
+        if (data.usuario.administrador || data.usuario.cedulaAbogado) {
+          navigate("/home/clientess");
+        } else if (data.usuario.cedulaCliente) {
+          navigate("/home/casos");
+        } else {
+          navigate("/home");
+        }
+      } else {
+        window.alert("Usuario o contraseña incorrectos");
+      }
     } catch (error) {
       window.alert("Usuario o contraseña incorrectos");
     }
   }
-
 
   async function crearUsuario(userDataCrear) {
     const {
@@ -90,10 +109,12 @@ function App() {
       nombre_ciudad,
       tipo_usuario,
     } = userDataCrear;
- console.log("Userdata: ", userDataCrear);
-    const ciudad = codigoCiudades.filter((ciudad) => ciudad.nombre_ciudad === nombre_ciudad.toUpperCase());
+    console.log("Userdata: ", userDataCrear);
+    const ciudad = codigoCiudades.filter(
+      (ciudad) => ciudad.nombre_ciudad === nombre_ciudad.toUpperCase()
+    );
 
-    console.log('Codigo ciudad Userdata: ', ciudad)
+    console.log("Codigo ciudad Userdata: ", ciudad);
     // const URL = "/crearusuario";
     try {
       await axios.post("/usuarios", {
@@ -115,53 +136,53 @@ function App() {
     }
   }
 
-    async function registroCliente(userDataRegistro) {
-      const {
-        email,
-        nombres,
-        apellidos,
-        cedulaCliente,
-        celular,
-        direccion,
-        nombre_ciudad,
-        tipo_usuario,
-        tipo_de_caso,
-        forma_de_pago,
-        honorarios,
-        cuotas,
-        comentarios,
-        valor_pretensiones,
-      } = userDataRegistro;
+  async function registroCliente(userDataRegistro) {
+    const {
+      email,
+      nombres,
+      apellidos,
+      cedulaCliente,
+      celular,
+      direccion,
+      nombre_ciudad,
+      tipo_usuario,
+      tipo_de_caso,
+      forma_de_pago,
+      honorarios,
+      cuotas,
+      comentarios,
+      valor_pretensiones,
+    } = userDataRegistro;
 
-   console.log('User data registro:', userDataRegistro)
+    console.log("User data registro:", userDataRegistro);
 
-      const URL = "/clientes/registrocliente";
-      try {
-        await axios.post(URL, {
-          email: `${email}`,
-          // password: `${password}`,
-          nombres: `${nombres}`,
-          apellidos: `${apellidos}`,
-          cedulaCliente: `${cedulaCliente}`,
-          celular: `${celular}`,
-          direccion: `${direccion}`,
-          nombre_ciudad: `${nombre_ciudad}`,
-          tipo_usuario: `${tipo_usuario}`,
-          tipo_de_caso: `${tipo_de_caso}`,
-          forma_de_pago: `${forma_de_pago}`,
-          honorarios: `${honorarios}`,
-          cuotas: `${cuotas}`,
-          comentarios: `${comentarios}`,
-          valor_pretensiones: `${valor_pretensiones}`,
-        });
-        window.alert("Se ha registrado el cliente con éxito.");
-        setAccess(true);
-        access && navigate("/home/litigiosporcliente");
-      } catch (error) {
-        window.alert("No fue posible registrar el cliente.");
-      }
+    const URL = "/clientes/registrocliente";
+    try {
+      await axios.post(URL, {
+        email: `${email}`,
+        // password: `${password}`,
+        nombres: `${nombres}`,
+        apellidos: `${apellidos}`,
+        cedulaCliente: `${cedulaCliente}`,
+        celular: `${celular}`,
+        direccion: `${direccion}`,
+        nombre_ciudad: `${nombre_ciudad}`,
+        tipo_usuario: `${tipo_usuario}`,
+        tipo_de_caso: `${tipo_de_caso}`,
+        forma_de_pago: `${forma_de_pago}`,
+        honorarios: `${honorarios}`,
+        cuotas: `${cuotas}`,
+        comentarios: `${comentarios}`,
+        valor_pretensiones: `${valor_pretensiones}`,
+      });
+      window.alert("Se ha registrado el cliente con éxito.");
+      setAccess(true);
+      access && navigate("/home/litigiosporcliente");
+    } catch (error) {
+      window.alert("No fue posible registrar el cliente.");
+    }
   }
-  
+
   async function registroAbogado(userDataRegistro) {
     const {
       email,
@@ -213,17 +234,20 @@ function App() {
 
   //Funcion para obtener datos de un cliente
 
-  const relacionarPaises =async () => {
-
+  const relacionarPaises = async () => {
     try {
-      await axios.post('/relacionarpaises', {codigoPaises, codigoCiudades,codigoDepartamentos});
+      await axios.post("/relacionarpaises", {
+        codigoPaises,
+        codigoCiudades,
+        codigoDepartamentos,
+      });
       // console.log("Data verificar clientes:", data);
     } catch (error) {
       console.log(error.message);
       window.alert("Paises NO encontrados!");
     }
   };
-  
+
   const onClose = (id) => {
     const charactersFilter = characters.filter(
       (character) => character.id !== id
@@ -238,11 +262,11 @@ function App() {
     navigate("/crearusuario");
   };
 
-    // const clickHandlerDocumentos = (e) => {
-    //   e.preventDefault();
-    //   setAccess(true);
-    //   navigate("/crearusuario");
-    // };
+  // const clickHandlerDocumentos = (e) => {
+  //   e.preventDefault();
+  //   setAccess(true);
+  //   navigate("/crearusuario");
+  // };
   //Acceder al modulo de recordar contraseñas
   const clickHandlerRecordatorio = (e) => {
     e.preventDefault();
@@ -274,114 +298,402 @@ function App() {
       ) : undefined}
 
       <Routes>
-        <Route path="/" element={ <Form login={login}
+        <Route
+          path="/"
+          element={
+            <Form
+              login={login}
               clickHandlerRecordatorio={clickHandlerRecordatorio}
-              clickHandlerCrear={clickHandlerCrear} />} />
-        <Route path="/crearusuario" element={<CrearUsuario crearUsuario={crearUsuario} />} />
-        <Route path="/consultas" element={<Consultas/>} />
+              clickHandlerCrear={clickHandlerCrear}
+            />
+          }
+        />
+        <Route
+          path="/crearusuario"
+          element={<CrearUsuario crearUsuario={crearUsuario} />}
+        />
+        <Route path="/consultas" element={<Consultas />} />
         <Route path="/home/*" element={<LayoutWithNav />}></Route>
-        {isAuthenticated ? <Route path="generar" element={<WordToHtml />} /> : <Route path="generar" element={<Form login={login}
-          clickHandlerRecordatorio={clickHandlerRecordatorio}
-          clickHandlerCrear={clickHandlerCrear} />} />}
-        
-        {isAuthenticated ? <Route path="generarfactura" element={<GenerarFactura />} />: <Route path="generarfactura" element={<Form login={login}
-          clickHandlerRecordatorio={clickHandlerRecordatorio}
-          clickHandlerCrear={clickHandlerCrear} />} />}
-        
-        {isAuthenticated ? <Route path="cotizacion" element={<Cotizacion />} />: <Route path="cotizacion" element={<Form login={login}
-          clickHandlerRecordatorio={clickHandlerRecordatorio}
-          clickHandlerCrear={clickHandlerCrear} />} />}
-        
-        {isAuthenticated ? <Route path="autorizacion" element={<Autorizacion />} />: <Route path="autorizacion" element={<Form login={login}
-          clickHandlerRecordatorio={clickHandlerRecordatorio}
-          clickHandlerCrear={clickHandlerCrear} />} />}
-        
-        {isAuthenticated ? <Route path="poder" element={<Poder />} />: <Route path="poder" element={<Form login={login}
-          clickHandlerRecordatorio={clickHandlerRecordatorio}
-          clickHandlerCrear={clickHandlerCrear} />} />}
-        
-        {isAuthenticated ? <Route path="PDF" element={<PDF />} />: <Route path="PDF" element={<Form login={login}
-          clickHandlerRecordatorio={clickHandlerRecordatorio}
-          clickHandlerCrear={clickHandlerCrear} />} />}
-        
-        {isAuthenticated ? <Route path="insolvencia" element={<Insolvencia />} />: <Route path="insolvencia" element={<Form login={login}
-          clickHandlerRecordatorio={clickHandlerRecordatorio}
-          clickHandlerCrear={clickHandlerCrear} />} />}
-        
-        {isAuthenticated ? <Route path="registrocliente" element={<RegistroCliente
-          registroCliente={registroCliente} />}/>: <Route path="registrocliente" element={<Form login={login}
-          clickHandlerRecordatorio={clickHandlerRecordatorio}
-          clickHandlerCrear={clickHandlerCrear} />} />}
-        
-                {isAuthenticated ? <Route path="registroabogado" element={<RegistroAbogado
-          registroAbogado={registroAbogado} />}/>: <Route path="registroabogado" element={<Form login={login}
-          clickHandlerRecordatorio={clickHandlerRecordatorio}
-          clickHandlerCrear={clickHandlerCrear} />} />}
-        
-        {isAuthenticated ? <Route path="detail" element={<Detail />} />
-          : <Route path="detail" element={<Form login={login}
-          clickHandlerRecordatorio={clickHandlerRecordatorio}
-            clickHandlerCrear={clickHandlerCrear} />} />}
-        
-        {isAuthenticated ? <Route path="previsualizarcontrato" element={<PrevisualizarContrato />}/>: <Route path="previsualizarcontrato" element={<Form login={login}
-          clickHandlerRecordatorio={clickHandlerRecordatorio}
-          clickHandlerCrear={clickHandlerCrear} />} />}
-        
-        {isAuthenticated ? <Route path="configurarrecordatorios" element={<ConfigurarRecordatorios />}/>: <Route path="configurarrecordatorios" element={<Form login={login}
-          clickHandlerRecordatorio={clickHandlerRecordatorio}
-          clickHandlerCrear={clickHandlerCrear} />} />}
-        
-        {isAuthenticated ? <Route path="agendarcitas" element={<AgendarCitas />} />: <Route path="agendarcitas" element={<Form login={login}
-          clickHandlerRecordatorio={clickHandlerRecordatorio}
-          clickHandlerCrear={clickHandlerCrear} />} />}
-        
-        <Route path="/recordatoriocontrasena" element={<RecordatorioContrasena />}/>
-        
-        {isAuthenticated ? <Route path="documentoslegales" element={<DocumentosLegales />} />: <Route path="documentoslegales" element={<Form login={login}
-          clickHandlerRecordatorio={clickHandlerRecordatorio}
-          clickHandlerCrear={clickHandlerCrear} />} />}
-        
-        {isAuthenticated ? <Route path="contrato" element={<Contrato />} />: <Route path="contrato" element={<Form login={login}
-          clickHandlerRecordatorio={clickHandlerRecordatorio}
-          clickHandlerCrear={clickHandlerCrear} />} />}
-        
-        {isAuthenticated ? <Route path="previsualizarcontrato" element={<PrevisualizarContrato />}/>: <Route path="previsualizarcontrato" element={<Form login={login}
-          clickHandlerRecordatorio={clickHandlerRecordatorio}
-          clickHandlerCrear={clickHandlerCrear} />} />}
-        
-        {isAuthenticated ? <Route path="litigiosporcliente" element={<LitigiosPorCliente />} />: <Route path="litigiosporcliente" element={<Form login={login}
-          clickHandlerRecordatorio={clickHandlerRecordatorio}
-          clickHandlerCrear={clickHandlerCrear} />} />}
-        
-        {isAuthenticated ? <Route path="clientes" element={<Clientes />} /> : <Route path="clientes" element={<Form login={login}
-          clickHandlerRecordatorio={clickHandlerRecordatorio}
-          clickHandlerCrear={clickHandlerCrear} />} />}
-        
-        {isAuthenticated ? <Route path="casos" element={<Casos />} /> : <Route path="casos" element={<Form login={login}
-          clickHandlerRecordatorio={clickHandlerRecordatorio}
-          clickHandlerCrear={clickHandlerCrear} />} />}
-        
-        {isAuthenticated ? <Route path="casos/:id" element={<DetailCasos />} /> : <Route path="casos/:id" element={<Form login={login}
-          clickHandlerRecordatorio={clickHandlerRecordatorio}
-          clickHandlerCrear={clickHandlerCrear} />} />}
-        
-                {isAuthenticated ? <Route path="casos/crearcaso" element={<CrearCaso />} /> : <Route path="casos/crearcaso" element={<Form login={login}
-          clickHandlerRecordatorio={clickHandlerRecordatorio}
-          clickHandlerCrear={clickHandlerCrear} />} />}
-        
-                {isAuthenticated ? <Route path="abogados" element={<Abogados />} /> : <Route path="abogados" element={<Form login={login}
-          clickHandlerRecordatorio={clickHandlerRecordatorio}
-          clickHandlerCrear={clickHandlerCrear} />} />}
-        
-        {isAuthenticated ? <Route path="verconsultas" element={<AllConsultas />} /> : <Route path="verconsultas" element={<Form login={login}
-          clickHandlerRecordatorio={clickHandlerRecordatorio}
-          clickHandlerCrear={clickHandlerCrear} />} />}
-        
-        {isAuthenticated ? <Route path="pagos" element={<Payments />} /> : <Route path="pagos" element={<Form login={login}
-          clickHandlerRecordatorio={clickHandlerRecordatorio}
-          clickHandlerCrear={clickHandlerCrear} />} />}
-      </Routes>
+        {isAuthenticated ? (
+          <Route path="generar" element={<WordToHtml />} />
+        ) : (
+          <Route
+            path="generar"
+            element={
+              <Form
+                login={login}
+                clickHandlerRecordatorio={clickHandlerRecordatorio}
+                clickHandlerCrear={clickHandlerCrear}
+              />
+            }
+          />
+        )}
 
+        {isAuthenticated ? (
+          <Route path="generarfactura" element={<GenerarFactura />} />
+        ) : (
+          <Route
+            path="generarfactura"
+            element={
+              <Form
+                login={login}
+                clickHandlerRecordatorio={clickHandlerRecordatorio}
+                clickHandlerCrear={clickHandlerCrear}
+              />
+            }
+          />
+        )}
+
+        {isAuthenticated ? (
+          <Route path="cotizacion" element={<Cotizacion />} />
+        ) : (
+          <Route
+            path="cotizacion"
+            element={
+              <Form
+                login={login}
+                clickHandlerRecordatorio={clickHandlerRecordatorio}
+                clickHandlerCrear={clickHandlerCrear}
+              />
+            }
+          />
+        )}
+
+        {isAuthenticated ? (
+          <Route path="autorizacion" element={<Autorizacion />} />
+        ) : (
+          <Route
+            path="autorizacion"
+            element={
+              <Form
+                login={login}
+                clickHandlerRecordatorio={clickHandlerRecordatorio}
+                clickHandlerCrear={clickHandlerCrear}
+              />
+            }
+          />
+        )}
+
+        {isAuthenticated ? (
+          <Route path="poder" element={<Poder />} />
+        ) : (
+          <Route
+            path="poder"
+            element={
+              <Form
+                login={login}
+                clickHandlerRecordatorio={clickHandlerRecordatorio}
+                clickHandlerCrear={clickHandlerCrear}
+              />
+            }
+          />
+        )}
+
+        {isAuthenticated ? (
+          <Route path="PDF" element={<PDF />} />
+        ) : (
+          <Route
+            path="PDF"
+            element={
+              <Form
+                login={login}
+                clickHandlerRecordatorio={clickHandlerRecordatorio}
+                clickHandlerCrear={clickHandlerCrear}
+              />
+            }
+          />
+        )}
+
+        {isAuthenticated ? (
+          <Route path="insolvencia" element={<Insolvencia />} />
+        ) : (
+          <Route
+            path="insolvencia"
+            element={
+              <Form
+                login={login}
+                clickHandlerRecordatorio={clickHandlerRecordatorio}
+                clickHandlerCrear={clickHandlerCrear}
+              />
+            }
+          />
+        )}
+
+        {isAuthenticated ? (
+          <Route
+            path="registrocliente"
+            element={<RegistroCliente registroCliente={registroCliente} />}
+          />
+        ) : (
+          <Route
+            path="registrocliente"
+            element={
+              <Form
+                login={login}
+                clickHandlerRecordatorio={clickHandlerRecordatorio}
+                clickHandlerCrear={clickHandlerCrear}
+              />
+            }
+          />
+        )}
+
+        {isAuthenticated ? (
+          <Route
+            path="registroabogado"
+            element={<RegistroAbogado registroAbogado={registroAbogado} />}
+          />
+        ) : (
+          <Route
+            path="registroabogado"
+            element={
+              <Form
+                login={login}
+                clickHandlerRecordatorio={clickHandlerRecordatorio}
+                clickHandlerCrear={clickHandlerCrear}
+              />
+            }
+          />
+        )}
+
+        {isAuthenticated ? (
+          <Route path="detail" element={<Detail />} />
+        ) : (
+          <Route
+            path="detail"
+            element={
+              <Form
+                login={login}
+                clickHandlerRecordatorio={clickHandlerRecordatorio}
+                clickHandlerCrear={clickHandlerCrear}
+              />
+            }
+          />
+        )}
+
+        {isAuthenticated ? (
+          <Route
+            path="previsualizarcontrato"
+            element={<PrevisualizarContrato />}
+          />
+        ) : (
+          <Route
+            path="previsualizarcontrato"
+            element={
+              <Form
+                login={login}
+                clickHandlerRecordatorio={clickHandlerRecordatorio}
+                clickHandlerCrear={clickHandlerCrear}
+              />
+            }
+          />
+        )}
+
+        {isAuthenticated ? (
+          <Route
+            path="configurarrecordatorios"
+            element={<ConfigurarRecordatorios />}
+          />
+        ) : (
+          <Route
+            path="configurarrecordatorios"
+            element={
+              <Form
+                login={login}
+                clickHandlerRecordatorio={clickHandlerRecordatorio}
+                clickHandlerCrear={clickHandlerCrear}
+              />
+            }
+          />
+        )}
+
+        {isAuthenticated ? (
+          <Route path="agendarcitas" element={<AgendarCitas />} />
+        ) : (
+          <Route
+            path="agendarcitas"
+            element={
+              <Form
+                login={login}
+                clickHandlerRecordatorio={clickHandlerRecordatorio}
+                clickHandlerCrear={clickHandlerCrear}
+              />
+            }
+          />
+        )}
+
+        <Route
+          path="/recordatoriocontrasena"
+          element={<RecordatorioContrasena />}
+        />
+
+        {isAuthenticated ? (
+          <Route path="documentoslegales" element={<DocumentosLegales />} />
+        ) : (
+          <Route
+            path="documentoslegales"
+            element={
+              <Form
+                login={login}
+                clickHandlerRecordatorio={clickHandlerRecordatorio}
+                clickHandlerCrear={clickHandlerCrear}
+              />
+            }
+          />
+        )}
+
+        {isAuthenticated ? (
+          <Route path="contrato" element={<Contrato />} />
+        ) : (
+          <Route
+            path="contrato"
+            element={
+              <Form
+                login={login}
+                clickHandlerRecordatorio={clickHandlerRecordatorio}
+                clickHandlerCrear={clickHandlerCrear}
+              />
+            }
+          />
+        )}
+
+        {isAuthenticated ? (
+          <Route
+            path="previsualizarcontrato"
+            element={<PrevisualizarContrato />}
+          />
+        ) : (
+          <Route
+            path="previsualizarcontrato"
+            element={
+              <Form
+                login={login}
+                clickHandlerRecordatorio={clickHandlerRecordatorio}
+                clickHandlerCrear={clickHandlerCrear}
+              />
+            }
+          />
+        )}
+
+        {isAuthenticated ? (
+          <Route path="litigiosporcliente" element={<LitigiosPorCliente />} />
+        ) : (
+          <Route
+            path="litigiosporcliente"
+            element={
+              <Form
+                login={login}
+                clickHandlerRecordatorio={clickHandlerRecordatorio}
+                clickHandlerCrear={clickHandlerCrear}
+              />
+            }
+          />
+        )}
+
+        {isAuthenticated ? (
+          <Route path="clientes" element={<Clientes />} />
+        ) : (
+          <Route
+            path="clientes"
+            element={
+              <Form
+                login={login}
+                clickHandlerRecordatorio={clickHandlerRecordatorio}
+                clickHandlerCrear={clickHandlerCrear}
+              />
+            }
+          />
+        )}
+
+        {isAuthenticated ? (
+          <Route path="casos" element={<Casos />} />
+        ) : (
+          <Route
+            path="casos"
+            element={
+              <Form
+                login={login}
+                clickHandlerRecordatorio={clickHandlerRecordatorio}
+                clickHandlerCrear={clickHandlerCrear}
+              />
+            }
+          />
+        )}
+
+        {isAuthenticated ? (
+          <Route path="casos/:id" element={<DetailCasos />} />
+        ) : (
+          <Route
+            path="casos/:id"
+            element={
+              <Form
+                login={login}
+                clickHandlerRecordatorio={clickHandlerRecordatorio}
+                clickHandlerCrear={clickHandlerCrear}
+              />
+            }
+          />
+        )}
+
+        {isAuthenticated ? (
+          <Route path="casos/crearcaso" element={<CrearCaso />} />
+        ) : (
+          <Route
+            path="casos/crearcaso"
+            element={
+              <Form
+                login={login}
+                clickHandlerRecordatorio={clickHandlerRecordatorio}
+                clickHandlerCrear={clickHandlerCrear}
+              />
+            }
+          />
+        )}
+
+        {isAuthenticated ? (
+          <Route path="abogados" element={<Abogados />} />
+        ) : (
+          <Route
+            path="abogados"
+            element={
+              <Form
+                login={login}
+                clickHandlerRecordatorio={clickHandlerRecordatorio}
+                clickHandlerCrear={clickHandlerCrear}
+              />
+            }
+          />
+        )}
+
+        {isAuthenticated ? (
+          <Route path="verconsultas" element={<AllConsultas />} />
+        ) : (
+          <Route
+            path="verconsultas"
+            element={
+              <Form
+                login={login}
+                clickHandlerRecordatorio={clickHandlerRecordatorio}
+                clickHandlerCrear={clickHandlerCrear}
+              />
+            }
+          />
+        )}
+
+        {isAuthenticated ? (
+          <Route path="pagos" element={<Payments />} />
+        ) : (
+          <Route
+            path="pagos"
+            element={
+              <Form
+                login={login}
+                clickHandlerRecordatorio={clickHandlerRecordatorio}
+                clickHandlerCrear={clickHandlerCrear}
+              />
+            }
+          />
+        )}
+      </Routes>
     </div>
   );
 }

@@ -3,8 +3,8 @@ import axios from 'axios';
 
   export async function getTiposCasos() {
     try {
-      const response = await axios.get( 'https://legaltech-develop.onrender.com/tiposdecasos' /*'https://legaltech-6u3y.onrender.com/abogados'*/);
-
+      const response = await axios.get('/tiposdecasos')
+      console.log('Tipos de casos:',response.data)
       return response.data
      
     } catch (error) {

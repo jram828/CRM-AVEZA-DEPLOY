@@ -9,6 +9,9 @@ const createCaso = async (
   fecha,
   descripcion,
   TipoDeCasoid,
+  forma_de_pago,
+  honorarios,
+  valor_pretensiones
   // importe,
 ) => {
   const estaCliente = await Cliente.findOne({
@@ -49,7 +52,10 @@ const createCaso = async (
     descripcion: descripcion,
     TipoDeCasoTipoDeCasoid: TipoDeCasoid,
     ClienteCedulaCliente: cedulaCliente,
-    AbogadoCedulaAbogado: cedulaAbogado
+    AbogadoCedulaAbogado: cedulaAbogado,
+    honorarios: honorarios,
+    forma_de_pago: forma_de_pago,
+    valor_pretensiones: valor_pretensiones
     // importe: importe,
   });
 

@@ -8,6 +8,9 @@
   margin: 0 auto;
   color: white;
   font-family: "Outfit", sans-serif;
+     display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
 }
 
 .titulo {

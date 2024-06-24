@@ -171,11 +171,6 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
               <td className="celdas">
                 {" "}
                 {errores.cedula || errores.password ? null : (
-                  // <input
-                  //   type="submit"
-                  //   value="Ingresar"
-                  //   className="botonesiniciosesion"
-                  // />
                   <Button type="submit">Ingresar</Button>
                 )}
               </td>
@@ -201,7 +196,6 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
           </table>
         </form>
         <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
-        {/* <button onClick={() => loginWithRedirect()}>Log In</button> */}
       </div>
       <div className="containerPhoto">
         <img src={photo} alt="Foto login" className="imglogin" />

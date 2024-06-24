@@ -2,20 +2,28 @@
    border-radius: 10px;
    font-size: 100%;
    background-color: white;
-   /* opacity: 0.8; */
    width: 100%;
-   /* height: 250 px; */
    display:grid;
    grid-template-columns: repeat(1, 1fr);
-   /* grid-gap: 10px; */
    grid-auto-rows: minmax(10px, auto);
-   /* vertical-align: middle; */
    margin: 5px;
-   /* padding: 10px; */
-   /* flex-direction: row;
-   flex-wrap: wrap; */
-   text-align: center;
+   justify-items: center;
+   /* align-items: center; */
    height: fit-content;
+   padding: 10px;
+}
+
+.contenedordetail{
+  background-color: white;
+  opacity: 0.85;
+  border-radius: 10px;
+  padding: 10px;
+  height: 90vh;
+  width: 70vw;
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .encabezado{
@@ -58,6 +66,11 @@
     border-radius: 10px;
     padding: 5px;
     border-width: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+    margin-left: 30px;
 }
 .casos{
     grid-column: 2;
@@ -67,7 +80,8 @@
     border-radius: 10px;
     padding: 5px;
     border-width: 1px;
-    width: 300px;
+    width: 450px;
+    /* margin-left: 80px; */
 }
 .nombredetail{
   text-align: center;
@@ -95,16 +109,27 @@
   justify-content: center;
 }
 
-.container{
-  min-height: 100vh;
-  background-color: white;
-  width: 70%;
-  margin-left: 100px;
-  padding: 20px;
+.labelregistrodecliente{
+  text-align: left;
+  width: 200px;
 }
+
+.cajadetail{
+  width:250px;
+  border-radius: 5px;
+  border: 1px;
+}
+
+
 .detail .photo{
    width: 60%;
    height: 60 px;
    border-radius: 70%; 
 }
 
+.infodetail{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin:10px;
+}
