@@ -2,8 +2,9 @@ import './detailCasos.css';
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getCasoById, deleteCaso, getCasos } from '../../redux/actions';
+import { deleteCaso, getCasos } from '../../redux/actions';
 import { Button } from '../Mystyles';
+import { getCasoById } from '../../handlers/detailCaso';
 
 
 function DetailCasos() {
@@ -12,36 +13,27 @@ function DetailCasos() {
   console.log('Id detail:', id)
   const dispatch = useDispatch();
   const navigate = useNavigate();
-    const [casoDetail, setCasoDetail] = useState({
-      tipoDeCaso: "",
-      TipoDeCasoid: "",
-      etapa: "",
-      fecha: "",
-      fechaFin: "",
-      idCaso: "",
-      valor_pretensiones: "",
-      honorarios: "",
-      aceptacion_cotizacion: "",
-      tiene_contrato: "",
-      forma_de_pago: "",
-      descripcion: "",
-      cedulaCliente: "",
-      nombresCliente: "",
-      apellidosCliente: "",
-      emailCliente: "",
-      celularCliente: "",
-      direccionCliente: "",
-      ciudadCliente: "",
-      cedulaAbogado: "",
-      nombresAbogado: "",
-      apellidosAbogado: "",
-      emailAbogado: "",
-      celularAbogado: "",
-      direccionAbogado: "",
-      ciudadAbogado: "",
-      tarjetaProf: "",
-    });
-  
+
+      const [casoDetail, setCasoDetail] = useState({
+        TipoDeCaso: "",
+        tipoDeCasoFlat: "",
+        TipoDeCasoTipoDeCasoid: "",
+        etapa: "",
+        fecha: "",
+        fechaFin: "",
+        idCaso: "",
+        valor_pretensiones: "",
+        honorarios: "",
+        aceptacion_cotizacion: "",
+        tiene_contrato: "",
+        forma_de_pago: "",
+        descripcion: "",
+        ClienteCedulaCliente: "",
+        AbogadoCedulaAbogado:"",
+        Cliente: "",
+        Abogado: "",
+      });
+     
   const caso = useSelector(state => state.caso); // Asumimos que el detalle del caso se almacena en 'caso'
 
   const formatDate = (dateString) => {
@@ -52,47 +44,22 @@ function DetailCasos() {
   };
 
   useEffect(() => {
-    dispatch(getCasoById(id));
-  }, [dispatch, id]);
+    const obtenerCaso = async (id) => {
+      try {
+        const caso = await getCasoById(id);
+        setCasoDetail(caso);
+      } catch (error) {
+        console.error("Error al obtener los abogados:", error);
+      }
+    };
+
+    obtenerCaso(id);
+  }, [id]);
 
 
-
-
-  console.log("Caso detail:", caso);
-  
-    useEffect(() => {
-        setCasoDetail({
-          ...casoDetail,
-          tipoDeCaso: caso.TipoDeCaso.descripcion,
-          TipoDeCasoid: caso.TipoDeCasoTipoDeCasoid,
-          etapa: caso.etapa,
-          fecha: caso.fecha,
-          fecha: caso.fechaFin,
-          idCaso: caso.idCaso,
-          valor_pretensiones: caso.valor_pretensiones,
-          honorarios: caso.honorarios,
-          aceptacion_cotizacion: caso.aceptacion_cotizacion,
-          tiene_contrato: caso.tiene_contrato,
-          forma_de_pago: caso.forma_de_pago,
-          descripcion: caso.descripcion,
-          cedulaCliente: caso.ClienteCedulaCliente,
-          nombresCliente: caso.Cliente.nombres,
-          apellidosCliente: caso.Cliente.apellidos,
-          emailCliente: caso.Cliente.email,
-          celularCliente: caso.Cliente.celular,
-          direccionCliente: caso.Cliente.direccion,
-          cedulaAbogado: caso.AbogadoCedulaAbogado,
-          nombresAbogado: caso.Abogado.nombres,
-          apellidosAbogado: caso.Abogado.apellidos,
-          emailAbogado: caso.Abogado.email,
-          celularAbogado: caso.Abogado.celular,
-          direccionAbogado: caso.Abogado.direccion,
-
+  console.log("Caso detail:", casoDetail);
           // ciudad: datos.Ciudads[0].nombre_ciudad,
           // departamento: datos.Ciudads[0].Departamentos[0].nombre_departamento,
-        });
-    }, [dispatch, caso]);
-  
 
   const handleDelete = () => {
     const isConfirmed = window.confirm('¿Estás seguro de que deseas eliminar este registro?');
@@ -116,8 +83,8 @@ function DetailCasos() {
   };
 
     const handleUpdateDetailCaso = (e) => {
-      setUserDataDetailCaso({
-        ...userDataDetailCaso,
+      setCasoDetail({
+        ...casoDetail,
         [e.target.name]: e.target.value, // Sintaxis ES6 para actualizar la key correspondiente
       });
     };
@@ -144,32 +111,278 @@ function DetailCasos() {
         </div>
         <div className="infotodos">
           <div className="infocaso">
+            <br />
             <div className="infodetailcaso">
-              <label for="tipocaso" className="labeldetailcaso">
-                Tipo de caso:
+              <label for="idCaso" className="labeldetailcaso">
+                Consecutivo de caso:
               </label>
               <input
                 type="number"
                 className="cajadetail"
-                name="cedulaAbogado"
-                id="cedula"
-                value={casoDetail.tipoDeCaso}
+                name="idCaso"
+                id="idCaso"
+                value={casoDetail.idCaso}
+                onChange={handleUpdateDetailCaso}
+                disabled
+              />
+            </div>
+            <div className="infodetailcaso">
+              <label for="nombres" className="labeldetailcaso">
+                Tipo de caso:
+              </label>
+              <input
+                type="text"
+                className="cajadetail"
+                name="tipoDeCasoFlat"
+                id="tipoDeCasoFlat"
+                value={casoDetail.TipoDeCaso.descripcion}
+                onChange={handleUpdateDetailCaso}
+              />
+            </div>
+            <div className="infodetailcaso">
+              <label for="etapa" className="labeldetailcaso">
+                Etapa:
+              </label>
+              <input
+                type="text"
+                text
+                className="cajadetail"
+                name="etapa"
+                id="etapa"
+                value={casoDetail.etapa}
+                onChange={handleUpdateDetailCaso}
+              />
+            </div>
+            <div className="infodetailcaso">
+              <label for="fecha" className="labeldetailcaso">
+                Fecha:
+              </label>
+              <input
+                type="text"
+                text
+                className="cajadetail"
+                name="fecha"
+                id="fecha"
+                value={casoDetail.fecha}
+                onChange={handleUpdateDetailCaso}
+              />
+            </div>
+            <div className="infodetailcaso">
+              <label for="fechaFin" className="labeldetailcaso">
+                Fecha de finalización:
+              </label>
+              <input
+                type="text"
+                text
+                className="cajadetail"
+                name="fechaFin"
+                id="fechaFin"
+                value={casoDetail.fechaFin}
+                onChange={handleUpdateDetailCaso}
+              />
+            </div>
+            <div className="infodetailcaso">
+              <label for="valor_pretensiones" className="labeldetailcaso">
+                Valor pretensiones:
+              </label>
+              <input
+                type="number"
+                text
+                className="cajadetail"
+                name="valor_pretensiones"
+                id="valor_pretensiones"
+                value={casoDetail.valor_pretensiones}
+                onChange={handleUpdateDetailCaso}
+              />
+            </div>
+            <div className="infodetailcaso">
+              <label for="honorarios" className="labeldetailcaso">
+                Valor honorarios:
+              </label>
+              <input
+                type="number"
+                text
+                className="cajadetail"
+                name="honorarios"
+                id="honorarios"
+                value={casoDetail.honorarios}
+                onChange={handleUpdateDetailCaso}
+              />
+            </div>
+            <div className="infodetailcaso">
+              <label for="aceptacion_cotizacion" className="labeldetailcaso">
+                Aceptación de cotización:
+              </label>
+              <input
+                type="text"
+                text
+                className="cajadetail"
+                name="aceptacion_cotizacion"
+                id="aceptacion_cotizacion"
+                value={casoDetail.aceptacion_cotizacion}
+                onChange={handleUpdateDetailCaso}
+              />
+            </div>
+            <div className="infodetailcaso">
+              <label for="tiene_contrato" className="labeldetailcaso">
+                Tiene contrato?
+              </label>
+              <input
+                type="text"
+                text
+                className="cajadetail"
+                name="tiene_contrato"
+                id="tiene_contrato"
+                value={casoDetail.tiene_contrato}
                 onChange={handleUpdateDetailCaso}
               />
             </div>
           </div>
-          <div className="infocliente"></div>
-          <div className="infoabogado"></div>
+          <div className="infocliente">
+            <div className="encabezadoAbogado">
+              <h6 className="titulo">Cliente</h6>
+            </div>
+            <div className="infodetailcaso">
+              <label for="ClienteCedulaCliente" className="labeldetailcaso">
+                Número de cédula:
+              </label>
+              <input
+                type="number"
+                className="cajadetail"
+                name="ClienteCedulaCliente"
+                id="ClienteCedulaCliente"
+                value={casoDetail.ClienteCedulaCliente}
+                disabled
+              />
+            </div>
+            <div className="infodetailcaso">
+              <label for="nombresCliente" className="labeldetailcaso">
+                Nombre (s):
+              </label>
+              <input
+                type="text"
+                className="cajadetail"
+                name="nombresCliente"
+                id="nombresCliente"
+                value={casoDetail.Cliente.nombres}
+                disabled
+              />
+            </div>
+            <div className="infodetailcaso">
+              <label for="apellidosCliente" className="labeldetailcaso">
+                Apellido (s):
+              </label>
+              <input
+                type="text"
+                className="cajadetail"
+                name="apellidosCliente"
+                id="apellidosCliente"
+                value={casoDetail.Cliente.apellidos}
+                disabled
+              />
+            </div>
+            <div className="infodetailcaso">
+              <label for="celularCliente" className="labeldetailcaso">
+                Número de celular:
+              </label>
+              <input
+                type="number"
+                className="cajadetail"
+                name="celularCliente"
+                id="celularCliente"
+                value={casoDetail.Cliente.celular}
+                disabled
+              />
+            </div>
+            <div className="infodetailcaso">
+              <label for="emailCliente" className="labeldetailcaso">
+                Correo electrónico:
+              </label>
+              <input
+                type="email"
+                className="cajadetail"
+                name="emailCliente"
+                id="emailCliente"
+                value={casoDetail.Cliente.email}
+                disabled
+              />
+            </div>
+            <br /><br />
+            <div className="encabezadoAbogado">
+              <h6 className="titulo">Abogado</h6>
+            </div>
+            <div className="infodetailcaso">
+              <label for="AbogadoCedulaAbogado" className="labeldetailcaso">
+                Número de cédula:
+              </label>
+              <input
+                type="number"
+                className="cajadetailAbogado"
+                name="AbogadoCedulaAbogado"
+                id="AbogadoCedulaAbogado"
+                value={casoDetail.AbogadoCedulaAbogado}
+                disabled
+              />
+            </div>
+            <div className="infodetailcaso">
+              <label for="nombresAbogado" className="labeldetailcaso">
+                Nombre (s):
+              </label>
+              <input
+                type="text"
+                className="cajadetail"
+                name="nombresAbogado"
+                id="nombresAbogado"
+                value={casoDetail.Abogado.nombres}
+                disabled
+              />
+            </div>
+            <div className="infodetailcaso">
+              <label for="apellidosAbogado" className="labeldetailcaso">
+                Apellido (s):
+              </label>
+              <input
+                type="text"
+                className="cajadetail"
+                name="apellidosAbogado"
+                id="apellidosAbogado"
+                value={casoDetail.Abogado.apellidos}
+                disabled
+              />
+            </div>
+            <div className="infodetailcaso">
+              <label for="celularAbogado" className="labeldetailcaso">
+                Número de celular:
+              </label>
+              <input
+                type="number"
+                className="cajadetailAbogado"
+                name="celularAbogado"
+                id="celularAbogado"
+                value={casoDetail.Abogado.celular}
+                disabled
+              />
+            </div>
+            <div className="infodetailcaso">
+              <label for="emailAbogado" className="labeldetailcaso">
+                Correo electrónico:
+              </label>
+              <input
+                type="email"
+                className="cajadetail"
+                name="emailAbogado"
+                id="emailAbogado"
+                value={casoDetail.Abogado.email}
+                disabled
+              />
+            </div>
+          </div>
+          {/* <div className="infoabogado">
+            
+          </div> */}
         </div>
-        <div className="space-y-4">
-          <label className="input input-sm flex items-center max-w-xs mx-auto  !text-neutral text-sm">
-            Tipo de caso:
-            <input
-              value={casoDetail.tipoDeCaso}
-              className="grow text-neutral input-field ml-2"
-              disabled
-            />
-          </label>
+        {/* <div className="space-y-4">
+
 
           <label className="input input-sm flex items-center max-w-xs mx-auto  !text-neutral text-sm">
             Abogado:
@@ -183,7 +396,7 @@ function DetailCasos() {
           </label>
 
           <label className="input input-sm flex items-center max-w-xs mx-auto  !text-neutral text-sm">
-            Cliente:
+            Abogado:
             <input
               value={`${caso?.Cliente?.apellido || ""} ${
                 caso?.Cliente?.nombre || ""
@@ -220,15 +433,15 @@ function DetailCasos() {
                 readOnly
               />
             </label>
-          )}
+          )} */}
 
-          {caso?.PagosClientes && caso.PagosClientes.length > 0 && (
+        {/* {caso?.PagosClientes && caso.PagosClientes.length > 0 && (
             <label
               htmlFor="pagosCliente"
               className="input input-bordered flex items-center max-w-xs mx-auto"
             >
               Pagos del Cliente:
-              {/* <select
+              <select
                 name="pagosCliente"
                 id="pagosCliente"
                 className="grow text-black input-field"
@@ -240,13 +453,13 @@ function DetailCasos() {
                     {pago.importeDeLaTransaccion}
                   </option>
                 ))}
-              </select> */}
+              </select>
             </label>
           )}
-        </div>
+        </div> */}
 
         <div className="flex justify-center gap-2 mt-4">
-          <button
+          <Button
             className="btn btn-sm w-35 border border-error bg-white hover:bg-white"
             onClick={handleDelete}
           >
@@ -262,9 +475,9 @@ function DetailCasos() {
               ></path>
             </svg>
             Eliminar registro
-          </button>
+          </Button>
           <Link to="/home/cases">
-            <button className="btn btn-sm w-35 border border-accent bg-white hover:bg-white">
+            <Button className="btn btn-sm w-35 border border-accent bg-white hover:bg-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="1.2em"
@@ -281,7 +494,7 @@ function DetailCasos() {
                 ></path>
               </svg>
               Volver
-            </button>
+            </Button>
           </Link>
           {user?.cedulaCliente ? undefined : (
             <button

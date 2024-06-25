@@ -25,3 +25,104 @@
   flex-direction: column;
   align-items: center;
 }
+
+.encabezado{
+     grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    height: fit-content;
+}
+
+.infotodos{
+     grid-column: 1;
+    grid-row: 5;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 80px;
+    grid-auto-rows: minmax(20px, auto);
+    justify-content: center;
+}
+.infocaso{
+     grid-column: 1;
+    grid-row: 1;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+    padding: 5px;
+    border-width: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+    margin-left: 5px;
+}
+.infocliente{
+    grid-column: 2;
+    grid-row: 1;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+    padding: 5px;
+    border-width: 1px;
+    /* width: 300px; */
+    align-content: flex-start;
+    margin-left: 5px;
+}
+.infoabogado{
+    grid-column: 3;
+    grid-row: 1;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+    padding: 5px;
+    border-width: 1px;
+    width: 200px;
+    /* margin-left: 80px; */
+}
+.nombredetail{
+  text-align: center;
+  font-size:larger;
+  /* height: fit-content; */
+       grid-column: 1;
+    grid-row: 4;
+    /* font-size: 18px; */
+    height: fit-content;
+}
+.menu-detail{
+  grid-column: 1;
+    grid-row: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+
+.labeldetailcaso{
+  text-align: left;
+  width: 180px;
+  margin-right: 5px;
+}
+
+.cajadetail{
+  width:170px;
+  border-radius: 5px;
+  border: 1px;
+  justify-content: center;
+}
+.cajadetailcliente{
+  width:120px;
+  border-radius: 5px;
+  border: 1px;
+  justify-content: center;
+}
+
+.infodetailcaso{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin:10px;
+}
