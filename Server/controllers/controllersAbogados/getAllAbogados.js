@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 import { models } from "../../DB.js";
 
-const Abogado = models.Abogado;
+ const { Abogado, Ciudad, Departamento, Pais } = models;
 
 const getAllAbogados = async (filters) => {
   //filters = acá me traigo req.query
@@ -59,6 +59,27 @@ const getAllAbogados = async (filters) => {
       //   [Sequelize.Op.like]: `${newFilters.apellido}%`,
       // },
     },
+    include: [
+      {
+        model: Ciudad,
+        attributes: ["nombre_ciudad"],
+        through: { attributes: [] },
+        include: [
+          {
+            model: Departamento,
+            attributes: ["nombre_departamento"],
+            through: { attributes: [] },
+            include: [
+              {
+                model: Pais,
+                attributes: ["nombre_pais"],
+                through: { attributes: [] },
+              },
+            ],
+          },
+        ],
+      },
+    ],
     order,
     offset: offset || 0,
 

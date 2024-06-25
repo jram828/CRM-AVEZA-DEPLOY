@@ -18,10 +18,6 @@ export default (sequelize) => {
       direccion: { type: DataTypes.STRING, allowNull: false },
       // codigo_ciudad: { type: DataTypes.INTEGER, allowNull: false },
       celular: { type: DataTypes.BIGINT, allowNull: false },
-      tiene_contrato: {
-        type: DataTypes.STRING,
-        defaultValue: "no",
-      },
       // valor_pretensiones: { type: DataTypes.BIGINT, allowNull: false },
       // aceptacion_cotizacion: { type: DataTypes.STRING, allowNull: true },
       // honorarios: { type: DataTypes.BIGINT, allowNull: false },

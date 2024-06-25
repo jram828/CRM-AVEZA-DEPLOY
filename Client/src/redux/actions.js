@@ -28,6 +28,12 @@ export const GET_CITAS = "GET_CITAS";
 export const POST_CONSULTA = "POST_CONSULTA";
 export const GET_CONSULTAS = "GET_CONSULTAS";
 export const GET_PAGOS = "GET_PAGOS";
+export const CLEAN_USER = "CLEAN_USER";
+export const GET_ABOGADOS_TODOS = "GET_ABOGADOS_TODOS";
+export const MODIFICAR_DATOS = "MODIFICAR_DATOS";
+export const SET_ABOGADO = "SET_ABOGADO";
+export const GET_CLIENTES_TODOS = "GET_CLIENTES_TODOS";
+
 
 export const clienteActual = (cliente) => {
   console.log("Cliente Action:", cliente);
@@ -298,11 +304,12 @@ export const orderCasos = (value) => {
 };
 
 export const getCasoById = (id) => {
-  const endpoint = `/casos/:${id}`;
+  const endpoint = `/casos/${id}`;
   console.log("URL", endpoint);
   return async (dispatch) => {
     try {
       const { data } = await axios.get(endpoint);
+      console.log('Data get caso by Id:', data)
       return dispatch({
         type: GET_CASO_BY_ID,
         payload: data,
@@ -401,4 +408,57 @@ export const recordarPassword = async (email) => {
         payload: data,
       });
     };
+};
+  
+export const getAbogadosTodos = () => {
+  const endpoint = `/abogados?pagina=1&porPagina=50`;
+
+  return async (dispatch) => {
+    const { data } = await axios.get(endpoint);
+    return dispatch({
+      type: GET_ABOGADOS_TODOS,
+      payload: data,
+    });
   };
+};
+
+  export const modificarDatos = (payload) => {
+    const endpoint = `/clientes/actualiza`;
+
+    return async (dispatch) => {
+      const data = await axios.post(endpoint, payload);
+      console.log("URL", endpoint, "PAYLOAD", payload);
+      return dispatch({
+        type: MODIFICAR_DATOS,
+        payload: data,
+      });
+    };
+};
+  
+
+export const setAbogado = (source) => {
+  console.log("Limpiar estado detail:", source);
+  return {
+    type: SET_ABOGADO,
+    payload: source,
+  };
+};
+
+export const setCliente = (source) => {
+  console.log("Limpiar estado detail:", source);
+  return {
+    type: SET_CLIENTE,
+    payload: source,
+  };
+};
+
+export const getClientesTodos = () => {
+  const endpoint = `/clientes?pagina=1&porPagina=50`;
+  return async (dispatch) => {
+    const { data } = await axios.get(endpoint);
+    return dispatch({
+      type: GET_CLIENTES_TODOS,
+      payload: data,
+    });
+  };
+};

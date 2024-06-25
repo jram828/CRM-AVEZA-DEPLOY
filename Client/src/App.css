@@ -535,15 +535,7 @@ footer{
       justify-content: center;
    }
 
-   .divclientes{
-    display: grid;
-    /* flex-direction: row;
-    flex-wrap: wrap; */
-    justify-content: flex-start;
-        grid-template-columns: repeat(4, 1fr);
-    /* grid-gap: 15px; */
-    grid-auto-rows: minmax(20px, auto);
-   }
+
 
       .divToPrint{
     display: flex;

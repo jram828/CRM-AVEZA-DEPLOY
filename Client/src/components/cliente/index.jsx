@@ -63,19 +63,13 @@ const Cliente = (props) => {
 
 
   return (
-      <div className="card" key={cedulaCliente}>
-        <a className="linkdetailcliente" onClick={onClickDetail}>
-          <h1
-            style={{
-              backgroundColor: "white",
-              fontSize: 16,
-            }}
-          >
-            {" "}
-            {nombres.toUpperCase()} {apellidos.toUpperCase()}
-          </h1>
-        </a>
-      </div>
+    <div className="cardcliente" key={cedulaCliente}>
+      <Link to={"/detail"} onClick={onClickDetail} className="link">
+        <h1 className="titulocard">
+          {nombres.toUpperCase()} {apellidos.toUpperCase()}
+        </h1>
+      </Link>
+    </div>
   );
 };
 

@@ -109,16 +109,8 @@ const Detail = () => {
     <div className="contenedordetail">
       <div className="detail" key={userDataDetail.cedula}>
         <div className="encabezado">
-          {/* <img
-            src={logo}
-            alt="logo-aveza"
-            title="AVEZA SAS"
-            className="logo-aveza"
-          />
-          <br /> */}
           <h5 className="titulo">Detalles</h5>
         </div>
-        {/* <div className="nombre"> */}
         <div className="menu-detail">
           <Link to={"/cotizacion"}>
             <Button className="botonesiniciosesion">Cotización</Button>

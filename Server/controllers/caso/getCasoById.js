@@ -12,11 +12,12 @@ const getCasoId = async (id) => {
     include: [
       {
         model: Cliente,
-        attributes: ["apellidos", "nombres", "direccion", "celular"],
+        attributes: ["apellidos", "nombres", "direccion", "celular","email"],
       },
       {
         model: Abogado,
-        attributes: ["apellidos", "nombres", "direccion", "celular"],
+        attributes: ["apellidos", "nombres", "direccion", "celular", "email", "tarjetaProf"],
+        
       },
       {
         model: TipoDeCaso,

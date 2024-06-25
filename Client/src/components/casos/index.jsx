@@ -39,7 +39,7 @@ function Casos() {
     if (order) {
       dispatch(orderCasos(order, currentPage));
     } else {
-      dispatch(getCasosTodos(currentPage));
+      dispatch(getCasos(currentPage));
       const storedFilter = JSON.parse(localStorage.getItem("casosFilter"));
       if (storedFilter) {
         setFilterApplied(true);
@@ -73,7 +73,7 @@ function Casos() {
     setCurrentPage(1);
   };
 
-  const isLoading = !casos //|| !casos.datosPagina;
+  const isLoading = !casos || !casos.datosPagina;
 
   // const userCasos =
   //   !isLoading &&
@@ -86,7 +86,7 @@ function Casos() {
   //           (caso.nombreabogado === user.nombre &&
   //             caso.apellidoAbogado === user.apellido)
   //       ));
-
+ console.log('Casos: ', casos)
   return (
     <div className="contenedorcasos">
       <div className="encabezado">
@@ -101,12 +101,12 @@ function Casos() {
         </Link>
         {/* ) : null} */}
         {filterApplied && (
-          <button
+          <Button
             onClick={handleVerTodosClick}
             className="btn btn-sm bg-accent text-white hover:bg-primary hover:text-white"
           >
             Ver todos
-          </button>
+          </Button>
         )}
       </div>
 
@@ -141,7 +141,7 @@ function Casos() {
           )}
           <br />
           <div className="divcasos">
-            {casos.map((caso) => (
+            {casos.datosPagina.map((caso) => (
               <TarjetaCaso caso={caso} key={caso.id} />
             ))}
           </div>

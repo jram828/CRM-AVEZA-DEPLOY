@@ -25,7 +25,10 @@ export default (sequelize) => {
         },
       },
       valor_pretensiones: { type: DataTypes.BIGINT, allowNull: false },
-      aceptacion_cotizacion: { type: DataTypes.STRING, allowNull: true },
+      aceptacion_cotizacion: {
+        type: DataTypes.STRING,
+        defaultValue: "No",
+      },
       honorarios: { type: DataTypes.BIGINT, allowNull: false },
       forma_de_pago: { type: DataTypes.STRING, allowNull: false },
       etapa: {
@@ -35,6 +38,10 @@ export default (sequelize) => {
         validate: {
           len: [1, 100],
         },
+      },
+      tiene_contrato: {
+        type: DataTypes.STRING,
+        defaultValue: "No",
       },
     },
     { timestamps: false }

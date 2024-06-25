@@ -59,6 +59,7 @@ const getTipoDeCasoByIdHandler = async (req, res) => {
   const { idCaso } = req.params;
   try {
     const response = await getCasoId(idCaso);
+    console.log('Response handler get caso:', response)
     res.status(200).json(response);
   } catch (error) {
     console.log(error);

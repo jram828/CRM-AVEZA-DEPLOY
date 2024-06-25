@@ -1,12 +1,9 @@
 import { models } from "../../DB.js";
-const {
-  ACCOUNTSID,
-  AUTHTOKEN,
-  NUMBER,
-} = process.env;
+import { codigoCiudades } from "../../utils/codigoCiudades.js";
+const { ACCOUNTSID, AUTHTOKEN, NUMBER } = process.env;
 import twilio from "twilio";
 
-const Abogado = models.Abogado
+const Abogado = models.Abogado;
 
 const createAbogadoBd = async (
   email,
@@ -19,9 +16,19 @@ const createAbogadoBd = async (
   tarjetaProf,
   password
 ) => {
+  const ciudadfilter = codigoCiudades.filter(
+    (ciudad) => ciudad.nombre_ciudad === nombre_ciudad.toUpperCase()
+  );
+  console.log("Ciudad filter:", ciudadfilter);
+
+  const codigo_ciudad = ciudadfilter[0].codigo_ciudad;
+  console.log("Codigo ciudad:", codigo_ciudad);
+
+  console.log("ciudad:", ciudadfilter);
+
   // console.log('imagen',imagen)
   console.log(cedulaAbogado);
-  console.log('Datos abogado:',{
+  console.log("Datos abogado:", {
     email,
     nombres,
     apellidos,
@@ -30,8 +37,8 @@ const createAbogadoBd = async (
     direccion,
     nombre_ciudad,
     tarjetaProf,
-    password}
-  );
+    password,
+  });
   try {
     const newAbogado = await Abogado.create({
       email,
@@ -45,6 +52,7 @@ const createAbogadoBd = async (
       password,
     });
 
+          newAbogado.addCiudad(codigo_ciudad);
     // const client = new twilio(ACCOUNTSID, AUTHTOKEN, NUMBER);
     // const celular = "+573204746006";
     // client.messages
@@ -61,4 +69,4 @@ const createAbogadoBd = async (
   }
 };
 
-export  { createAbogadoBd };
+export { createAbogadoBd };

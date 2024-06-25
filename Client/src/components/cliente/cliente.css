@@ -1,9 +1,23 @@
-.card{
+.cardcliente{
+  display: flex;
+  flex-direction: column;
   background-color: lightgray;
   opacity: 0.85;
   border-radius: 8px;
   padding: 5px;
   margin-left: 10px;
-  width:200px;
-  height: 220px;
+  min-width:300px;
+  min-height: 40px;
+  /* text-align: center; */
+  align-items: center;
+  justify-content: center;
+}
+
+.titulocard{
+  font-size: large;
+  color: black;
+}
+
+.link{
+  text-decoration: none;
 }

@@ -5,7 +5,7 @@
   border-radius: 8px;
   padding: 5px;
   margin-left: 10px;
-  width:220px;
+  min-width:300px;
   height: 220px;
 }
 
@@ -15,11 +15,21 @@
 }
 
 .labelcaso{
-    font-size: small;
+    font-size: medium;
     font-weight: bold;
+    min-width: 110px;
+    margin: 5px;
+    align-content: center;
+    height: 30px;
 }
 
 .nombrecaso{
-    font-size: small;
+    font-size: medium;
     font-weight:normal;
+    align-content: center;
+    min-width: 170px;
+}
+
+.link{
+    text-decoration: none;
 }
