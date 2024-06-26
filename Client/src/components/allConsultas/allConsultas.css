@@ -1,4 +1,4 @@
-.contenedorconsultas{
+.contenedorconsultas {
   background-color: white;
   opacity: 0.85;
   border-radius: 10px;
@@ -11,36 +11,64 @@
   align-items: center;
 }
 
-.encabezado{
+.encabezado {
   width: 300px;
 }
 
-.consultasconpagina{
+.consultasconpagina {
   display: flex;
   flex-direction: column;
 }
 
-   .divconsultas{
-    display: grid;
-    /* flex-direction: row;
+.divconsultas {
+  display: grid;
+  /* flex-direction: row;
     flex-wrap: wrap; */
-    justify-content: flex-start;
-        grid-template-columns: repeat(4, 1fr);
-    /* grid-gap: 15px; */
-    grid-auto-rows: minmax(20px, auto);
-   }
+  justify-content: flex-start;
+  grid-template-columns: repeat(4, 1fr);
+  /* grid-gap: 15px; */
+  grid-auto-rows: minmax(20px, auto);
+}
 
-   .card{
+.cardconsulta {
   background-color: lightgray;
   opacity: 0.85;
   border-radius: 8px;
- justify-content: flex-start;
+  padding: 5px;
   margin-left: 10px;
-  width:220px;
+  min-width: 350px;
   height: 220px;
+  /* justify-content: flex-start; */
 }
 
-.labelconsulta{
-   font-size: 160%;
-   color: black;
+/* .contenedortarjetacaso{
+  background-color: lightgray;
+  opacity: 0.85;
+  border-radius: 8px;
+  padding: 5px;
+  margin-left: 10px;
+  min-width:300px;
+  height: 220px;
+} */
+
+.labelconsulta {
+  color: black;
+    font-size: medium;
+    font-weight: bold;
+    min-width: 150px;
+    /* margin: 5px; */
+    align-content: center;
+    height: 30px;
+}
+
+.nombreconsulta{
+    font-size: medium;
+    font-weight:normal;
+    align-content: center;
+    min-width: 200px;
+}
+
+.infoconsultatarjeta{
+    display: flex;
+    flex-direction: row;
 }

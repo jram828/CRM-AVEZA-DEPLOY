@@ -1,8 +1,7 @@
-import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import "../../App.css";
 import "./registrocliente.css";
-import logo from "../../img/logoAveza.png";
+import { Button } from "../Mystyles";
 
 const RegistroCliente = ({registroCliente}) => {
     const [userDataRegistro, setUserDataRegistro] = useState({
@@ -123,7 +122,8 @@ const RegistroCliente = ({registroCliente}) => {
             onChange={handleChangeRegistro}
           />
         </div>
-        <br /><br />
+        <br />
+        <br />
         <div className="ciudad">
           <label for="ciudad" className="labelregistrodecliente">
             Ciudad:
@@ -155,23 +155,21 @@ const RegistroCliente = ({registroCliente}) => {
         </div>
         <br />
         <div className="documentoagenerar">
-          <input className="botones" type="button" value="Modificar" />
-          <input
-            className="botones"
-            type="submit"
-            value="Guardar"
+          {/* <Button value="Modificar" /> */}
+          <Button>Modificar</Button>
+          {/* <Button type="submit" value="Guardar" />{" "} */}
+          <Button
+            onClick={submitHandlerRegistro}
             disabled={
               !userDataRegistro.email ||
               !userDataRegistro.cedulaCliente ||
               !userDataRegistro.nombres ||
               !userDataRegistro.apellidos
             }
-          />{" "}
-          <input
-            className="botones"
-            type="button"
-            value="Registrar Acreedores"
-          />
+          >
+            Guardar
+          </Button>
+          <Button>Registrar Acreedores</Button>
         </div>
       </form>
     </div>

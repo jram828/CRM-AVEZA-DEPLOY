@@ -2,7 +2,8 @@
    display: flex;
    flex-direction: row;
    align-items: center;
-   min-height: 90%;
+   justify-content: flex-start;
+   min-height: 99%;
    min-width: 100vw;
    background-color: rgb(81, 115, 238, 0.75);
    }
@@ -24,6 +25,7 @@
    .logo-aveza {
   text-align: center;
 }
+
 .logo-aveza img {
   width: 200px;
   height: 80px;
@@ -115,20 +117,12 @@
   margin: 0;
   padding: 0;
   text-align: center;
-  font-size: 180%;
+  font-size: 120%;
   font-family: Arial, Helvetica, sans-serif;
   color: black;
 }
 
-.labelcrearusuario {
-  height: 25px;
-  width: 140px;
-  font-size: 100%;
-  font-family: Arial, Helvetica, sans-serif;
-  color: black;
-  text-align: justify;
-  padding-left: 40px;
-}
+
 
 .cajausuario {
   height: 20px;
@@ -291,14 +285,7 @@
 
 /* estilos registro cliente */
 
-.labelregistrodecliente {
-  height: 25px;
-  width: 120px;
-  font-size: 100;
-  padding-left: 15px;
-  font-family: Arial, Helvetica, sans-serif;
-  color: black;
-}
+
 .nombreapellidos {
   display: flex;
   justify-content: center;

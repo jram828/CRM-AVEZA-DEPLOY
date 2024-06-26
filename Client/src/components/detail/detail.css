@@ -36,26 +36,21 @@
     height: fit-content;
 }
 
-.logo-aveza{
-  width: 210px;
-  height: 70px;
-}
+
 .nombre1{
      grid-column: 1;
     grid-row: 2;
     /* font-size: 18px; */
     height: fit-content;
 }
-.titulo{
+/* .titulo{
   font-size:large;
-}
+} */
 .info{
      grid-column: 1;
     grid-row: 5;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 50px;
-    grid-auto-rows: minmax(20px, auto);
+    display: flex;
+    flex-direction: row;
     justify-content: center;
 }
 .personal{
@@ -112,6 +107,16 @@
 .labelregistrodecliente{
   text-align: left;
   width: 200px;
+}
+
+.labeldetail{
+    font-size: medium;
+    font-weight: bold;
+    min-width: 100px;
+    margin: 5px;
+    align-content: center;
+    height: 30px;
+    text-align: left;
 }
 
 .cajadetail{

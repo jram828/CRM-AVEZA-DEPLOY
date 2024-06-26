@@ -15,44 +15,26 @@ const Cliente = (props) => {
   const {
     cedulaCliente,
     email,
-    // TipoUsuarios,
-    // TipoDeCasos,
     nombres,
     apellidos,
     direccion,
     codigo_ciudad,
     celular,
-    // honorarios,
-    // valor_pretensiones,
-    // aceptacion_cotizacion,
     Ciudads,
     comentarios,
-    // forma_de_pago,
-    tiene_contrato
   } = props.cliente;
   console.log(props.cliente);
-  // console.log('Tipo usuarios', TipoUsuarios);
-  // console.log("Tipo casos", TipoDeCasos);
+
  const newCliente = {
-  //  cedulaCliente: Number(cedulaCliente).toLocaleString(),
    cedulaCliente,
    email,
-  //  tipo_usuario: TipoUsuarios[0].descripcion,
-  //  tipo_caso: TipoDeCasos[0].descripcion,
    nombres,
    apellidos,
    direccion,
    codigo_ciudad,
    celular,
-  //  valor_pretensiones_letras: numeroALetras(Number(valor_pretensiones)),
-  //  valor_pretensiones: Number(valor_pretensiones).toLocaleString(),
-  //  honorarios_letras: numeroALetras(Number(honorarios)),
-  //  honorarios: Number(honorarios).toLocaleString(),
-  //  aceptacion_cotizacion,
    Ciudads,
    comentarios,
-  //  forma_de_pago,
-   tiene_contrato,
  }; 
 
 

@@ -77,14 +77,17 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
                   alt="Logo Aveza"
                   style={{ height: "90px", width: "100%" }}
                 />
+                <br />
+                <br />
               </td>
               <td></td>
               <td></td>
             </tr>
             <tr>
-              <td></td>
+              
+              <td><br /></td>
               <td>
-                <label htmlFor="usuario" className="label">
+                <label htmlFor="usuario" className="labellogin">
                   Usuario:
                 </label>
               </td>
@@ -93,7 +96,7 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
                   type="number"
                   name="cedula"
                   id="username"
-                  //className="cajausuario"
+                  className="cajalogin"
                   placeholder="Ingrese su Usuario"
                   value={userData.cedula}
                   onChange={handleChange}
@@ -114,7 +117,7 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
             <tr>
               <td></td>
               <td>
-                <label className="label" htmlFor="password">
+                <label className="labellogin" htmlFor="password">
                   Contraseña:
                 </label>
               </td>
@@ -125,6 +128,7 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
                   placeholder="Ingrese su contraseña"
                   value={userData.password}
                   onChange={handleChange}
+                  className="cajalogin"
                 />
               </td>
               <td></td>
@@ -141,7 +145,7 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
             </tr>
             <tr>
               <td></td>
-              <td>
+              {/* <td>
                 <label htmlFor="tipodeusuario">Tipo de usuario:</label>
               </td>
               <td>
@@ -151,12 +155,9 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
                   <option value="2">Cliente</option>
                 </select>
               </td>
-              <td></td>
+              <td></td> */}
             </tr>
             <tr>
-              <td>
-                <br></br>
-              </td>
               <td></td>
               <td></td>
               <td></td>
@@ -195,6 +196,7 @@ const Form = ({ login, clickHandlerRecordatorio,clickHandlerCrear }) => {
             </tr>
           </table>
         </form>
+        <br />
         <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
       </div>
       <div className="containerPhoto">

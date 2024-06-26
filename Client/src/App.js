@@ -276,7 +276,8 @@ function App() {
     <div className="App">
       {location.pathname !== "/" &&
       location.pathname !== "/crearusuario" &&
-      location.pathname !== "/recordatoriocontrasena" ? (
+      location.pathname !== "/recordatoriocontrasena" &&
+      location.pathname !== "/consultas" ? (
         <Nav logout={logout} />
       ) : undefined}
 
@@ -309,46 +310,45 @@ function App() {
           element={<CrearUsuario crearUsuario={crearUsuario} />}
         />
         <Route path="/consultas" element={<Consultas />} />
-          <Route path="generar" element={<WordToHtml />} />
-          <Route path="generarfactura" element={<GenerarFactura />} />
-          <Route path="cotizacion" element={<Cotizacion />} />
-          <Route path="autorizacion" element={<Autorizacion />} />
-          <Route path="poder" element={<Poder />} />
-          <Route path="PDF" element={<PDF />} />
-          <Route path="insolvencia" element={<Insolvencia />} />
-          <Route
-            path="registrocliente"
-            element={<RegistroCliente registroCliente={registroCliente} />}
-          />
-          <Route
-            path="registroabogado"
-            element={<RegistroAbogado registroAbogado={registroAbogado} />}
-          />
-          <Route path="detail" element={<Detail />} />
-          <Route
-            path="previsualizarcontrato"
-            element={<PrevisualizarContrato />}
-          />
-          <Route
-            path="configurarrecordatorios"
-            element={<ConfigurarRecordatorios />}
-          />
-          <Route path="agendarcitas" element={<AgendarCitas />} />
+        <Route path="generar" element={<WordToHtml />} />
+        <Route path="generarfactura" element={<GenerarFactura />} />
+        <Route path="cotizacion" element={<Cotizacion />} />
+        <Route path="autorizacion" element={<Autorizacion />} />
+        <Route path="poder" element={<Poder />} />
+        <Route path="PDF" element={<PDF />} />
+        <Route path="insolvencia" element={<Insolvencia />} />
+        <Route
+          path="registrocliente"
+          element={<RegistroCliente registroCliente={registroCliente} />}
+        />
+        <Route
+          path="registroabogado"
+          element={<RegistroAbogado registroAbogado={registroAbogado} />}
+        />
+        <Route path="detail" element={<Detail />} />
+        <Route
+          path="previsualizarcontrato"
+          element={<PrevisualizarContrato />}
+        />
+        <Route
+          path="configurarrecordatorios"
+          element={<ConfigurarRecordatorios />}
+        />
+        <Route path="agendarcitas" element={<AgendarCitas />} />
         <Route
           path="/recordatoriocontrasena"
           element={<RecordatorioContrasena />}
         />
-          <Route path="documentoslegales" element={<DocumentosLegales />} />
-          <Route path="contrato" element={<Contrato />} />
-          <Route path="litigiosporcliente" element={<LitigiosPorCliente />} />
-          <Route path="clientes" element={<Clientes />} />
-          <Route path="casos" element={<Casos />} />
-          <Route path="casos/:id" element={<DetailCasos />} />
-          <Route path="casos/crearcaso" element={<CrearCaso />} />
-          <Route path="abogados" element={<Abogados />} />
-          <Route path="verconsultas" element={<AllConsultas />} />
-          <Route path="pagos" element={<Payments />} />
-        
+        <Route path="documentoslegales" element={<DocumentosLegales />} />
+        <Route path="contrato" element={<Contrato />} />
+        <Route path="litigiosporcliente" element={<LitigiosPorCliente />} />
+        <Route path="clientes" element={<Clientes />} />
+        <Route path="casos" element={<Casos />} />
+        <Route path="casos/:id" element={<DetailCasos />} />
+        <Route path="casos/crearcaso" element={<CrearCaso />} />
+        <Route path="abogados" element={<Abogados />} />
+        <Route path="verconsultas" element={<AllConsultas />} />
+        <Route path="pagos" element={<Payments />} />
       </Routes>
     </div>
   );

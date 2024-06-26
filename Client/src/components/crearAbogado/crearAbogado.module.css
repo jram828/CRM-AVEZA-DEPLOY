@@ -37,20 +37,6 @@
   flex: 0 0 auto; 
 }
 
-.caja,
-.cajaregistrocliente {
-  flex: 1; 
-  padding: 10px;
-  border: 1px solid white;
-  border-radius: 5px;
-  background-color: transparent; /* Color de fondo transparente */
-  color: white;
-  font-family: "Outfit", sans-serif;
-  outline: none;
-  margin: 10px;
-  box-sizing: border-box; 
-}
-
 .documentoagenerar {
   display: flex;
   justify-content: center;

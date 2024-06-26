@@ -30,7 +30,12 @@
     /* flex-direction: row;
     flex-wrap: wrap; */
     justify-content: flex-start;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     /* grid-gap: 15px; */
     grid-auto-rows: minmax(20px, auto);
+   }
+
+   .menucasos{
+    display: flex;
+    flex-direction: row;
    }

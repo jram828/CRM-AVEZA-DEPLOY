@@ -95,8 +95,8 @@ const Clientes = () => {
         {clientes.length > 0 &&
         clientes.map((cliente) => {
           return (
-            <div key={cliente.cedula}>
-              <Cliente cliente={cliente} />
+            <div>
+              <Cliente key={cliente.cedula} cliente={cliente} />
             </div>
           );
         })

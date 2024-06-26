@@ -1,25 +1,24 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import './consultas.css'
-import { postConsulta } from '../../redux/actions';
-
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import "./consultas.css";
+import { postConsulta } from "../../redux/actions";
+import logo from "../../img/logoAveza.png";
+import { useNavigate } from "react-router-dom";
+import { Button } from "../Mystyles";
 // import validation from '../../components/validation/validation';
 
-
 function Consultas() {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [dataRegistro, setDataRegistro] = useState({
-    nombre:"",
-    apellido:"", 
-    correo:"", 
-    telefono:"",
-    consulta:"",
+    nombre: "",
+    apellido: "",
+    correo: "",
+    telefono: "",
+    consulta: "",
   });
 
-  const [errors, setErrors]= useState({});
+  const [errors, setErrors] = useState({});
 
   const handleChangeRegistro = (e) => {
     const { name, value } = e.target;
@@ -33,10 +32,10 @@ function Consultas() {
     // }))
   };
 
-  const submitHandlerRegistro =  (e) => {
+  const submitHandlerConsulta = (e) => {
     e.preventDefault();
     try {
-       postConsulta(dataRegistro);
+      postConsulta(dataRegistro);
 
       window.alert("Consulta creado con éxito");
       setDataRegistro({
@@ -45,7 +44,6 @@ function Consultas() {
         correo: "",
         telefono: "",
         consulta: "",
-        
       });
       // navigate('/')
     } catch (error) {
@@ -54,7 +52,7 @@ function Consultas() {
     }
   };
 
-  console.log('data', dataRegistro)
+  console.log("data", dataRegistro);
 
   /*useEffect(() => {
     if( dataRegistro.nombre !== '' || dataRegistro.apellido !== '' || dataRegistro.correo !== '' || dataRegistro.telefono!== '' || dataRegistro.consulta !== '' ) {
@@ -64,120 +62,112 @@ function Consultas() {
  }, [dataRegistro])*/
 
   return (
-   
-    <div className="flex items-center justify-center rounded-lg min-h-screen p-6 bg-white text-black">
-    <div className="space-y-6 w-full max-w-xl h-full p-6 bg-secondary rounded-lg shadow-md text-black">
-      <h1 className="text-2xl font-bold text-black text-center">Formulario de Contacto</h1>
-      <form onSubmit={submitHandlerRegistro} className="detail-form flex flex-col justify-center items-center gap-3">
-        <div className="mx-4">
-          <label htmlFor="nombre" className="label">Nombre:
-          <input
-            type="text"
-            name="nombre"
-            value={dataRegistro.nombre}
-            onChange={handleChangeRegistro}
-            className="grow ml-2 text-black"
-            required
-          />
-           {errors.nombre && 
-            <p className="error_form">
-            {errors.nombre}
-            </p>}
+    <div className="containerconsulta">
+      <div className="space-y-6 w-full max-w-xl h-full p-6 bg-secondary rounded-lg shadow-md text-black">
+        <div className="logo-aveza">
+          <img src={logo} alt="logo-aveza" />
+        </div>
+        <h1 className="titulo">Consultas</h1>
+        <br />
+        <form className="datosconsulta">
+          <div className="infoconsulta">
+            <label htmlFor="nombre" className="label-consulta">
+              Nombre:
             </label>
-        </div>
-        
-        <div className="mx-4">
-          <label htmlFor="apellidos" className="input input-sm !border-black input-secondary flex items-center max-w-xs !text-black !w-64">Apellidos:
-          <input
-            type="text"
-            name="apellido"
-            value={dataRegistro.apellido}
-            onChange={handleChangeRegistro}
-            className="grow ml-2 text-black"
-            required
-          />
-           {errors.apellido && 
-            <p className="error_form">
-            {errors.apellido}
-            </p>}
+            <input
+              type="text"
+              name="nombre"
+              value={dataRegistro.nombre}
+              onChange={handleChangeRegistro}
+              className="inputenviarconsulta"
+              required
+            />
+            {errors.nombre && <p className="error_form">{errors.nombre}</p>}
+          </div>
+
+          <div className="infoconsulta">
+            <label htmlFor="apellidos" className="label-consulta">
+              Apellidos:
             </label>
-        </div>
-        
-        <div className="mx-4">
-          <label htmlFor="correo" className="input input-sm !border-black input-secondary flex items-center max-w-xs !text-black !w-64">Email:
-          <input
-            type="email"
-            name="correo"
-            value={dataRegistro.correo}
-            onChange={handleChangeRegistro}
-            className="grow ml-2 text-black"
-            required
-          />
-           {errors.correo && 
-            <p className="error_form">
-            {errors.correo}
-            </p>}
+            <input
+              type="text"
+              name="apellido"
+              value={dataRegistro.apellido}
+              onChange={handleChangeRegistro}
+              className="inputenviarconsulta"
+              required
+            />
+            {errors.apellido && <p className="error_form">{errors.apellido}</p>}
+          </div>
+
+          <div className="infoconsulta">
+            <label htmlFor="correo" className="label-consulta">
+              Email:
             </label>
-        </div>
-        
-        <div className="mx-4">
-          <label htmlFor="telefono" className="input input-sm !border-black input-secondary flex items-center max-w-xs !text-black !w-64">Teléfono:
-          <input
-            type="tel"
-            name="telefono"
-            value={dataRegistro.telefono}
-            onChange={handleChangeRegistro}
-            className="grow ml-2 text-black"
-            required
-          />
-           {errors.telefono && 
-            <p className="error_form">
-            {errors.telefono}
-            </p>}
+            <input
+              type="email"
+              name="correo"
+              value={dataRegistro.correo}
+              onChange={handleChangeRegistro}
+              className="inputenviarconsulta"
+              required
+            />
+            {errors.correo && <p className="error_form">{errors.correo}</p>}
+          </div>
+
+          <div className="infoconsulta">
+            <label htmlFor="telefono" className="label-consulta">
+              Teléfono:
             </label>
-        </div>
-        
-        <div className="form-control">
-          {/* <label
-            htmlFor="consulta"
-            className={`label-text absolute left-3 top-3 text-left pointer-events-none transition-all transform origin-top-left duration-200 ease-in-out ${
-              dataRegistro.consulta ? 'translate-y-[-1.5rem] scale-75' : ''
-            }`}
-          > */}
-          {/* </label> */}
-          <textarea
-            name="consulta"
-            id="consulta"
-            value={dataRegistro.consulta}
-            onChange={handleChangeRegistro}
-            className="textarea textarea-sm textarea-secondary !border-black !text-black text-sm h-24 !w-64"
-            placeholder="Escriba su consulta aquí"
-            rows="5"
-            required
-          />
-        </div>
-        <div className="detail-buttons">
-        <Link to="/">
-            <button 
-            className="btn btn-xs border border-accent bg-white hover:bg-white" 
-            type="button">
-            Volver
-            </button>
-          </Link>
-          <button 
-          type="submit" 
-          className="btn btn-xs  bg-accent text-white hover:bg-primary hover:text-white"
-          disabled={!dataRegistro.nombre || !dataRegistro.apellido || !dataRegistro.correo || !dataRegistro.telefono || errors.nombre || errors.apellido|| errors.correo || errors.telefono || dataRegistro.consulta == '' }
-          >Enviar Consulta
-          </button>
-          
-        </div>
-      </form>
+            <input
+              type="tel"
+              name="telefono"
+              value={dataRegistro.telefono}
+              onChange={handleChangeRegistro}
+              className="inputenviarconsulta"
+              required
+            />
+            {errors.telefono && <p className="error_form">{errors.telefono}</p>}
+          </div>
+          <br />
+          <div className="form-control">
+            <textarea
+              name="consulta"
+              id="consulta"
+              value={dataRegistro.consulta}
+              onChange={handleChangeRegistro}
+              className="textarea"
+              placeholder="Escriba su consulta aquí"
+              rows="7"
+              required
+            />
+          </div>
+          <br />
+          <div className="detail-buttons">
+            <Button
+              onClick={submitHandlerConsulta}
+              disabled={
+                !dataRegistro.nombre ||
+                !dataRegistro.apellido ||
+                !dataRegistro.correo ||
+                !dataRegistro.telefono ||
+                errors.nombre ||
+                errors.apellido ||
+                errors.correo ||
+                errors.telefono ||
+                dataRegistro.consulta == ""
+              }
+            >
+              Guardar
+            </Button>
+            <Link to={"/"}>
+              <Button>Volver</Button>
+            </Link>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
-  
-);
+  );
 }
 
 export default Consultas;
-

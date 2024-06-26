@@ -108,8 +108,8 @@ console.log('Citas calendario: ', citas)
     <div>
       <div
         style={{
-          height: "550px",
-          width: "850px",
+          height: "100%",
+          width: "100%",
         }}
       >
         <Calendar

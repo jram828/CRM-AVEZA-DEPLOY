@@ -3,6 +3,33 @@
   opacity: 0.85;
   border-radius: 10px;
   padding: 10px;
-  margin-top: 150px;
+  margin-left: 400px;
+}
 
+.cajascrearusuario{
+  width: 90%;
+  border: 1px solid;
+  border-radius: 10px;
+  color:black;
+  outline: none;
+  height:25px;
+}
+
+.infocrearusuario{
+  display: flex;
+  flex-direction: row;
+}
+.infocrearu{
+  display: flex;
+  flex-direction: row;
+}
+
+.labelcrearusuario {
+  height: 25px;
+  min-width: 150px;
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  text-align: justify;
+  padding-left: 40px;
 }

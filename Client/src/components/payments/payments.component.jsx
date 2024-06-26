@@ -9,6 +9,7 @@ import { crearPago } from "../../handlers/crearPago";
 import { useDispatch, useSelector } from "react-redux";
 import { getPagos, getCasosTodos } from "../../redux/actions";
 import loading from "../../assets/loading.gif";
+import { Button } from "../Mystyles";
 
 function Payments() {
   // initMercadoPago(PUBLIC_KEY);
@@ -72,7 +73,7 @@ function Payments() {
     };
     fetchData();
   }, [dispatch]);
-
+console.log('Casos para pagos:',pages)
   function formatearFecha(fechaISO) {
     const fecha = new Date(fechaISO);
     const dia = String(fecha.getDate()).padStart(2, "0");
@@ -83,84 +84,73 @@ function Payments() {
 
   const fechaFormateada = formatearFecha(pagos?.fechaDeAprobacion);
 
-  const userCasos = pages.datosPagina?.filter(
+  const userCasos = pages.filter(
     (caso) =>
-      caso.nombreCliente === user.nombre &&
-      caso.apellidoCliente === user.apellido
+      caso.nombreCliente === user.nombres &&
+      caso.apellidoCliente === user.apellidos
   );
 
   return (
-    <div className="flex items-center justify-center rounded-lg min-h-screen p-6 bg-white text-black">
+    <div className="contenedorpagos">
       {/* {user.cedulaCliente ? ( */}
-        <div>
-          <div className="space-y-6 h-full p-6 bg-secondary rounded-lg shadow-md text-black">
-            <h1 className="text-2xl font-bold text-black text-center">
-              Realizar un pago
-            </h1>
+      {/* <div className=""> */}
+        <h1 className="encabezadopagos">
+          Realizar un pago
+        </h1>
 
-            <h4 className="text-md text-left">
-              Selecciona el caso al cual se va a aplicar el pago <br /> e
-              ingresa el valor de los honorarios que deseas pagar.
-            </h4>
-
-            <div className="">
-              <label
-                htmlFor="correo"
-                className="input input-md text-md !border-black !rounded-lg input-secondary flex items-center  !text-black"
-              >
-                Valor a pagar:
-                <input
-                  name="unit_price"
-                  type="number"
-                  value={userPreference.unit_price}
-                  onChange={handleChangePagos}
-                  id="unit_price"
-                  className="grow ml-2 text-black"
-                />
-              </label>
-            </div>
-            <div className="">
-              {pages.datosPagina ? (
-                <label className="w-full">
-                  <select
-                    name="idCaso"
-                    id="idCaso"
-                    onChange={(event) => handleChangePagos(event)}
-                    className="w-full h-12 p-2 border text-sm border-black rounded-lg bg-secondary text-black focus:outline-none"
-                  >
-                    <option value="" className="customOption">
-                      Seleccionar caso
-                    </option>
-                    {userCasos.map((caso) => (
-                      <option
-                        key={caso.id}
-                        value={caso.id}
-                        className="text-black"
-                      >
-                        {`${caso.descripcion} - ${caso.apellidoAbogado}/${caso.apellidoCliente}`}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-              ) : (
-                <label className="w-full text-black text-md">
-                  No se encontraron casos para asociar al pago.
-                </label>
-              )}
-            </div>
-            <div className="flex flex-row items-center justify-center">
-              <input
-                type="button"
-                name="Pagar"
-                value="Pagar"
-                className="btn btn-xs border border-success bg-white hover:bg-white !w-36 ml-2"
-                onClick={handlePay}
-              />
-            </div>
-            <br />
-          </div>
-          <div id="wallet_container"></div>
+        <p>Ingresa el valor de los honorarios que deseas pagar.</p>
+        <br />
+        <div className="inputpago">
+          <label htmlFor="unit_price" className="labelpagos">
+            Valor a pagar:
+          </label>
+          <input
+            name="unit_price"
+            type="number"
+            value={userPreference.unit_price}
+            onChange={handleChangePagos}
+            id="unit_price"
+            className="cajaspago"
+          />
         </div>
+        <br />
+        <div className="selectcaso">
+          <p>
+            Selecciona el caso al cual se va a aplicar el pago
+          </p>
+          {pages.length > 0 ? (
+              <select
+                name="idCaso"
+                id="idCaso"
+                onChange={(event) => handleChangePagos(event)}
+                className="cajaspago"
+              >
+                <option value="" className="cajaspago">
+                  Seleccionar caso
+                </option>
+                {userCasos.map((caso) => (
+                  <option key={caso.id} value={caso.id} className="cajaspago">
+                    {`${caso.descripcion} - ${caso.apellidosAbogado}/${caso.apellidoCliente}`}
+                  </option>
+                ))}
+              </select>
+           
+          ) : (
+            <label className="w-full text-black text-md">
+              No se encontraron casos para asociar al pago.
+            </label>
+          )}
+          <br />
+        </div>
+
+        <Button onClick={handlePay}>
+          Pagar
+        </Button>
+
+        <div id="wallet_container"></div>
+        <br />
+      {/* </div> */}
+
       {/* ) : (
         <div className="grid grid-cols-3 gap-8">
           {loadingState ? (

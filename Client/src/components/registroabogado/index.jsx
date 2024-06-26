@@ -45,7 +45,7 @@ const RegistroAbogado = ({registroAbogado}) => {
             type="text"
             name="nombres"
             id="name"
-            className="cajaregistrocliente"
+            className="cajaregistroabogado"
             value={userDataRegistro.nombres}
             onChange={handleChangeRegistro}
           />
@@ -54,7 +54,7 @@ const RegistroAbogado = ({registroAbogado}) => {
           </label>
           <input
             type="text"
-            className="cajaregistrocliente"
+            className="cajaregistroabogado"
             name="apellidos"
             id="lastname"
             value={userDataRegistro.apellidos}
@@ -69,7 +69,7 @@ const RegistroAbogado = ({registroAbogado}) => {
           </label>
           <input
             type="number"
-            className="cajaregistrocliente"
+            className="cajaregistroabogado"
             name="cedulaAbogado"
             id="cedula"
             value={userDataRegistro.cedulaAbogado}
@@ -84,7 +84,7 @@ const RegistroAbogado = ({registroAbogado}) => {
             type="number"
             name="celular"
             id="celular"
-            className="cajaregistrocliente"
+            className="cajaregistroabogado"
             value={userDataRegistro.celular}
             onChange={handleChangeRegistro}
           />
@@ -100,7 +100,7 @@ const RegistroAbogado = ({registroAbogado}) => {
             type="email"
             name="email"
             id="email"
-            className="cajaregistrocliente"
+            className="cajaregistroabogado"
             value={userDataRegistro.email}
             onChange={handleChangeRegistro}
           />
@@ -112,7 +112,7 @@ const RegistroAbogado = ({registroAbogado}) => {
             type="text"
             name="direccion"
             id="address"
-            className="cajaregistrocliente"
+            className="cajaregistroabogado"
             value={userDataRegistro.direccion}
             onChange={handleChangeRegistro}
           />
@@ -128,7 +128,7 @@ const RegistroAbogado = ({registroAbogado}) => {
             type="text"
             name="nombre_ciudad"
             id="city"
-            className="cajaregistrocliente"
+            className="cajaregistroabogado"
             value={userDataRegistro.nombre_ciudad}
             onChange={handleChangeRegistro}
           />
@@ -137,7 +137,7 @@ const RegistroAbogado = ({registroAbogado}) => {
           </label>
           <input
             type="number"
-            className="cajaregistrocliente"
+            className="cajaregistroabogado"
             name="tarjetaProf"
             id="tarjetaProf"
             value={userDataRegistro.tarjetaProf}
@@ -148,7 +148,7 @@ const RegistroAbogado = ({registroAbogado}) => {
           </label>
           <input
             type="password"
-            className="cajaregistrocliente"
+            className="cajaregistroabogado"
             name="password"
             id="passsword"
             value={userDataRegistro.password}

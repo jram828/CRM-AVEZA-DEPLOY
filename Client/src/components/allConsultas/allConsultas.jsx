@@ -65,26 +65,32 @@ function AllConsultas() {
           ) : consultas && consultas.length > 0 ? (
             <div className="divconsultas">
               {consultas.map((consulta) => (
-                <div key={consulta.id} className="card">
+                <div key={consulta.id} className="cardconsulta">
                   <h3>Consulta n°{consulta.id}</h3>
-                  <p className="labelconsulta">
-                    <strong>Remitente:</strong>
-                    {consulta.nombre} {consulta.apellido}
-                  </p>
-                  <p className="labelconsulta">
-                    <strong>Fecha:</strong> {consulta.createdAt.split("T")[0]}
-                  </p>
-                  <p className="labelconsulta">
-                    <strong>Consulta:</strong>
-                    {consulta.consulta}
-                  </p>
-                  <p className="labelconsulta">
-                    <strong>Email:</strong> {consulta.correo}
-                  </p>
-                  <p className="labelconsulta">
-                    <strong>Telefono:</strong> {consulta.telefono}
-                  </p>
-                  {/*<button>Responder</button>*/}
+                  <div className="infoconsultatarjeta">
+                    <span className="labelconsulta">Remitente: </span>
+                    <span className="nombreconsulta">
+                      {consulta.nombre} {consulta.apellido}
+                    </span>
+                  </div>
+                  <div className="infoconsultatarjeta">
+                    <span className="labelconsulta">Fecha: </span>
+                    <span className="nombreconsulta">
+                      {consulta.createdAt.split("T")[0]}
+                    </span>
+                  </div>
+                  <div className="infoconsultatarjeta">
+                    <span className="labelconsulta">Correo electrónico: </span>
+                    <span className="nombreconsulta">{consulta.correo}</span>
+                  </div>
+                  <div className="infoconsultatarjeta">
+                    <span className="labelconsulta">Celular: </span>
+                    <span className="nombreconsulta">{consulta.telefono}</span>
+                  </div>
+                  <div className="infoconsultatarjeta">
+                    <span className="labelconsulta">Consulta: </span>
+                    <span className="nombreconsulta">{consulta.consulta}</span>
+                  </div>
                 </div>
               ))}
             </div>

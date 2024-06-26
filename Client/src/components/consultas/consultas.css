@@ -1,18 +1,54 @@
-  h1{
-    font-family: "Outfit", sans-serif;
-    color: white;
+.containerconsulta{
+  background-color: white;
+  opacity: 0.85;
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 400px;
+  min-height: 70%;
+  min-width: 40%;
+}
+  
 
+.label-consulta {
+  font-size: 16px;
+  font-weight: bold;
+  /* align-content: center; */
+  
+  min-width: 90px;
 }
 
-  .label-text{
-    font-family: "Outfit", sans-serif;
-    color: white;
-    
-  }
-  .detail-buttons {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    gap: 10px;
-  }
-  
+.inputenviarconsulta {
+  width: 50%;
+  border: 1px solid;
+  border-radius: 10px;
+  color:black;
+  outline: none;
+  margin-bottom:10px;
+  height:25px;
+}
+
+.inputenviarconsulta {
+  width: 90%;
+  border: 1px solid;
+  border-radius: 10px;
+  color:black;
+  outline: none;
+  height:25px;
+}
+
+.datosconsulta{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.infoconsulta{
+  display: flex;
+  flex-direction: row;
+}
+
+.textarea{
+  min-height: 20vh;
+  width: 20vw;
+}

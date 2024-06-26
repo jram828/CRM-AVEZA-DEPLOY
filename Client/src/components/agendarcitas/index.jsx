@@ -1,4 +1,5 @@
 import "./agendarcitas.css";
+// import "../../App.css";
 import Calendario from "../../components/calendar";
 // import FormCita from "../formCrearCita/index";
 import logo from "../../img/logoAveza.png";
@@ -60,7 +61,7 @@ function AgendarCitas() {
   
   return (
     <div className="containerDiary">
-      <div className="logo-aveza">
+      <div className="encabezado">
         <p className="titulo">Agendar Cita</p>
       </div>
       <div className="calendario">
@@ -121,9 +122,9 @@ function AgendarCitas() {
                   onChange={(event) => handleChangeRegistro(event)}
                 >
                   <option value="">Seleccionar...</option>
-                  {casos.map((caso) => (
-                    <option key={caso.id} value={caso.id}>
-                      {caso.id}
+                  {casos.datosPagina.map((caso) => (
+                    <option key={caso.id} value={caso.tipoCaso}>
+                      {caso.tipoCaso}
                     </option>
                   ))}
                 </select>

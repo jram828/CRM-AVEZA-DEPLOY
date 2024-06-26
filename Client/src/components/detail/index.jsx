@@ -100,6 +100,8 @@ const Detail = () => {
     });
   };
 
+
+
   const submitUpdateDetail = (e) => {
     e.preventDefault();
     registroCliente(userDataRegistro);
@@ -112,14 +114,16 @@ const Detail = () => {
           <h5 className="titulo">Detalles</h5>
         </div>
         <div className="menu-detail">
-          <Link to={"/cotizacion"}>
-            <Button className="botonesiniciosesion">Cotización</Button>
-          </Link>
+          {/* <Link to={"/cotizacion"}> */}
+          <Button className="botonesiniciosesion" onClick={submitUpdateDetail}>
+            Actualizar
+          </Button>
+          {/* </Link> */}
           <Button onClick={handleDelete} className="botonesiniciosesion">
             Eliminar
           </Button>
-          <Link to={"/generarfactura"}>
-            <Button className="botonesiniciosesion">Generar factura</Button>
+          <Link to={"/clientes"}>
+            <Button className="botonesiniciosesion">Volver</Button>
           </Link>
           {/* <Button className="botonesiniciosesion" onClick={generarContrato}>
             Generar Documentos
@@ -138,7 +142,7 @@ const Detail = () => {
         <div className="info">
           <div className="personal">
             <div className="infodetail">
-              <label for="numerocedula" className="labelregistrodecliente">
+              <label htmlFor="numerocedula" className="labeldetail">
                 Numero de cédula:
               </label>
               <input
@@ -151,7 +155,7 @@ const Detail = () => {
               />
             </div>
             <div className="infodetail">
-              <label for="numerocedula" className="labelregistrodecliente">
+              <label htmlFor="numerocedula" className="labeldetail">
                 Celular:
               </label>
               <input
@@ -164,7 +168,7 @@ const Detail = () => {
               />
             </div>
             <div className="infodetail">
-              <label for="email" className="labelregistrodecliente">
+              <label htmlFor="email" className="labeldetail">
                 Correo:
               </label>
               <input
@@ -177,7 +181,7 @@ const Detail = () => {
               />
             </div>
             <div className="infodetail">
-              <label for="direccion" className="labelregistrodecliente">
+              <label htmlFor="direccion" className="labeldetail">
                 Dirección:
               </label>
               <input
@@ -190,7 +194,7 @@ const Detail = () => {
               />
             </div>
             <div className="infodetail">
-              <label for="ciudad" className="labelregistrodecliente">
+              <label htmlFor="ciudad" className="labeldetail">
                 Ciudad:
               </label>
               <input
@@ -203,7 +207,7 @@ const Detail = () => {
               />
             </div>
             <div className="infodetail">
-              <label for="ciudad" className="labelregistrodecliente">
+              <label htmlFor="ciudad" className="labeldetail">
                 Departamento:
               </label>
               <input
@@ -215,10 +219,19 @@ const Detail = () => {
                 onChange={handleUpdateDetail}
               />
             </div>
-          </div>
-          <div className="casos">
-            <h4>Comentarios: {userDataDetail.comentarios} </h4>
-            <h4>Tiene contrato? : {userDataDetail.tiene_contrato} </h4>
+            <div className="infodetail">
+              <label htmlFor="comentarios" className="labeldetail">
+                Comentarios:
+              </label>
+              <input
+                type="text"
+                className="cajadetail"
+                name="departamento"
+                id="departamento"
+                value={userDataDetail.comentarios}
+                onChange={handleUpdateDetail}
+              />
+            </div>
           </div>
         </div>
       </div>

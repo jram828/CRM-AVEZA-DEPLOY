@@ -21,3 +21,20 @@
   height: 100%;
   background-color: blue;
 }
+
+.cajalogin{
+  height: 25px;
+  width: 200px;
+  border-radius: 5px;
+  margin: 10px;
+  /* color: red; */
+}
+
+.labellogin {
+  height: 25px;
+  min-width: 150px;
+  font-size: larger;
+  color: black;
+  text-align: justify;
+  padding-left: 40px;
+}

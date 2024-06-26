@@ -93,7 +93,7 @@ function Casos() {
         <h1 className="titulo">Casos</h1>
       </div>
       <br />
-      <div className="flex justify-end p-2">
+      <div className="menucasos">
         <SearchBar onFilter={handleFilter} />
         {/* {user.administrador === true || user.cedulaAbogado ? ( */}
         <Link to="/casos/crearcaso" className="botoncrearcaso">
@@ -103,7 +103,6 @@ function Casos() {
         {filterApplied && (
           <Button
             onClick={handleVerTodosClick}
-            className="btn btn-sm bg-accent text-white hover:bg-primary hover:text-white"
           >
             Ver todos
           </Button>

@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import "../../App.css";
 import "./crearusuario.css";
 import logo from "../../img/logoAveza.png";
+import { Button } from "../Mystyles";
+import { Link } from "react-router-dom";
 
-const CrearUsuario = ({crearUsuario}) => {
-
+const CrearUsuario = ({ crearUsuario }) => {
   const [userDataCrear, setUserDataCrear] = useState({
     email: "",
     password: "",
@@ -14,7 +15,7 @@ const CrearUsuario = ({crearUsuario}) => {
     celular: "",
     direccion: "",
     nombre_ciudad: "",
-    tipo_usuario:"1"
+    tipo_usuario: "1",
   });
 
   const handleChangeCrear = (e) => {
@@ -26,152 +27,150 @@ const CrearUsuario = ({crearUsuario}) => {
 
   const submitHandlerCrear = (e) => {
     e.preventDefault();
-    crearUsuario(userDataCrear)
+    crearUsuario(userDataCrear);
   };
 
   return (
     <div className="contenedorcrearusuario">
-      <form method="post" className="formulario" onSubmit={submitHandlerCrear}>
+      <form method="post" className="formulario">
         <div className="logo-aveza">
           <img src={logo} alt="logo-aveza" />
         </div>
         <h1 className="titulo">Crear Usuario</h1>
         <br />
         <br />
-        <div className="nombreapellido">
-          <label for="nombre" className="labelcrearusuario">
-            Nombre(s):
-          </label>
-          <input
-            type="text"
-            name="nombres"
-            id="name"
-            className="cajascrearusuario"
-            value={userDataCrear.nombres}
-            onChange={handleChangeCrear}
-          />
-          <label for="apellidos" className="labelcrearusuario">
-            Apellido(s):
-          </label>
-          <input
-            type="text"
-            name="apellidos"
-            id="lastname"
-            className="cajascrearusuario"
-            value={userDataCrear.apellidos}
-            onChange={handleChangeCrear}
-          />
+        <div className="infocrearu">
+          <div className="infocrearusuario">
+            <label for="nombre" className="labelcrearusuario">
+              Nombre(s):
+            </label>
+            <input
+              type="text"
+              name="nombres"
+              id="name"
+              className="cajascrearusuario"
+              value={userDataCrear.nombres}
+              onChange={handleChangeCrear}
+            />
+          </div>
+          <div className="infocrearusuario">
+            <label for="apellidos" className="labelcrearusuario">
+              Apellido(s):
+            </label>
+            <input
+              type="text"
+              name="apellidos"
+              id="lastname"
+              className="cajascrearusuario"
+              value={userDataCrear.apellidos}
+              onChange={handleChangeCrear}
+            />
+          </div>
+        </div>
+        <br />
+        <br />
+        <div className="infocrearu">
+          <div className="infocrearusuario">
+            <label for="numerocedula" className="labelcrearusuario">
+              Numero de cédula:
+            </label>
+            <input
+              type="number"
+              name="cedula"
+              id="cedula"
+              className="cajascrearusuario"
+              value={userDataCrear.cedula}
+              onChange={handleChangeCrear}
+            />
+          </div>
+          <div className="infocrearusuario">
+            <label for="correo" className="labelcrearusuario">
+              Email:
+            </label>
+            <input
+              name="email"
+              type="email"
+              value={userDataCrear.email}
+              onChange={handleChangeCrear}
+              id="email"
+              className="cajascrearusuario"
+            />
+          </div>
+        </div>
+        <br />
+        <br />
+        <div className="infocrearu">
+          <div className="infocrearusuario">
+            <label for="direccion" className="labelcrearusuario">
+              Dirección:
+            </label>
+            <input
+              type="text"
+              name="direccion"
+              id="address"
+              className="cajascrearusuario"
+              value={userDataCrear.direccion}
+              onChange={handleChangeCrear}
+            />
+          </div>
+          <div className="infocrearusuario">
+            <label for="telefono" className="labelcrearusuario">
+              Celular:
+            </label>
+            <input
+              type="number"
+              name="celular"
+              id="celular"
+              className="cajascrearusuario"
+              value={userDataCrear.celular}
+              onChange={handleChangeCrear}
+            />
+          </div>
         </div>
 
         <br />
         <br />
-        <div className="cedulaemail">
-          <label for="numerocedula" className="labelcrearusuario">
-            Numero de cédula:
-          </label>
-          <input
-            type="number"
-            name="cedula"
-            id="cedula"
-            className="cajascrearusuario"
-            value={userDataCrear.cedula}
-            onChange={handleChangeCrear}
-          />
-          <label for="correo" className="labelcrearusuario">
-            Email:
-          </label>
-          <input
-            name="email"
-            type="email"
-            value={userDataCrear.email}
-            onChange={handleChangeCrear}
-            id="email"
-            className="cajascrearusuario"
-          />
+        <div className="infocrearu">
+          <div className="infocrearusuario">
+            <label for="ciudad" className="labelcrearusuario">
+              Ciudad:
+            </label>
+            <input
+              type="text"
+              name="nombre_ciudad"
+              id="city"
+              className="cajascrearusuario"
+              value={userDataCrear.nombre_ciudad}
+              onChange={handleChangeCrear}
+            />
+          </div>
+          <div className="infocrearusuario">
+            <label for="contrasena" className="labelcrearusuario">
+              Contraseña:
+            </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              className="cajascrearusuario"
+              value={userDataCrear.password}
+              onChange={handleChangeCrear}
+            />
+          </div>
         </div>
+        <br />
+        <br />
 
-        <br />
-        <br />
-        <div className="direccioncelular">
-          <label for="direccion" className="labelcrearusuario">
-            Dirección:
-          </label>
-          <input
-            type="text"
-            name="direccion"
-            id="address"
-            className="cajascrearusuario"
-            value={userDataCrear.direccion}
-            onChange={handleChangeCrear}
-          />
-          <label for="telefono" className="labelcrearusuario">
-            Celular:
-          </label>
-          <input
-            type="number"
-            name="celular"
-            id="celular"
-            className="cajascrearusuario"
-            value={userDataCrear.celular}
-            onChange={handleChangeCrear}
-          />
-        </div>
-
-        <br />
-        <br />
-        <div className="ciudadcontrasena">
-          <label for="ciudad" className="labelcrearusuario">
-            Ciudad:
-          </label>
-          <input
-            type="text"
-            name="nombre_ciudad"
-            id="city"
-            className="cajascrearusuario"
-            value={userDataCrear.nombre_ciudad}
-            onChange={handleChangeCrear}
-          />
-          <label for="contrasena" className="labelcrearusuario">
-            Contraseña:
-          </label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            className="cajascrearusuario"
-            value={userDataCrear.password}
-            onChange={handleChangeCrear}
-          />
-        </div>
-        <br />
-        <br />
-        {/* <div className="repetircontrasena">
-          <label for="repetircontrasena" className="labelrepetircontrasena">
-            Repetir contraseña:
-          </label>
-          <input
-            type="password"
-            name="repetircontrasena"
-            id="passwordver"
-            className="cajascrearusuario"
-          />
-        </div>
-        <br />
-        <br /> */}
         <div className="botonescrearusuario">
-          <input
-            type="submit"
-            name="guardar"
-            value="Guardar"
-            className="botones"
+          <Button
+            onClick={submitHandlerCrear}
             disabled={!userDataCrear.email || !userDataCrear.password}
-          />
-          <input
-            type="button"
-            name="cancelar"
-            value="Cancelar"
-            className="botones"
-          />
+          >
+            Guardar
+          </Button>
+          <Link to={"/"}>
+            <Button>Volver</Button>
+          </Link>
         </div>
         <br />
       </form>
@@ -179,5 +178,3 @@ const CrearUsuario = ({crearUsuario}) => {
   );
 };
 export default CrearUsuario;
-
-        
