@@ -32,8 +32,10 @@ function AllConsultas() {
 
   return (
     <div className="contenedorconsultas">
-      <div className="">
-        <h1 className="text-2xl font-bold text-black text-center">Consultas</h1>
+      <div className="infoconsultas">
+        <div className="encabezadoconsultas">
+          <h1 className="titulo">Consultas</h1>
+        </div>
         <div className="grid grid-cols-3 gap-8">
           <div className="flex mt-8 items-center justify-center">
             <div className="pagination join ">

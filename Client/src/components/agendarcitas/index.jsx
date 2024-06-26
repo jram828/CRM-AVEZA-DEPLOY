@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { postCitaHandlers } from "../../handlers/crearCita";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Button } from "../Mystyles";
 
 function AgendarCitas() {
 
@@ -76,21 +77,21 @@ function AgendarCitas() {
           <h1 className="tituloCita">Crear Cita</h1>
           <form onSubmit={submitHandlerRegistro} className="formularioCita">
             <div className="input-row">
-              <div className="labelinput">
-                <label className="label">Titulo:</label>
+              <div className="infoCrearCita">
+                <label className="labelCrearCita">Titulo:</label>
                 <input
                   type="text"
                   name="titulo"
                   id="titulo"
-                  className="input"
+                  className="inputCrearCita"
                   value={dataRegistro.titulo}
                   onChange={handleChangeRegistro}
                 />
               </div>
-              <div className="labelinput">
-                <label className="label">Fecha:</label>
+              <div className="infoCrearCita">
+                <label className="labelCrearCita">Fecha:</label>
                 <DatePicker
-                  className="input"
+                  className="inputCrearCita"
                   selected={dataRegistro.fechaCita}
                   name="fechaCita"
                   id="fechaCita"
@@ -101,11 +102,10 @@ function AgendarCitas() {
                   }
                 />
               </div>
-              <br />
-              <div className="labelinput">
-                <label className="label">Hora:</label>
+              <div className="infoCrearCita">
+                <label className="labelCrearCita">Hora:</label>
                 <input
-                  className="input"
+                  className="inputCrearCita"
                   type="time"
                   name="horaCita"
                   id="horaCita"
@@ -113,17 +113,23 @@ function AgendarCitas() {
                   onChange={handleChangeRegistro}
                 />
               </div>
-              <div className="labelinput">
-                <label className="label">Caso:</label>
+              <div className="infoCrearCita">
+                <label className="labelCrearCita">Caso:</label>
                 <select
-                  className="input"
+                  className="inputCrearCita"
                   name="idCaso"
                   id="idCaso"
                   onChange={(event) => handleChangeRegistro(event)}
                 >
-                  <option value="">Seleccionar...</option>
+                  <option value="" className="inputCrearCita">
+                    Seleccionar...
+                  </option>
                   {casos.datosPagina.map((caso) => (
-                    <option key={caso.id} value={caso.tipoCaso}>
+                    <option
+                      key={caso.id}
+                      value={caso.tipoCaso}
+                      className="inputCrearCita"
+                    >
                       {caso.tipoCaso}
                     </option>
                   ))}
@@ -131,21 +137,23 @@ function AgendarCitas() {
               </div>
             </div>
             <br></br>
-            <div className="input-row">
-              <label className="label">Detalles:</label>
+            <div className="infoCrearCita">
+              <label className="labelCrearCita">Detalles:</label>
               <textarea
-                className="input"
-                type="text"
+                className="inputCrearCita"
+                type="textarea"
                 name="descripcion"
                 id="descripcion"
+                cols="50"
+                rows="6"
                 value={dataRegistro.descripcion}
                 onChange={handleChangeRegistro}
               ></textarea>
             </div>
-            <div className="botones">
-              <input type="submit" className="button" value="Crear" />
+            <div className="botonescrearcita">
+              <Button onClick={submitHandlerRegistro}> Crear</Button>
               <Link to="/home">
-                <button className="button">Volver</button>
+                <Button className="button">Volver</Button>
               </Link>
             </div>
           </form>

@@ -17,14 +17,12 @@
   font-weight: bold;
 }
 .calendario {
-  /* flex: 1; */
-  /* background-color: var(--color-four); */
   display: flex;
   flex-direction: row;
-  border-radius: 10px;
-  margin: 20px;
-  margin-bottom: 100px;
-  font-family: "Outfit", sans-serif;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  min-height: 80vh;
+  justify-content: space-between;
 }
 
 .formCita {
@@ -34,7 +32,7 @@
 }
 
 .containerCita {
-  border-color: black;
+  /* border-color: black; */
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -45,21 +43,22 @@
   opacity: 0.8;
 }
 
-.labelinput {
-  display: flex;
-  flex-direction: column;
+.labelCrearCita{
+    font-size: medium;
+    font-weight: bold;
+    min-width: 100px;
+    margin: 5px;
+    align-items: center;
+    height: 30px;
+    text-align: left;
 }
 
-.label {
-  font-size: small;
-  font-weight: normal;
-}
 
-.input {
-  /* height: 5px; */
-  width: 250px;
-  border-radius: 10px;
-  border-color: black;
+.inputCrearCita {
+  min-height: 22px;
+  width: 180px;
+  border-radius: 5px;
+  /* border-color: 1px solid black; */
   color: black;
 }
 
@@ -67,4 +66,20 @@ time {
   width: 250px;
   color: black;
   height: 60px;
+}
+
+.tituloCita{
+  font-size: large;
+  font-weight: bold;
+}
+
+.infoCrearCita{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.encabezado{
+  font-size: large;
+  font-weight: bold;
 }
